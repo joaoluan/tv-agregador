@@ -1,0 +1,304 @@
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+(node:40) [UNDICI-EHPA] Warning: EnvHttpProxyAgent is experimental, expect them to change at any time.
+(Use `node --trace-warnings ...` to show where the warning was created)
+TAP version 13
+# (node:47) [UNDICI-EHPA] Warning: EnvHttpProxyAgent is experimental, expect them to change at any time.
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: A21/A11: canal 1 permanece distinto de canal 2; alias sem número preservado
+ok 1 - A21/A11: canal 1 permanece distinto de canal 2; alias sem número preservado
+  ---
+  duration_ms: 2.370677
+  type: 'test'
+  ...
+# Subtest: A15: variation selector isolado é normalizado
+ok 2 - A15: variation selector isolado é normalizado
+  ---
+  duration_ms: 0.384439
+  type: 'test'
+  ...
+# Subtest: A8: Hot Bird é mantido, HOT como grupo e conteúdo adulto são bloqueados
+ok 3 - A8: Hot Bird é mantido, HOT como grupo e conteúdo adulto são bloqueados
+  ---
+  duration_ms: 4.494628
+  type: 'test'
+  ...
+# Subtest: A9: item sem país é internacional e não Brasil
+ok 4 - A9: item sem país é internacional e não Brasil
+  ---
+  duration_ms: 1.09511
+  type: 'test'
+  ...
+# Subtest: A9: fontes genéricas sem país explícito usam desconhecido
+ok 5 - A9: fontes genéricas sem país explícito usam desconhecido
+  ---
+  duration_ms: 2.810888
+  type: 'test'
+  ...
+# Subtest: A18: referência repetida da mesma fonte gera uma consulta, fontes distintas preservadas
+ok 6 - A18: referência repetida da mesma fonte gera uma consulta, fontes distintas preservadas
+  ---
+  duration_ms: 2.204711
+  type: 'test'
+  ...
+# (node:48) [UNDICI-EHPA] Warning: EnvHttpProxyAgent is experimental, expect them to change at any time.
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: A6: health responde 503 antes do build e 200 com contagens depois
+ok 7 - A6: health responde 503 antes do build e 200 com contagens depois
+  ---
+  duration_ms: 33.220447
+  type: 'test'
+  ...
+# Subtest: A7: blueprint desliga deploy automático
+ok 8 - A7: blueprint desliga deploy automático
+  ---
+  duration_ms: 0.362766
+  type: 'test'
+  ...
+# Subtest: A10: membro de fonte removida não derruba streams válidos
+ok 9 - A10: membro de fonte removida não derruba streams válidos
+  ---
+  duration_ms: 1.276718
+  type: 'test'
+  ...
+# Subtest: A12: timeout agregado precisa exceder timeout interno Stremio mesmo com cache
+ok 10 - A12: timeout agregado precisa exceder timeout interno Stremio mesmo com cache
+  ---
+  duration_ms: 0.706384
+  type: 'test'
+  ...
+# Subtest: A13: iptv-org limita a três links, prioriza qualidade e preserva cabeçalhos
+ok 11 - A13: iptv-org limita a três links, prioriza qualidade e preserva cabeçalhos
+  ---
+  duration_ms: 0.974372
+  type: 'test'
+  ...
+# Subtest: A16: assert falhando dentro da troca de fetch restaura o original
+ok 12 - A16: assert falhando dentro da troca de fetch restaura o original
+  ---
+  duration_ms: 0.606257
+  type: 'test'
+  ...
+# Subtest: A19: scripts dev e lint estão configurados
+ok 13 - A19: scripts dev e lint estão configurados
+  ---
+  duration_ms: 0.194978
+  type: 'test'
+  ...
+# (node:49) [UNDICI-EHPA] Warning: EnvHttpProxyAgent is experimental, expect them to change at any time.
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: A2/A20: manifesto cabe em 6 KiB e preserva os filtros de todas as categorias
+ok 14 - A2/A20: manifesto cabe em 6 KiB e preserva os filtros de todas as categorias
+  ---
+  duration_ms: 0.985247
+  type: 'test'
+  ...
+# Subtest: A3/A20: iptv-org exige on explícito
+ok 15 - A3/A20: iptv-org exige on explícito
+  ---
+  duration_ms: 0.37821
+  type: 'test'
+  ...
+# (node:103) [UNDICI-EHPA] Warning: EnvHttpProxyAgent is experimental, expect them to change at any time.
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# (node:111) [UNDICI-EHPA] Warning: EnvHttpProxyAgent is experimental, expect them to change at any time.
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: A1: catálogo frio responde 200 sem cache em menos de 2 segundos e build continua
+ok 16 - A1: catálogo frio responde 200 sem cache em menos de 2 segundos e build continua
+  ---
+  duration_ms: 26.468901
+  type: 'test'
+  ...
+# Subtest: A14: categoria vazia pronta permanece cacheável
+ok 17 - A14: categoria vazia pronta permanece cacheável
+  ---
+  duration_ms: 0.394434
+  type: 'test'
+  ...
+# Subtest: A4: consultas simultâneas e consecutivas compartilham cache; rebuild invalida
+ok 18 - A4: consultas simultâneas e consecutivas compartilham cache; rebuild invalida
+  ---
+  duration_ms: 3.720123
+  type: 'test'
+  ...
+# Subtest: A4: cache expira em 90s e descarta a entrada mais antiga após 500
+ok 19 - A4: cache expira em 90s e descarta a entrada mais antiga após 500
+  ---
+  duration_ms: 56.412727
+  type: 'test'
+  ...
+# Subtest: A5: no máximo 8 catálogos e 12 páginas; truncamento gera diagnóstico
+ok 20 - A5: no máximo 8 catálogos e 12 páginas; truncamento gera diagnóstico
+  ---
+  duration_ms: 2.79239
+  type: 'test'
+  ...
+# Subtest: A17: versão estável no processo e distinta em duas inicializações
+ok 21 - A17: versão estável no processo e distinta em duas inicializações
+  ---
+  duration_ms: 222.649058
+  type: 'test'
+  ...
+# (node:55) [UNDICI-EHPA] Warning: EnvHttpProxyAgent is experimental, expect them to change at any time.
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: gêneros das fontes brasileiras viram categorias
+ok 22 - gêneros das fontes brasileiras viram categorias
+  ---
+  duration_ms: 5.606452
+  type: 'test'
+  ...
+# Subtest: categorias do iptv-org viram categorias
+ok 23 - categorias do iptv-org viram categorias
+  ---
+  duration_ms: 0.252083
+  type: 'test'
+  ...
+# Subtest: sem gênero útil, usa o nome do canal
+ok 24 - sem gênero útil, usa o nome do canal
+  ---
+  duration_ms: 1.25789
+  type: 'test'
+  ...
+# Subtest: ajustes vistos com os dados reais
+ok 25 - ajustes vistos com os dados reais
+  ---
+  duration_ms: 0.159897
+  type: 'test'
+  ...
+# Subtest: canais 24h ficam só na linha própria
+ok 26 - canais 24h ficam só na linha própria
+  ---
+  duration_ms: 0.235648
+  type: 'test'
+  ...
+# Subtest: conteúdo adulto, televendas e canais de teste são descartados
+ok 27 - conteúdo adulto, televendas e canais de teste são descartados
+  ---
+  duration_ms: 0.135961
+  type: 'test'
+  ...
+# Subtest: país pelo grupo da fonte e filtro de país
+ok 28 - país pelo grupo da fonte e filtro de país
+  ---
+  duration_ms: 0.627598
+  type: 'test'
+  ...
+# (node:61) [UNDICI-EHPA] Warning: EnvHttpProxyAgent is experimental, expect them to change at any time.
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: agregador de ponta a ponta
+    # Subtest: manifesto tem uma linha por categoria e busca
+    ok 1 - manifesto tem uma linha por categoria e busca
+      ---
+      duration_ms: 21.909146
+      type: 'test'
+      ...
+    # Subtest: ESPN 2 aparece uma vez só, juntando 3 fontes
+    ok 2 - ESPN 2 aparece uma vez só, juntando 3 fontes
+      ---
+      duration_ms: 7.146211
+      type: 'test'
+      ...
+    # Subtest: canal adulto da fonte não entra em lugar nenhum
+    ok 3 - canal adulto da fonte não entra em lugar nenhum
+      ---
+      duration_ms: 43.044257
+      type: 'test'
+      ...
+    # Subtest: filtro de país separa os internacionais
+    ok 4 - filtro de país separa os internacionais
+      ---
+      duration_ms: 4.209937
+      type: 'test'
+      ...
+    # Subtest: ao abrir o canal, mostra links de todas as fontes na ordem
+    ok 5 - ao abrir o canal, mostra links de todas as fontes na ordem
+      ---
+      duration_ms: 2.463884
+      type: 'test'
+      ...
+    # Subtest: link do iptv-org leva os cabeçalhos exigidos
+    ok 6 - link do iptv-org leva os cabeçalhos exigidos
+      ---
+      duration_ms: 1.984986
+      type: 'test'
+      ...
+    # Subtest: página do canal lista fontes e categorias
+    ok 7 - página do canal lista fontes e categorias
+      ---
+      duration_ms: 1.646135
+      type: 'test'
+      ...
+    # Subtest: busca encontra canais
+    ok 8 - busca encontra canais
+      ---
+      duration_ms: 1.677982
+      type: 'test'
+      ...
+    # Subtest: fonte fora do ar não derruba as outras
+    ok 9 - fonte fora do ar não derruba as outras
+      ---
+      duration_ms: 4.179222
+      type: 'test'
+      ...
+    1..9
+ok 29 - agregador de ponta a ponta
+  ---
+  duration_ms: 112.527153
+  type: 'test'
+  ...
+# (node:62) [UNDICI-EHPA] Warning: EnvHttpProxyAgent is experimental, expect them to change at any time.
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# [config] M3U_LISTS item 2 ignorado (use Nome|https://...)
+# [config] ADDONS_PRIVADOS item 2 ignorado (use Nome|https://.../manifest.json)
+# Subtest: lê lista M3U e junta links do mesmo canal
+ok 30 - lê lista M3U e junta links do mesmo canal
+  ---
+  duration_ms: 1.760674
+  type: 'test'
+  ...
+# Subtest: configuração M3U_LISTS ignora itens inválidos
+ok 31 - configuração M3U_LISTS ignora itens inválidos
+  ---
+  duration_ms: 0.538046
+  type: 'test'
+  ...
+# Subtest: ADDONS_PRIVADOS aceita só links de manifesto https
+ok 32 - ADDONS_PRIVADOS aceita só links de manifesto https
+  ---
+  duration_ms: 0.525628
+  type: 'test'
+  ...
+# (node:64) [UNDICI-EHPA] Warning: EnvHttpProxyAgent is experimental, expect them to change at any time.
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: remove numeração de lista e marcadores de qualidade
+ok 33 - remove numeração de lista e marcadores de qualidade
+  ---
+  duration_ms: 1.652675
+  type: 'test'
+  ...
+# Subtest: mesmo canal com grafias diferentes gera a mesma chave
+ok 34 - mesmo canal com grafias diferentes gera a mesma chave
+  ---
+  duration_ms: 1.528231
+  type: 'test'
+  ...
+# Subtest: casos reais encontrados nas fontes
+ok 35 - casos reais encontrados nas fontes
+  ---
+  duration_ms: 0.289609
+  type: 'test'
+  ...
+# Subtest: canais diferentes continuam separados
+ok 36 - canais diferentes continuam separados
+  ---
+  duration_ms: 0.192845
+  type: 'test'
+  ...
+1..36
+# tests 45
+# suites 0
+# pass 45
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 481.504418

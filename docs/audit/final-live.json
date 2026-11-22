@@ -1,0 +1,213 @@
+{
+  "at": "2026-11-22T14:22:24.828Z",
+  "buildMs": 10656,
+  "rss": 107225088,
+  "peakRss": 107225088,
+  "manifestBytes": 6023,
+  "healthBefore": {
+    "status": 503,
+    "ms": 24.252882999999997,
+    "body": {
+      "ok": false,
+      "ready": false,
+      "channels": 0,
+      "sources": [
+        {
+          "id": "tvplay",
+          "label": "TVPlay",
+          "ok": null
+        },
+        {
+          "id": "tvvio",
+          "label": "Tvvio",
+          "ok": null
+        },
+        {
+          "id": "ntctv",
+          "label": "NTC TV",
+          "ok": null
+        },
+        {
+          "id": "redecanais",
+          "label": "Rede Canais",
+          "ok": null
+        }
+      ]
+    }
+  },
+  "healthAfter": {
+    "status": 200,
+    "ms": 2.967510000000402,
+    "body": {
+      "ok": true,
+      "ready": true,
+      "channels": 1711,
+      "sources": [
+        {
+          "id": "tvplay",
+          "label": "TVPlay",
+          "ok": true,
+          "items": 145,
+          "ms": 10603,
+          "at": "2026-11-22T14:22:17.500Z"
+        },
+        {
+          "id": "tvvio",
+          "label": "Tvvio",
+          "ok": true,
+          "items": 155,
+          "ms": 10287,
+          "at": "2026-11-22T14:22:17.191Z"
+        },
+        {
+          "id": "ntctv",
+          "label": "NTC TV",
+          "ok": true,
+          "items": 1886,
+          "ms": 8822,
+          "at": "2026-11-22T14:22:15.727Z"
+        },
+        {
+          "id": "redecanais",
+          "label": "Rede Canais",
+          "ok": true,
+          "items": 142,
+          "ms": 8835,
+          "at": "2026-11-22T14:22:15.740Z"
+        }
+      ]
+    }
+  },
+  "cold": {
+    "status": 200,
+    "ms": 6.526033000000012,
+    "body": {
+      "metas": [],
+      "cacheMaxAge": 0
+    }
+  },
+  "ready": {
+    "status": 200,
+    "ms": 2.0820999999996275,
+    "channels": 100,
+    "cacheMaxAge": 1800
+  },
+  "stream": {
+    "id": "tvagg:br:espn2",
+    "firstMs": 7253.496363999999,
+    "firstCalls": 6,
+    "count": 8,
+    "secondMs": 3.891135999998369,
+    "secondCalls": 0
+  },
+  "status": {
+    "ready": true,
+    "channels": 1711,
+    "categories": [
+      {
+        "id": "abertos",
+        "name": "Canais Abertos",
+        "channels": 240
+      },
+      {
+        "id": "esportes",
+        "name": "Esportes",
+        "channels": 142
+      },
+      {
+        "id": "filmes",
+        "name": "Filmes",
+        "channels": 55
+      },
+      {
+        "id": "series",
+        "name": "Séries",
+        "channels": 40
+      },
+      {
+        "id": "noticias",
+        "name": "Notícias",
+        "channels": 51
+      },
+      {
+        "id": "infantil",
+        "name": "Infantil",
+        "channels": 29
+      },
+      {
+        "id": "documentarios",
+        "name": "Documentários",
+        "channels": 21
+      },
+      {
+        "id": "culinaria",
+        "name": "Culinária",
+        "channels": 6
+      },
+      {
+        "id": "variedades",
+        "name": "Variedades e Reality",
+        "channels": 83
+      },
+      {
+        "id": "estilo",
+        "name": "Estilo de Vida e Viagem",
+        "channels": 4
+      },
+      {
+        "id": "musica",
+        "name": "Música e Rádio",
+        "channels": 37
+      },
+      {
+        "id": "religiosos",
+        "name": "Religiosos",
+        "channels": 20
+      },
+      {
+        "id": "canais24h",
+        "name": "Canais 24h",
+        "channels": 272
+      },
+      {
+        "id": "outros",
+        "name": "Outros Canais",
+        "channels": 822
+      }
+    ],
+    "sources": [
+      {
+        "id": "tvplay",
+        "label": "TVPlay",
+        "ok": true,
+        "items": 145,
+        "ms": 10603,
+        "at": "2026-11-22T14:22:17.500Z"
+      },
+      {
+        "id": "tvvio",
+        "label": "Tvvio",
+        "ok": true,
+        "items": 155,
+        "ms": 10287,
+        "at": "2026-11-22T14:22:17.191Z"
+      },
+      {
+        "id": "ntctv",
+        "label": "NTC TV",
+        "ok": true,
+        "items": 1886,
+        "ms": 8822,
+        "at": "2026-11-22T14:22:15.727Z"
+      },
+      {
+        "id": "redecanais",
+        "label": "Rede Canais",
+        "ok": true,
+        "items": 142,
+        "ms": 8835,
+        "at": "2026-11-22T14:22:15.740Z"
+      }
+    ]
+  }
+}

@@ -1,0 +1,46 @@
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+
+> tv-agregador@1.0.0 test
+> node --test test/*.test.js
+
+✔ A21/A11: canal 1 permanece distinto de canal 2; alias sem número preservado (1.981702ms)
+✔ A15: variation selector isolado é normalizado (0.427612ms)
+✔ A8: Hot Bird é mantido, HOT como grupo e conteúdo adulto são bloqueados (3.395884ms)
+✔ A9: item sem país é internacional e não Brasil (0.819212ms)
+✔ A9: fontes genéricas sem país explícito usam desconhecido (2.584012ms)
+✔ A18: referência repetida da mesma fonte gera uma consulta, fontes distintas preservadas (1.638814ms)
+✔ gêneros das fontes brasileiras viram categorias (5.242745ms)
+✔ categorias do iptv-org viram categorias (0.394814ms)
+✔ sem gênero útil, usa o nome do canal (1.499538ms)
+✔ ajustes vistos com os dados reais (0.330429ms)
+✔ canais 24h ficam só na linha própria (0.298561ms)
+✔ conteúdo adulto, televendas e canais de teste são descartados (0.251161ms)
+✔ país pelo grupo da fonte e filtro de país (0.549293ms)
+▶ agregador de ponta a ponta
+  ✔ manifesto tem uma linha por categoria e busca (49.600706ms)
+  ✔ ESPN 2 aparece uma vez só, juntando 3 fontes (12.21533ms)
+  ✔ canal adulto da fonte não entra em lugar nenhum (24.337563ms)
+  ✔ filtro de país separa os internacionais (3.256118ms)
+  ✔ ao abrir o canal, mostra links de todas as fontes na ordem (2.717711ms)
+  ✔ link do iptv-org leva os cabeçalhos exigidos (2.448172ms)
+  ✔ página do canal lista fontes e categorias (2.314193ms)
+  ✔ busca encontra canais (2.234565ms)
+  ✔ fonte fora do ar não derruba as outras (5.802584ms)
+✔ agregador de ponta a ponta (139.863294ms)
+[config] M3U_LISTS item 2 ignorado (use Nome|https://...)
+[config] ADDONS_PRIVADOS item 2 ignorado (use Nome|https://.../manifest.json)
+✔ lê lista M3U e junta links do mesmo canal (1.459088ms)
+✔ configuração M3U_LISTS ignora itens inválidos (1.073519ms)
+✔ ADDONS_PRIVADOS aceita só links de manifesto https (0.383687ms)
+✔ remove numeração de lista e marcadores de qualidade (3.105704ms)
+✔ mesmo canal com grafias diferentes gera a mesma chave (2.585941ms)
+✔ casos reais encontrados nas fontes (0.558696ms)
+✔ canais diferentes continuam separados (0.515843ms)
+ℹ tests 30
+ℹ suites 0
+ℹ pass 30
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 392.153721

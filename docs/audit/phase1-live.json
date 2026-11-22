@@ -1,0 +1,115 @@
+{
+  "ms": 14276,
+  "rss": 85954560,
+  "status": {
+    "ready": true,
+    "channels": 1711,
+    "categories": [
+      {
+        "id": "abertos",
+        "name": "Canais Abertos",
+        "channels": 240
+      },
+      {
+        "id": "esportes",
+        "name": "Esportes",
+        "channels": 142
+      },
+      {
+        "id": "filmes",
+        "name": "Filmes",
+        "channels": 55
+      },
+      {
+        "id": "series",
+        "name": "Séries",
+        "channels": 40
+      },
+      {
+        "id": "noticias",
+        "name": "Notícias",
+        "channels": 51
+      },
+      {
+        "id": "infantil",
+        "name": "Infantil",
+        "channels": 29
+      },
+      {
+        "id": "documentarios",
+        "name": "Documentários",
+        "channels": 21
+      },
+      {
+        "id": "culinaria",
+        "name": "Culinária",
+        "channels": 6
+      },
+      {
+        "id": "variedades",
+        "name": "Variedades e Reality",
+        "channels": 83
+      },
+      {
+        "id": "estilo",
+        "name": "Estilo de Vida e Viagem",
+        "channels": 4
+      },
+      {
+        "id": "musica",
+        "name": "Música e Rádio",
+        "channels": 37
+      },
+      {
+        "id": "religiosos",
+        "name": "Religiosos",
+        "channels": 20
+      },
+      {
+        "id": "canais24h",
+        "name": "Canais 24h",
+        "channels": 272
+      },
+      {
+        "id": "outros",
+        "name": "Outros Canais",
+        "channels": 822
+      }
+    ],
+    "sources": [
+      {
+        "id": "tvplay",
+        "label": "TVPlay",
+        "ok": true,
+        "items": 145,
+        "ms": 14214,
+        "at": "2026-11-22T14:17:07.707Z"
+      },
+      {
+        "id": "tvvio",
+        "label": "Tvvio",
+        "ok": true,
+        "items": 155,
+        "ms": 12504,
+        "at": "2026-11-22T14:17:06.008Z"
+      },
+      {
+        "id": "ntctv",
+        "label": "NTC TV",
+        "ok": true,
+        "items": 1886,
+        "ms": 10415,
+        "at": "2026-11-22T14:17:03.920Z"
+      },
+      {
+        "id": "redecanais",
+        "label": "Rede Canais",
+        "ok": true,
+        "items": 142,
+        "ms": 10450,
+        "at": "2026-11-22T14:17:03.956Z"
+      }
+    ]
+  },
+  "adultInOpen": []
+}

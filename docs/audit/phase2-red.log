@@ -1,0 +1,147 @@
+✔ A2/A20: manifesto cabe em 6 KiB e preserva os filtros de todas as categorias (1.592727ms)
+✖ A3/A20: iptv-org exige on explícito (13.077898ms)
+✖ A1: catálogo frio responde 200 sem cache em menos de 2 segundos e build continua (1542.029643ms)
+✖ A14: categoria vazia pronta permanece cacheável (2.628749ms)
+✖ A4: consultas simultâneas e consecutivas compartilham cache; rebuild invalida (5.025856ms)
+✖ A4: cache expira em 90s e descarta a entrada mais antiga após 500 (28.730134ms)
+✖ A5: no máximo 8 catálogos e 12 páginas; truncamento gera diagnóstico (23.348492ms)
+✖ A17: versão estável no processo e distinta em duas inicializações (413.529844ms)
+ℹ tests 8
+ℹ suites 0
+ℹ pass 1
+ℹ fail 7
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 2345.656852
+
+✖ failing tests:
+
+test at test/audit-performance.test.js:20:1
+✖ A3/A20: iptv-org exige on explícito (13.077898ms)
+  AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:
+  
+    assert.ok(!buildSources({}).some(s => s.id === 'iptvorg'))
+  
+      at TestContext.<anonymous> (/workspace/scratch/865ec069edf0/tv-agregador/test/audit-performance.test.js:21:10)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19)
+      at Test.run (node:internal/test_runner/test:1467:12)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at test/audit-performance.test.js:25:1
+✖ A1: catálogo frio responde 200 sem cache em menos de 2 segundos e build continua (1542.029643ms)
+  AssertionError [ERR_ASSERTION]: handler aguardou build em vez de responder prontamente
+      at TestContext.<anonymous> (/workspace/scratch/865ec069edf0/tv-agregador/test/audit-performance.test.js:39:10)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: null,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at test/audit-performance.test.js:47:1
+✖ A14: categoria vazia pronta permanece cacheável (2.628749ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  0 !== 1800
+  
+      at TestContext.<anonymous> (/workspace/scratch/865ec069edf0/tv-agregador/test/audit-performance.test.js:50:10)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 0,
+    expected: 1800,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at test/audit-performance.test.js:52:1
+✖ A4: consultas simultâneas e consecutivas compartilham cache; rebuild invalida (5.025856ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  3 !== 1
+  
+      at TestContext.<anonymous> (/workspace/scratch/865ec069edf0/tv-agregador/test/audit-performance.test.js:58:10)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 3,
+    expected: 1,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at test/audit-performance.test.js:62:1
+✖ A4: cache expira em 90s e descarta a entrada mais antiga após 500 (28.730134ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  2 !== 1
+  
+      at TestContext.<anonymous> (/workspace/scratch/865ec069edf0/tv-agregador/test/audit-performance.test.js:67:85)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 2,
+    expected: 1,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at test/audit-performance.test.js:72:1
+✖ A5: no máximo 8 catálogos e 12 páginas; truncamento gera diagnóstico (23.348492ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  400 !== 96
+  
+      at TestContext.<anonymous> (/workspace/scratch/865ec069edf0/tv-agregador/test/audit-performance.test.js:81:10)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 400,
+    expected: 96,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at test/audit-performance.test.js:85:1
+✖ A17: versão estável no processo e distinta em duas inicializações (413.529844ms)
+  AssertionError [ERR_ASSERTION]: Expected "actual" to be strictly unequal to:
+  
+  '1.0.0'
+      at TestContext.<anonymous> (/workspace/scratch/865ec069edf0/tv-agregador/test/audit-performance.test.js:90:10)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19)
+      at Test.run (node:internal/test_runner/test:1467:12)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: '1.0.0',
+    expected: '1.0.0',
+    operator: 'notStrictEqual',
+    diff: 'simple'
+  }

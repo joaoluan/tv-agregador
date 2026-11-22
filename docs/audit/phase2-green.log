@@ -1,0 +1,54 @@
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+
+> tv-agregador@1.0.0 test
+> node --test test/*.test.js
+
+✔ A21/A11: canal 1 permanece distinto de canal 2; alias sem número preservado (2.691601ms)
+✔ A15: variation selector isolado é normalizado (0.529403ms)
+✔ A8: Hot Bird é mantido, HOT como grupo e conteúdo adulto são bloqueados (5.254653ms)
+✔ A9: item sem país é internacional e não Brasil (1.27099ms)
+✔ A9: fontes genéricas sem país explícito usam desconhecido (3.511223ms)
+✔ A18: referência repetida da mesma fonte gera uma consulta, fontes distintas preservadas (3.857856ms)
+✔ A2/A20: manifesto cabe em 6 KiB e preserva os filtros de todas as categorias (3.342895ms)
+✔ A3/A20: iptv-org exige on explícito (0.557184ms)
+✔ A1: catálogo frio responde 200 sem cache em menos de 2 segundos e build continua (51.53047ms)
+✔ A14: categoria vazia pronta permanece cacheável (1.463104ms)
+✔ A4: consultas simultâneas e consecutivas compartilham cache; rebuild invalida (7.423381ms)
+✔ A4: cache expira em 90s e descarta a entrada mais antiga após 500 (72.050422ms)
+✔ A5: no máximo 8 catálogos e 12 páginas; truncamento gera diagnóstico (5.42902ms)
+✔ A17: versão estável no processo e distinta em duas inicializações (358.233954ms)
+✔ gêneros das fontes brasileiras viram categorias (6.49047ms)
+✔ categorias do iptv-org viram categorias (0.505588ms)
+✔ sem gênero útil, usa o nome do canal (3.22802ms)
+✔ ajustes vistos com os dados reais (2.351638ms)
+✔ canais 24h ficam só na linha própria (0.481843ms)
+✔ conteúdo adulto, televendas e canais de teste são descartados (0.241638ms)
+✔ país pelo grupo da fonte e filtro de país (0.363908ms)
+▶ agregador de ponta a ponta
+  ✔ manifesto tem uma linha por categoria e busca (43.30861ms)
+  ✔ ESPN 2 aparece uma vez só, juntando 3 fontes (13.881032ms)
+  ✔ canal adulto da fonte não entra em lugar nenhum (26.869553ms)
+  ✔ filtro de país separa os internacionais (5.096108ms)
+  ✔ ao abrir o canal, mostra links de todas as fontes na ordem (3.294823ms)
+  ✔ link do iptv-org leva os cabeçalhos exigidos (2.175628ms)
+  ✔ página do canal lista fontes e categorias (2.152423ms)
+  ✔ busca encontra canais (2.331349ms)
+  ✔ fonte fora do ar não derruba as outras (6.505192ms)
+✔ agregador de ponta a ponta (137.97846ms)
+[config] M3U_LISTS item 2 ignorado (use Nome|https://...)
+[config] ADDONS_PRIVADOS item 2 ignorado (use Nome|https://.../manifest.json)
+✔ lê lista M3U e junta links do mesmo canal (2.828994ms)
+✔ configuração M3U_LISTS ignora itens inválidos (1.874763ms)
+✔ ADDONS_PRIVADOS aceita só links de manifesto https (1.083723ms)
+✔ remove numeração de lista e marcadores de qualidade (2.926508ms)
+✔ mesmo canal com grafias diferentes gera a mesma chave (2.31203ms)
+✔ casos reais encontrados nas fontes (1.925218ms)
+✔ canais diferentes continuam separados (0.648949ms)
+ℹ tests 38
+ℹ suites 0
+ℹ pass 38
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 775.462385

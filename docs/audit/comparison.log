@@ -1,0 +1,22 @@
+[tvplay] 2 catálogos omitidos (limite 8)
+[redecanais] 3 catálogos omitidos (limite 8)
+{
+  ms: 13150,
+  baseline: 1712,
+  normalization: 1711,
+  capped: 1711,
+  sourcesBefore: [
+    { id: 'tvplay', items: 145 },
+    { id: 'tvvio', items: 155 },
+    { id: 'ntctv', items: 1886 },
+    { id: 'redecanais', items: 142 }
+  ],
+  sourcesAfter: [
+    { id: 'tvplay', items: 145 },
+    { id: 'tvvio', items: 155 },
+    { id: 'ntctv', items: 1886 },
+    { id: 'redecanais', items: 142 }
+  ],
+  removedByNormalization: [ { id: 'tvagg:br:funkplus18', name: 'FUNK +18', groups: [Array] } ],
+  removedByCaps: []
+}
