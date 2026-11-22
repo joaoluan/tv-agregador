@@ -1,0 +1,136 @@
+✖ etiqueta de fonte [F1] não transforma igreja ou rádio em esporte (5.268741ms)
+✖ identidade religiosa prevalece sobre grupo culinária errado sem liberar conteúdo bloqueado (1.1975ms)
+✖ marcas temáticas não herdam categorias incompatíveis de uma fonte (0.427252ms)
+✖ 24h é exclusivo pelo nome e continua exclusivo após juntar fontes (0.396937ms)
+✖ grupo do catálogo é fallback; país e bloqueios do catálogo são preservados (2.646684ms)
+ℹ tests 5
+ℹ suites 0
+ℹ pass 0
+ℹ fail 5
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 160.500131
+
+✖ failing tests:
+
+test at test/category-regressions.test.js:9:1
+✖ etiqueta de fonte [F1] não transforma igreja ou rádio em esporte (5.268741ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  
+    [
+  +   'esportes'
+  -   'religiosos'
+    ]
+  
+      at TestContext.<anonymous> (/workspace/scratch/865ec069edf0/tv-agregador/test/category-regressions.test.js:10:9)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.start (node:internal/test_runner/test:1262:17)
+      at startSubtestAfterBootstrap (node:internal/test_runner/harness:387:17) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: [ 'esportes' ],
+    expected: [ 'religiosos' ],
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at test/category-regressions.test.js:15:1
+✖ identidade religiosa prevalece sobre grupo culinária errado sem liberar conteúdo bloqueado (1.1975ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  
+    [
+  +   'culinaria'
+  -   'religiosos'
+    ]
+  
+      at TestContext.<anonymous> (/workspace/scratch/865ec069edf0/tv-agregador/test/category-regressions.test.js:16:9)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19)
+      at Test.run (node:internal/test_runner/test:1467:12)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: [ 'culinaria' ],
+    expected: [ 'religiosos' ],
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at test/category-regressions.test.js:22:1
+✖ marcas temáticas não herdam categorias incompatíveis de uma fonte (0.427252ms)
+  AssertionError [ERR_ASSERTION]: GNT
+  + actual - expected
+  
+    [
+  +   'filmes',
+  +   'series'
+  -   'variedades'
+    ]
+  
+      at TestContext.<anonymous> (/workspace/scratch/865ec069edf0/tv-agregador/test/category-regressions.test.js:36:11)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19)
+      at Test.run (node:internal/test_runner/test:1467:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: [ 'filmes', 'series' ],
+    expected: [ 'variedades' ],
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at test/category-regressions.test.js:41:1
+✖ 24h é exclusivo pelo nome e continua exclusivo após juntar fontes (0.396937ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  
+    [
+  +   'infantil',
+  +   'variedades'
+  -   'canais24h'
+    ]
+  
+      at TestContext.<anonymous> (/workspace/scratch/865ec069edf0/tv-agregador/test/category-regressions.test.js:42:9)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19)
+      at Test.run (node:internal/test_runner/test:1467:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: [ 'infantil', 'variedades' ],
+    expected: [ 'canais24h' ],
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at test/category-regressions.test.js:47:1
+✖ grupo do catálogo é fallback; país e bloqueios do catálogo são preservados (2.646684ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  
+    [
+      'esportes',
+  +   'filmes'
+    ]
+  
+      at TestContext.<anonymous> (/workspace/scratch/865ec069edf0/tv-agregador/test/category-regressions.test.js:52:9)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: [ 'esportes', 'filmes' ],
+    expected: [ 'esportes' ],
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }

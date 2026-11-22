@@ -1,7 +1,9 @@
 'use strict';
 
-const { normalizeText } = require('./normalize');
+const { normalizeText, cleanName } = require('./normalize');
+const { knownCategories } = require('./channel-categories');
 
+// Perfis conhecidos prevalecem; as regex abaixo são fallback para nomes não reconhecidos.
 // Ordem = ordem das linhas na página inicial do Stremio.
 // "match" é testado contra os gêneros/grupos que cada fonte informa (sem acento, minúsculo).
 // "nameHint" só é usado quando os gêneros da fonte não encaixam em nenhuma categoria.
@@ -103,16 +105,28 @@ const DROPPED_GENRES = /^(shop|interactive)$/;
 
 function categorize(genres, name) {
   const texts = (genres || []).map(normalizeText).filter(Boolean);
-  const nameText = normalizeText(name);
+  const rawNameText = normalizeText(name);
+  const nameText = normalizeText(cleanName(name));
 
-  if (texts.some((t) => t === 'hot' || BLOCKED.test(t)) || BLOCKED.test(nameText)) {
+  if (texts.some((t) => t === 'hot' || BLOCKED.test(t)) || BLOCKED.test(rawNameText)) {
     return null;
   }
-  if (TEST_CHANNEL.test(nameText) || texts.includes('teste')) {
+  if (TEST_CHANNEL.test(rawNameText) || texts.includes('teste')) {
     return null;
   }
   if (texts.length && texts.every((t) => DROPPED_GENRES.test(t))) {
     return null;
+  }
+
+  // 24h descreve o formato do canal e não o tema da programação.
+  if (byId('canais24h').nameHint.test(nameText) || texts.some((t) => byId('canais24h').match.test(t))) {
+    return new Set(['canais24h']);
+  }
+  const known = knownCategories(name);
+  if (known) {
+    const identified = new Set(known);
+    if (identified.has('culinaria') && texts.some((t) => byId('variedades').match.test(t))) identified.add('variedades');
+    return identified;
   }
 
   const found = new Set();

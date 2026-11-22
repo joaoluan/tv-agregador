@@ -2,6 +2,7 @@
 
 const { fetchJson, mapLimit, STREAM_TIMEOUT_MS } = require('../http');
 const { countryFromGroups } = require('../countries');
+const { categorize } = require('../categories');
 
 const MAX_PAGES = 12;
 const MAX_CATALOGS = 8;
@@ -77,25 +78,33 @@ function createStremioSource({ id, label, manifestUrl, country = '??', priority 
           name: meta.name,
           logo: meta.logo || meta.poster || null,
           groups: new Set(),
+          catalogGroups: new Set(),
           ref: { type: meta.type || catalog.type, id: meta.id }
         };
         for (const genre of meta.genres || []) {
           entry.groups.add(genre);
         }
         if (catalogGroup) {
-          entry.groups.add(catalogGroup);
+          entry.catalogGroups.add(catalogGroup);
         }
         byOriginalId.set(meta.id, entry);
       }
     });
 
     return [...byOriginalId.values()].map((entry) => {
-      const groups = [...entry.groups];
+      const genres = [...entry.groups];
+      const allGroups = [...genres, ...entry.catalogGroups];
+      const explicit = categorize(genres, entry.name);
+      const combined = categorize(allGroups, entry.name);
+      // O gênero do canal é mais específico que o título da coleção.
+      // País, bloqueios e formato 24h do catálogo não podem ser perdidos.
+      const groups = !combined || combined.has('canais24h') || !explicit || explicit.has('outros')
+        ? allGroups : genres;
       return {
         name: entry.name,
         logo: entry.logo,
         groups,
-        country: countryFromGroups(groups, country),
+        country: countryFromGroups(allGroups, country),
         ref: entry.ref
       };
     });

@@ -1,0 +1,65 @@
+✖ sem acessos não há atualização periódica; start repetido não duplica trabalho (14.19802ms)
+✖ acesso após TTL atualiza em segundo plano, mantém índice e compartilha a rodada (1.986462ms)
+✖ retry é sob demanda e consulta somente fonte que nunca carregou (12.38152ms)
+✔ status e store parado não disparam manutenção (1.847667ms)
+ℹ tests 4
+ℹ suites 0
+ℹ pass 1
+ℹ fail 3
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 161.719076
+
+✖ failing tests:
+
+test at test/demand-refresh.test.js:9:1
+✖ sem acessos não há atualização periódica; start repetido não duplica trabalho (14.19802ms)
+  AssertionError [ERR_ASSERTION]: não deve consultar fonte por timer nem start repetido
+  
+  2 !== 1
+  
+      at TestContext.<anonymous> (/workspace/scratch/865ec069edf0/tv-agregador/test/demand-refresh.test.js:14:9)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 2,
+    expected: 1,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at test/demand-refresh.test.js:16:1
+✖ acesso após TTL atualiza em segundo plano, mantém índice e compartilha a rodada (1.986462ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  1 !== 2
+  
+      at TestContext.<anonymous> (/workspace/scratch/865ec069edf0/tv-agregador/test/demand-refresh.test.js:21:9)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 1,
+    expected: 2,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at test/demand-refresh.test.js:24:1
+✖ retry é sob demanda e consulta somente fonte que nunca carregou (12.38152ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  2 !== 1
+  
+      at TestContext.<anonymous> (/workspace/scratch/865ec069edf0/tv-agregador/test/demand-refresh.test.js:33:9)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 2,
+    expected: 1,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
