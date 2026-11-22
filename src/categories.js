@@ -93,7 +93,7 @@ const CATEGORIES = [
 ];
 
 // Grupos/gêneros que derrubam o canal inteiro (conteúdo adulto).
-const BLOCKED = /\b(xxx|adult[oa]s?|\+ ?18|18 ?\+|hot|sex[yo]?|erotic[oa]?|porn[oô]?)\b/;
+const BLOCKED = /\b(xxx|adult[oa]s?|sex[yo]?|erotic[oa]?|porn[oô]?)\b|(?:^|\s)(?:\+ ?18|18 ?\+)(?=$|\s)/;
 
 // Canais de teste das fontes.
 const TEST_CHANNEL = /\b(teste?|test hls|big buck bunny)\b/;
@@ -105,7 +105,7 @@ function categorize(genres, name) {
   const texts = (genres || []).map(normalizeText).filter(Boolean);
   const nameText = normalizeText(name);
 
-  if (texts.some((t) => BLOCKED.test(t)) || BLOCKED.test(nameText)) {
+  if (texts.some((t) => t === 'hot' || BLOCKED.test(t)) || BLOCKED.test(nameText)) {
     return null;
   }
   if (TEST_CHANNEL.test(nameText) || texts.includes('teste')) {

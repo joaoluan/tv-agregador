@@ -11,6 +11,7 @@ const REFRESH_MS = 6 * 60 * 60 * 1000;
 // Junta os canais de todas as fontes em uma lista única, sem duplicados.
 function mergeChannels(sourceResults) {
   const channels = new Map();
+  const seenMembers = new Map();
 
   for (const { source, items } of sourceResults) {
     for (const item of items || []) {
@@ -25,7 +26,7 @@ function mergeChannels(sourceResults) {
       if (!key) {
         continue;
       }
-      const country = (item.country || 'BR').toUpperCase();
+      const country = (item.country || '??').toUpperCase();
       const id = `${ID_PREFIX}${country.toLowerCase()}:${slugify(key)}`;
       let channel = channels.get(id);
       if (!channel) {
@@ -45,7 +46,13 @@ function mergeChannels(sourceResults) {
       for (const cat of categories) {
         channel.categories.add(cat);
       }
-      channel.members.push({ sourceId: source.id, ref: item.ref, originalName: item.name });
+      const memberKey = JSON.stringify([source.id, item.ref?.id ?? item.ref]);
+      const seen = seenMembers.get(id) || new Set();
+      if (!seen.has(memberKey)) {
+        channel.members.push({ sourceId: source.id, ref: item.ref, originalName: item.name });
+        seen.add(memberKey);
+        seenMembers.set(id, seen);
+      }
     }
   }
 
