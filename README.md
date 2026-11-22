@@ -98,3 +98,5 @@ O addon mostra “Agora” e “A seguir” na descrição do canal. Para atuali
 Execute `node scripts/audit-catalog.js inventario.json` com uma lista JSON de entradas com `name`, `groups`, `country` e, opcionalmente, `categories` do levantamento anterior. O relatório inclui totais, canais sem tema, diferenças e nomes iguais com país incerto. O comando trabalha offline.
 
 A instância executa até oito consultas HTTP de fonte simultaneamente, com fila de até 128 e teto de 32 MiB por resposta. O prazo inclui espera na fila e tentativas. No encerramento, o processo cancela as consultas em curso.
+
+No Render, configure `EPG_URL` com a URL HTTPS de uma fonte autorizada que entregue esse mesmo formato JSON. A consulta ocorre por demanda e o guia é reutilizado por 15 minutos. Se a fonte falhar, o addon preserva o último guia e espera um minuto antes de tentar novamente. O limite de 1 MiB vale também para o guia remoto. Sem URL, o modo com arquivo continua disponível.
