@@ -57,12 +57,12 @@ function countryName(code) {
 }
 
 function filterOptions() {
-  return [ALL_INTERNATIONAL, ...FILTER_CODES.map(countryName)];
+  return ['Todos', ALL_INTERNATIONAL, ...FILTER_CODES.map(countryName)];
 }
 
 // Converte o valor escolhido no filtro em um teste de país.
 function countryPredicate(option) {
-  if (!option) {
+  if (!option || option === 'Todos') {
     return () => true;
   }
   if (option === ALL_INTERNATIONAL) {

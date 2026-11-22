@@ -90,3 +90,12 @@ test('A17: versão estável no processo e distinta em duas inicializações', ()
   assert.notEqual(one,two);
   assert.match(one,/^\d+\.\d+\.\d+\+[a-zA-Z0-9.-]+$/);
 });
+
+test('Todos é a primeira opção e inclui canais nacionais e internacionais', () => {
+  const { countryPredicate } = require('../src/countries');
+  for (const catalog of buildManifest().catalogs.slice(0, 14)) {
+    assert.equal(catalog.extra[0].options[0], 'Todos');
+  }
+  const matches = countryPredicate('Todos');
+  assert.deepEqual(['BR', 'PT', '??'].filter(matches), ['BR', 'PT', '??']);
+});
