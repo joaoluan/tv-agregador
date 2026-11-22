@@ -42,7 +42,7 @@ function buildManifest() {
   };
 }
 
-function createAddon(store, sourceLabels) {
+function createAddon(store, sourceLabels, scheduleFor = () => ({})) {
   const builder = new addonBuilder(buildManifest());
 
   builder.defineCatalogHandler(async ({ id, extra = {} }) => {
@@ -56,7 +56,8 @@ function createAddon(store, sourceLabels) {
     }
     const inCountry = countryPredicate(extra.genre);
     const filtered = list.filter((c) => inCountry(c.country));
-    const skip = Number.parseInt(extra.skip, 10) || 0;
+    const offset = Number(extra.skip);
+    const skip = Number.isSafeInteger(offset) && offset >= 0 ? offset : 0;
     const page = filtered.slice(skip, skip + PAGE_SIZE).map(toMetaPreview);
     // Enquanto o índice monta (servidor acordando), não deixa o Stremio guardar lista vazia.
     if (!ready) {
@@ -71,13 +72,17 @@ function createAddon(store, sourceLabels) {
     if (!channel) {
       return { meta: null };
     }
-    return { meta: toMeta(channel, sourceLabels), cacheMaxAge: 30 * 60 };
+    const meta = toMeta(channel, sourceLabels);
+    const schedule = scheduleFor(id);
+    const blocks = [schedule.now && `Agora: ${schedule.now.title}`, schedule.next && `A seguir: ${schedule.next.title}`].filter(Boolean);
+    if (blocks.length) meta.description += `\n${blocks.join(' · ')}`;
+    return { meta, cacheMaxAge: blocks.length ? 0 : 30 * 60 };
   });
 
   builder.defineStreamHandler(async ({ id }) => {
     if (!await store.waitReady(0)) return { streams: [], cacheMaxAge: 0 };
     const streams = await store.streamsFor(id);
-    return { streams, cacheMaxAge: 60 };
+    return { streams, cacheMaxAge: streams.length ? 60 : 0 };
   });
 
   return builder.getInterface();

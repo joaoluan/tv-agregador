@@ -21,6 +21,8 @@ function isNotice(meta) {
 function createStremioSource({ id, label, manifestUrl, country = '??', priority = 50, concurrency = 4 }) {
   const base = manifestUrl.replace(/\/manifest\.json$/, '');
 
+  let previousCatalogs = new Map();
+
   async function fetchCatalogPages(catalog) {
     const metas = [];
     const seen = new Set();
@@ -30,8 +32,9 @@ function createStremioSource({ id, label, manifestUrl, country = '??', priority 
         ? `/catalog/${catalog.type}/${encodeURIComponent(catalog.id)}/skip=${skip}.json`
         : `/catalog/${catalog.type}/${encodeURIComponent(catalog.id)}.json`;
       const data = await fetchJson(base + path);
-      const pageMetas = (data && data.metas) || [];
-      const fresh = pageMetas.filter((m) => m && m.id && !seen.has(m.id) && !isNotice(m));
+      const pageMetas = data?.metas;
+      if (!Array.isArray(pageMetas)) throw new Error('Resposta de catálogo inválida');
+      const fresh = pageMetas.filter((m) => m && typeof m.id === 'string' && typeof m.name === 'string' && !seen.has(m.id) && !isNotice(m));
       if (!fresh.length) {
         break;
       }
@@ -64,14 +67,18 @@ function createStremioSource({ id, label, manifestUrl, country = '??', priority 
       console.warn(`[${id}] ${catalogs.length - MAX_CATALOGS} catálogos omitidos (limite ${MAX_CATALOGS})`);
     }
     const byOriginalId = new Map();
+    let failure;
+    const nextCatalogs = new Map();
     await mapLimit(catalogs.slice(0, MAX_CATALOGS), concurrency, async (catalog) => {
       let metas = [];
       try {
         metas = await fetchCatalogPages(catalog);
       } catch (err) {
-        console.warn(`[${id}] catálogo "${catalog.name}" falhou: ${err.message}`);
-        return;
+        failure = err;
+        if (!previousCatalogs.has(catalog.id)) return;
+        metas = previousCatalogs.get(catalog.id);
       }
+      nextCatalogs.set(catalog.id, metas);
       const catalogGroup = catalog.name && catalog.name !== addonName ? catalog.name : null;
       for (const meta of metas) {
         const entry = byOriginalId.get(meta.id) || {
@@ -81,7 +88,7 @@ function createStremioSource({ id, label, manifestUrl, country = '??', priority 
           catalogGroups: new Set(),
           ref: { type: meta.type || catalog.type, id: meta.id }
         };
-        for (const genre of meta.genres || []) {
+        for (const genre of Array.isArray(meta.genres) ? meta.genres : []) {
           entry.groups.add(genre);
         }
         if (catalogGroup) {
@@ -91,7 +98,10 @@ function createStremioSource({ id, label, manifestUrl, country = '??', priority 
       }
     });
 
-    return [...byOriginalId.values()].map((entry) => {
+    if (failure && !nextCatalogs.size) throw failure;
+    previousCatalogs = nextCatalogs;
+
+    const items = [...byOriginalId.values()].map((entry) => {
       const genres = [...entry.groups];
       const allGroups = [...genres, ...entry.catalogGroups];
       const explicit = categorize(genres, entry.name);
@@ -108,11 +118,12 @@ function createStremioSource({ id, label, manifestUrl, country = '??', priority 
         ref: entry.ref
       };
     });
+    return Object.assign(items, { partial: Boolean(failure) });
   }
 
   async function streams(ref) {
     const data = await fetchJson(`${base}/stream/${ref.type}/${encodeURIComponent(ref.id)}.json`, { timeout: STREAM_TIMEOUT_MS, retries: 0 });
-    return (data && data.streams) || [];
+    return Array.isArray(data?.streams) ? data.streams.filter(stream => stream && typeof stream === 'object' && !Array.isArray(stream)) : [];
   }
 
   return { id, label, priority, load, streams };

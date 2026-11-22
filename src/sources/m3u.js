@@ -33,6 +33,15 @@ function attr(line, name) {
   return match ? match[1].trim() : null;
 }
 
+function separator(line) {
+  let quoted = false;
+  for (let i = 0; i < line.length; i++) {
+    if (line[i] === '"') quoted = !quoted;
+    if (line[i] === ',' && !quoted) return i;
+  }
+  return -1;
+}
+
 function parseM3u(text, defaultCountry) {
   const lines = String(text || '').split(/\r?\n/);
   const byName = new Map();
@@ -46,7 +55,7 @@ function parseM3u(text, defaultCountry) {
       continue;
     }
     if (line.startsWith('#EXTINF')) {
-      const commaIndex = line.lastIndexOf(',');
+      const commaIndex = separator(line);
       current = {
         name: commaIndex >= 0 ? line.slice(commaIndex + 1).trim() : attr(line, 'tvg-name'),
         logo: attr(line, 'tvg-logo'),
