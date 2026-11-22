@@ -3,7 +3,8 @@
 const { fetchJson, mapLimit } = require('../http');
 const { countryFromGroups } = require('../countries');
 
-const MAX_PAGES = 40;
+const MAX_PAGES = 12;
+const MAX_CATALOGS = 8;
 
 // Itens de aviso que alguns addons devolvem no lugar dos canais (ex.: falta de login).
 const NOTICE_RE = /(nao autenticad|not authenticated|unauthori[sz]ed|login necess|requer autentica|configure (o|the) addon|token (invalido|expirado))/i;
@@ -43,6 +44,9 @@ function createStremioSource({ id, label, manifestUrl, country = '??', priority 
         break;
       }
       skip += pageMetas.length;
+      if (page === MAX_PAGES - 1) {
+        console.warn(`[${id}] catálogo "${catalog.id}" truncado em ${MAX_PAGES} páginas`);
+      }
     }
     return metas;
   }
@@ -55,8 +59,11 @@ function createStremioSource({ id, label, manifestUrl, country = '??', priority 
       return ['tv', 'channel'].includes(c.type) && !required;
     });
 
+    if (catalogs.length > MAX_CATALOGS) {
+      console.warn(`[${id}] ${catalogs.length - MAX_CATALOGS} catálogos omitidos (limite ${MAX_CATALOGS})`);
+    }
     const byOriginalId = new Map();
-    await mapLimit(catalogs, concurrency, async (catalog) => {
+    await mapLimit(catalogs.slice(0, MAX_CATALOGS), concurrency, async (catalog) => {
       let metas = [];
       try {
         metas = await fetchCatalogPages(catalog);

@@ -52,7 +52,7 @@ function buildSources(env = process.env) {
   const sources = STREMIO_ADDONS.map((cfg) => createStremioSource(cfg));
   sources.push(...privateAddonsFromEnv(env.ADDONS_PRIVADOS));
   sources.push(...m3uFromEnv(env.M3U_LISTS));
-  if (env.IPTV_ORG !== 'off') {
+  if (env.IPTV_ORG === 'on') {
     sources.push(createIptvOrgSource({ priority: 90 }));
   }
   return sources.sort((a, b) => a.priority - b.priority);

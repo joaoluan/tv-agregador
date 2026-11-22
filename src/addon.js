@@ -2,6 +2,9 @@
 
 const { addonBuilder } = require('stremio-addon-sdk');
 const pkg = require('../package.json');
+const { randomBytes } = require('node:crypto');
+// Identifica a inicialização; permanece estável durante toda a vida do processo.
+const buildVersion = `${pkg.version}+${Date.now()}.${randomBytes(3).toString('hex')}`;
 const { CATEGORIES } = require('./categories');
 const { filterOptions, countryPredicate } = require('./countries');
 const { toMetaPreview, toMeta, ID_PREFIX } = require('./catalog');
@@ -12,7 +15,7 @@ function buildManifest() {
   const countryOptions = filterOptions();
   return {
     id: 'br.tvagregador',
-    version: pkg.version,
+    version: buildVersion,
     name: 'TV Agregador',
     description: 'Todos os seus canais de TV ao vivo em uma lista só, organizada por categoria e sem duplicados. Ao abrir um canal, mostra os links de todas as fontes.',
     types: ['tv'],
@@ -43,7 +46,7 @@ function createAddon(store, sourceLabels) {
   const builder = new addonBuilder(buildManifest());
 
   builder.defineCatalogHandler(async ({ id, extra = {} }) => {
-    const ready = await store.waitReady();
+    const ready = await store.waitReady(0);
     let list;
     if (id === 'tvagg.busca') {
       list = extra.search ? store.search(extra.search) : [];
@@ -56,14 +59,14 @@ function createAddon(store, sourceLabels) {
     const skip = Number.parseInt(extra.skip, 10) || 0;
     const page = filtered.slice(skip, skip + PAGE_SIZE).map(toMetaPreview);
     // Enquanto o índice monta (servidor acordando), não deixa o Stremio guardar lista vazia.
-    if (!ready || !page.length) {
+    if (!ready) {
       return { metas: page, cacheMaxAge: 0 };
     }
     return { metas: page, cacheMaxAge: 30 * 60, staleRevalidate: 6 * 60 * 60 };
   });
 
   builder.defineMetaHandler(async ({ id }) => {
-    await store.waitReady();
+    if (!await store.waitReady(0)) return { meta: null, cacheMaxAge: 0 };
     const channel = store.get(id);
     if (!channel) {
       return { meta: null };
@@ -72,7 +75,7 @@ function createAddon(store, sourceLabels) {
   });
 
   builder.defineStreamHandler(async ({ id }) => {
-    await store.waitReady();
+    if (!await store.waitReady(0)) return { streams: [], cacheMaxAge: 0 };
     const streams = await store.streamsFor(id);
     return { streams, cacheMaxAge: 60 };
   });
