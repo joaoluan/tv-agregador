@@ -1,0 +1,1277 @@
+{
+  "idleStartedAt": "2026-11-22T14:39:11.554608+00:00",
+  "probeStartedAt": "2026-11-22T14:59:11.555307+00:00",
+  "minimumIdleSeconds": 1200,
+  "/robots.txt": {
+    "status": 200,
+    "ms": 6225.6489470000815,
+    "body": "User-agent: *\nDisallow: /\n"
+  },
+  "/health": {
+    "status": 200,
+    "ms": 28129.662074999942,
+    "body": {
+      "ok": true,
+      "ready": true,
+      "channels": 1711,
+      "sources": [
+        {
+          "id": "tvplay",
+          "label": "TVPlay",
+          "ok": true,
+          "items": 145,
+          "ms": 4524,
+          "at": "2026-11-22T14:59:42.232Z"
+        },
+        {
+          "id": "tvvio",
+          "label": "Tvvio",
+          "ok": true,
+          "items": 155,
+          "ms": 3001,
+          "at": "2026-11-22T14:59:41.004Z"
+        },
+        {
+          "id": "ntctv",
+          "label": "NTC TV",
+          "ok": true,
+          "items": 1886,
+          "ms": 2200,
+          "at": "2026-11-22T14:59:40.205Z"
+        },
+        {
+          "id": "redecanais",
+          "label": "Rede Canais",
+          "ok": true,
+          "items": 142,
+          "ms": 1511,
+          "at": "2026-11-22T14:59:39.519Z"
+        }
+      ]
+    }
+  },
+  "/status": {
+    "status": 200,
+    "ms": 6062.944344000243,
+    "body": {
+      "ready": true,
+      "channels": 1711,
+      "categories": [
+        {
+          "id": "abertos",
+          "name": "Canais Abertos",
+          "channels": 240
+        },
+        {
+          "id": "esportes",
+          "name": "Esportes",
+          "channels": 142
+        },
+        {
+          "id": "filmes",
+          "name": "Filmes",
+          "channels": 55
+        },
+        {
+          "id": "series",
+          "name": "Séries",
+          "channels": 40
+        },
+        {
+          "id": "noticias",
+          "name": "Notícias",
+          "channels": 51
+        },
+        {
+          "id": "infantil",
+          "name": "Infantil",
+          "channels": 29
+        },
+        {
+          "id": "documentarios",
+          "name": "Documentários",
+          "channels": 21
+        },
+        {
+          "id": "culinaria",
+          "name": "Culinária",
+          "channels": 6
+        },
+        {
+          "id": "variedades",
+          "name": "Variedades e Reality",
+          "channels": 83
+        },
+        {
+          "id": "estilo",
+          "name": "Estilo de Vida e Viagem",
+          "channels": 4
+        },
+        {
+          "id": "musica",
+          "name": "Música e Rádio",
+          "channels": 37
+        },
+        {
+          "id": "religiosos",
+          "name": "Religiosos",
+          "channels": 20
+        },
+        {
+          "id": "canais24h",
+          "name": "Canais 24h",
+          "channels": 272
+        },
+        {
+          "id": "outros",
+          "name": "Outros Canais",
+          "channels": 822
+        }
+      ],
+      "sources": [
+        {
+          "id": "tvplay",
+          "label": "TVPlay",
+          "ok": true,
+          "items": 145,
+          "ms": 4524,
+          "at": "2026-11-22T14:59:42.232Z"
+        },
+        {
+          "id": "tvvio",
+          "label": "Tvvio",
+          "ok": true,
+          "items": 155,
+          "ms": 3001,
+          "at": "2026-11-22T14:59:41.004Z"
+        },
+        {
+          "id": "ntctv",
+          "label": "NTC TV",
+          "ok": true,
+          "items": 1886,
+          "ms": 2200,
+          "at": "2026-11-22T14:59:40.205Z"
+        },
+        {
+          "id": "redecanais",
+          "label": "Rede Canais",
+          "ok": true,
+          "items": 142,
+          "ms": 1511,
+          "at": "2026-11-22T14:59:39.519Z"
+        }
+      ]
+    }
+  },
+  "/catalog/tv/tvagg.abertos.json": {
+    "status": 200,
+    "ms": 6010.573439999916,
+    "body": {
+      "metas": [
+        {
+          "id": "tvagg:br:cancaonova",
+          "type": "tv",
+          "name": "Canção Nova",
+          "poster": "https://c69e439124f3-tvplay.baby-beamup.club/logo/cancaonova",
+          "logo": "https://c69e439124f3-tvplay.baby-beamup.club/logo/cancaonova",
+          "posterShape": "square",
+          "genres": [
+            "Brasil"
+          ]
+        },
+        {
+          "id": "tvagg:br:globodf",
+          "type": "tv",
+          "name": "Globo DF",
+          "poster": "https://c69e439124f3-tvplay.baby-beamup.club/logo/globodf",
+          "logo": "https://c69e439124f3-tvplay.baby-beamup.club/logo/globodf",
+          "posterShape": "square",
+          "genres": [
+            "Brasil"
+          ]
+        },
+        {
+          "id": "tvagg:br:globomg",
+          "type": "tv",
+          "name": "Globo MG",
+          "poster": "https://c69e439124f3-tvplay.baby-beamup.club/logo/globomg",
+          "logo": "https://c69e439124f3-tvplay.baby-beamup.club/logo/globomg",
+          "posterShape": "square",
+          "genres": [
+            "Brasil"
+          ]
+        },
+        {
+          "id": "tvagg:br:globorj",
+          "type": "tv",
+          "name": "Globo RJ",
+          "poster": "https://c69e439124f3-tvplay.baby-beamup.club/logo/globorj",
+          "logo": "https://c69e439124f3-tvplay.baby-beamup.club/logo/globorj",
+          "posterShape": "square",
+          "genres": [
+            "Brasil"
+          ]
+        },
+        {
+          "id": "tvagg:br:globosp",
+          "type": "tv",
+          "name": "Globo SP",
+          "poster": "https://c69e439124f3-tvplay.baby-beamup.club/logo/globosp",
+          "logo": "https://c69e439124f3-tvplay.baby-beamup.club/logo/globosp",
+          "posterShape": "square",
+          "genres": [
+            "Brasil"
+          ]
+        },
+        {
+          "id": "tvagg:br:multishow",
+          "type": "tv",
+          "name": "Multishow",
+          "poster": "https://c69e439124f3-tvplay.baby-beamup.club/logo/multishow",
+          "logo": "https://c69e439124f3-tvplay.baby-beamup.club/logo/multishow",
+          "posterShape": "square",
+          "genres": [
+            "Brasil"
+          ]
+        },
+        {
+          "id": "tvagg:br:aparecida",
+          "type": "tv",
+          "name": "Aparecida",
+          "poster": "https://c69e439124f3-tvplay.baby-beamup.club/logo/aparecida",
+          "logo": "https://c69e439124f3-tvplay.baby-beamup.club/logo/aparecida",
+          "posterShape": "square",
+          "genres": [
+            "Brasil"
+          ]
+        },
+        {
+          "id": "tvagg:br:bandsp",
+          "type": "tv",
+          "name": "Band SP",
+          "poster": "https://c69e439124f3-tvplay.baby-beamup.club/logo/bandsp",
+          "logo": "https://c69e439124f3-tvplay.baby-beamup.club/logo/bandsp",
+          "posterShape": "square",
+          "genres": [
+            "Brasil"
+          ]
+        },
+        {
+          "id": "tvagg:br:tvcultura",
+          "type": "tv",
+          "name": "Cultura",
+          "poster": "https://c69e439124f3-tvplay.baby-beamup.club/logo/cultura",
+          "logo": "https://c69e439124f3-tvplay.baby-beamup.club/logo/cultura",
+          "posterShape": "square",
+          "genres": [
+            "Brasil"
+          ]
+        },
+        {
+          "id": "tvagg:br:recordmg",
+          "type": "tv",
+          "name": "Record MG",
+          "poster": "https://c69e439124f3-tvplay.baby-beamup.club/logo/recordmg",
+          "logo": "https://c69e439124f3-tvplay.baby-beamup.club/logo/recordmg",
+          "posterShape": "square",
+          "genres": [
+            "Brasil"
+          ]
+        },
+        {
+          "id": "tvagg:br:recordrj",
+          "type": "tv",
+          "name": "Record RJ",
+          "poster": "https://c69e439124f3-tvplay.baby-beamup.club/logo/recordrj",
+          "logo": "https://c69e439124f3-tvplay.baby-beamup.club/logo/recordrj",
+          "posterShape": "square",
+          "genres": [
+            "Brasil"
+          ]
+        },
+        {
+          "id": "tvagg:br:recordsp",
+          "type": "tv",
+          "name": "Record SP",
+          "poster": "https://c69e439124f3-tvplay.baby-beamup.club/logo/recordsp",
+          "logo": "https://c69e439124f3-tvplay.baby-beamup.club/logo/recordsp",
+          "posterShape": "square",
+          "genres": [
+            "Brasil"
+          ]
+        },
+        {
+          "id": "tvagg:br:redevida",
+          "type": "tv",
+          "name": "Rede Vida",
+          "poster": "https://c69e439124f3-tvplay.baby-beamup.club/logo/redevida",
+          "logo": "https://c69e439124f3-tvplay.baby-beamup.club/logo/redevida",
+          "posterShape": "square",
+          "genres": [
+            "Brasil"
+          ]
+        },
+        {
+          "id": "tvagg:br:redetv",
+          "type": "tv",
+          "name": "RedeTV!",
+          "poster": "https://c69e439124f3-tvvio.baby-beamup.club/logo?u=aHR0cHM6Ly8xLmVtYmVkY2FuYWlzZGV0di5jb20vaW1hZ2VzL3JlZGV0di5wbmc&v=3",
+          "logo": "https://c69e439124f3-tvvio.baby-beamup.club/logo?u=aHR0cHM6Ly8xLmVtYmVkY2FuYWlzZGV0di5jb20vaW1hZ2VzL3JlZGV0di5wbmc&v=3",
+          "posterShape": "square",
+          "genres": [
+            "Brasil"
+          ]
+        },
+        {
+          "id": "tvagg:br:sbtrj",
+          "type": "tv",
+          "name": "SBT RJ",
+          "poster": "https://c69e439124f3-tvplay.baby-beamup.club/logo/sbtrj",
+          "logo": "https://c69e439124f3-tvplay.baby-beamup.club/logo/sbtrj",
+          "posterShape": "square",
+          "genres": [
+            "Brasil"
+          ]
+        },
+        {
+          "id": "tvagg:br:sbtsp",
+          "type": "tv",
+          "name": "SBT SP",
+          "poster": "https://c69e439124f3-tvplay.baby-beamup.club/logo/sbtsp",
+          "logo": "https://c69e439124f3-tvplay.baby-beamup.club/logo/sbtsp",
+          "posterShape": "square",
+          "genres": [
+            "Brasil"
+          ]
+        },
+        {
+          "id": "tvagg:br:paieterno",
+          "type": "tv",
+          "name": "TV Pai Eterno",
+          "poster": "https://c69e439124f3-tvplay.baby-beamup.club/logo/tvpaieterno",
+          "logo": "https://c69e439124f3-tvplay.baby-beamup.club/logo/tvpaieterno",
+          "posterShape": "square",
+          "genres": [
+            "Brasil"
+          ]
+        },
+        {
+          "id": "tvagg:br:band",
+          "type": "tv",
+          "name": "Band",
+          "poster": "http://32q0d.xyz/images/574ff4699083ce51de0dabcfad5edc4c.png",
+          "logo": "http://32q0d.xyz/images/574ff4699083ce51de0dabcfad5edc4c.png",
+          "posterShape": "square",
+          "genres": [
+            "Brasil"
+          ]
+        },
+        {
+          "id": "tvagg:br:bandrj",
+          "type": "tv",
+          "name": "Band RJ",
+          "poster": "https://c69e439124f3-tvplay.baby-beamup.club/logo/bandrj",
+          "logo": "https://c69e439124f3-tvplay.baby-beamup.club/logo/bandrj",
+          "posterShape": "square",
+          "genres": [
+            "Brasil"
+          ]
+        },
+        {
+          "id": "tvagg:br:canalrural",
+          "type": "tv",
+          "name": "CANAL RURAL",
+          "poster": "https://logos.tonaonda.uk/logos/canalrural.png",
+          "logo": "https://logos.tonaonda.uk/logos/canalrural.png",
+          "posterShape": "square",
+          "genres": [
+            "Brasil"
+          ]
+        },
+        {
+          "id": "tvagg:br:globoes",
+          "type": "tv",
+          "name": "Globo ES",
+          "poster": "https://c69e439124f3-tvplay.baby-beamup.club/logo/globoes",
+          "logo": "https://c69e439124f3-tvplay.baby-beamup.club/logo/globoes",
+          "posterShape": "square",
+          "genres": [
+            "Brasil"
+          ]
+        },
+        {
+          "id": "tvagg:br:globonordeste",
+          "type": "tv",
+          "name": "Globo Nordeste",
+          "poster": "http://32q0d.xyz/images/logos/eccf7d732d94464e73dab755d7fe8bbb.png",
+          "logo": "http://32q0d.xyz/images/logos/eccf7d732d94464e73dab755d7fe8bbb.png",
+          "posterShape": "square",
+          "genres": [
+            "Brasil"
+          ]
+        },
+        {
+          "id": "tvagg:br:globors",
+          "type": "tv",
+          "name": "Globo RS",
+          "poster": "https://c69e439124f3-tvplay.baby-beamup.club/logo/globors",
+          "logo": "https://c69e439124f3-tvplay.baby-beamup.club/logo/globors",
+          "posterShape": "square",
+          "genres": [
+            "Brasil"
+          ]
+        },
+        {
+          "id": "tvagg:br:mtv",
+          "type": "tv",
+          "name": "MTV",
+          "poster": "https://c69e439124f3-tvplay.baby-beamup.club/logo/mtv",
+          "logo": "https://c69e439124f3-tvplay.baby-beamup.club/logo/mtv",
+          "posterShape": "square",
+          "genres": [
+            "Brasil"
+          ]
+        },
+        {
+          "id": "tvagg:br:recorddf",
+          "type": "tv",
+          "name": "Record DF",
+          "poster": "https://c69e439124f3-tvvio.baby-beamup.club/logo?u=aHR0cHM6Ly8xLmVtYmVkY2FuYWlzZGV0di5jb20vaW1hZ2VzL3JlY29yZC5wbmc&v=3",
+          "logo": "https://c69e439124f3-tvvio.baby-beamup.club/logo?u=aHR0cHM6Ly8xLmVtYmVkY2FuYWlzZGV0di5jb20vaW1hZ2VzL3JlY29yZC5wbmc&v=3",
+          "posterShape": "square",
+          "genres": [
+            "Brasil"
+          ]
+        },
+        {
+          "id": "tvagg:br:recordgo",
+          "type": "tv",
+          "name": "Record GO",
+          "poster": "https://c69e439124f3-tvplay.baby-beamup.club/logo/recordgo",
+          "logo": "https://c69e439124f3-tvplay.baby-beamup.club/logo/recordgo",
+          "posterShape": "square",
+          "genres": [
+            "Brasil"
+          ]
+        },
+        {
+          "id": "tvagg:br:sbt",
+          "type": "tv",
+          "name": "SBT",
+          "poster": "http://32q0d.xyz/images/3e58eed5ec44cc7c2563759de309af32.png",
+          "logo": "http://32q0d.xyz/images/3e58eed5ec44cc7c2563759de309af32.png",
+          "posterShape": "square",
+          "genres": [
+            "Brasil"
+          ]
+        },
+        {
+          "id": "tvagg:br:agroplus",
+          "type": "tv",
+          "name": "AGRO +",
+          "poster": "https://logos.tonaonda.uk/logos/agromais.png",
+          "logo": "https://logos.tonaonda.uk/logos/agromais.png",
+          "posterShape": "square",
+          "genres": [
+            "Brasil"
+          ]
+        },
+        {
+          "id": "tvagg:br:bandalagoas",
+          "type": "tv",
+          "name": "Band Alagoas",
+          "poster": "http://32q0d.xyz/images/574ff4699083ce51de0dabcfad5edc4c.png",
+          "logo": "http://32q0d.xyz/images/574ff4699083ce51de0dabcfad5edc4c.png",
+          "posterShape": "square",
+          "genres": [
+            "Brasil"
+          ]
+        },
+        {
+          "id": "tvagg:br:bandba",
+          "type": "tv",
+          "name": "Band Bahia",
+          "poster": "http://32q0d.xyz/images/574ff4699083ce51de0dabcfad5edc4c.png",
+          "logo": "http://32q0d.xyz/images/574ff4699083ce51de0dabcfad5edc4c.png",
+          "posterShape": "square",
+          "genres": [
+            "Brasil"
+          ]
+        },
+        {
+          "id": "tvagg:br:bandbarrigaverdesc",
+          "type": "tv",
+          "name": "Band Barriga Verde SC",
+          "poster": "http://32q0d.xyz/images/574ff4699083ce51de0dabcfad5edc4c.png",
+          "logo": "http://32q0d.xyz/images/574ff4699083ce51de0dabcfad5edc4c.png",
+          "posterShape": "square",
+          "genres": [
+            "Brasil"
+          ]
+        },
+        {
+          "id": "tvagg:br:banddf",
+          "type": "tv",
+          "name": "Band Brasilia",
+          "poster": "http://32q0d.xyz/images/574ff4699083ce51de0dabcfad5edc4c.png",
+          "logo": "http://32q0d.xyz/images/574ff4699083ce51de0dabcfad5edc4c.png",
+          "posterShape": "square",
+          "genres": [
+            "Brasil"
+          ]
+        },
+        {
+          "id": "tvagg:br:bandcampinas",
+          "type": "tv",
+          "name": "Band Campinas",
+          "poster": "http://32q0d.xyz/images/574ff4699083ce51de0dabcfad5edc4c.png",
+          "logo": "http://32q0d.xyz/images/574ff4699083ce51de0dabcfad5edc4c.png",
+          "posterShape": "square",
+          "genres": [
+            "Brasil"
+          ]
+        },
+        {
+          "id": "tvagg:br:bandce",
+          "type": "tv",
+          "name": "Band Ceará",
+          "poster": "http://32q0d.xyz/images/574ff4699083ce51de0dabcfad5edc4c.png",
+          "logo": "http://32q0d.xyz/images/574ff4699083ce51de0dabcfad5edc4c.png",
+          "posterShape": "square",
+          "genres": [
+            "Brasil"
+          ]
+        },
+        {
+          "id": "tvagg:br:bandgo",
+          "type": "tv",
+          "name": "Band Goiânia",
+          "poster": "http://32q0d.xyz/images/574ff4699083ce51de0dabcfad5edc4c.png",
+          "logo": "http://32q0d.xyz/images/574ff4699083ce51de0dabcfad5edc4c.png",
+          "posterShape": "square",
+          "genres": [
+            "Brasil"
+          ]
+        },
+        {
+          "id": "tvagg:br:bandminasmg",
+          "type": "tv",
+          "name": "Band Minas MG",
+          "poster": "http://32q0d.xyz/images/574ff4699083ce51de0dabcfad5edc4c.png",
+          "logo": "http://32q0d.xyz/images/574ff4699083ce51de0dabcfad5edc4c.png",
+          "posterShape": "square",
+          "genres": [
+            "Brasil"
+          ]
+        },
+        {
+          "id": "tvagg:br:bandnordeste",
+          "type": "tv",
+          "name": "Band Nordeste",
+          "poster": "http://32q0d.xyz/images/574ff4699083ce51de0dabcfad5edc4c.png",
+          "logo": "http://32q0d.xyz/images/574ff4699083ce51de0dabcfad5edc4c.png",
+          "posterShape": "square",
+          "genres": [
+            "Brasil"
+          ]
+        },
+        {
+          "id": "tvagg:br:bandpaulista",
+          "type": "tv",
+          "name": "Band Paulista",
+          "poster": "http://32q0d.xyz/images/574ff4699083ce51de0dabcfad5edc4c.png",
+          "logo": "http://32q0d.xyz/images/574ff4699083ce51de0dabcfad5edc4c.png",
+          "posterShape": "square",
+          "genres": [
+            "Brasil"
+          ]
+        },
+        {
+          "id": "tvagg:br:bandpr",
+          "type": "tv",
+          "name": "Band PR",
+          "poster": "http://32q0d.xyz/images/574ff4699083ce51de0dabcfad5edc4c.png",
+          "logo": "http://32q0d.xyz/images/574ff4699083ce51de0dabcfad5edc4c.png",
+          "posterShape": "square",
+          "genres": [
+            "Brasil"
+          ]
+        },
+        {
+          "id": "tvagg:br:bandrbatvpa",
+          "type": "tv",
+          "name": "Band RBATV PA",
+          "poster": "http://32q0d.xyz/images/574ff4699083ce51de0dabcfad5edc4c.png",
+          "logo": "http://32q0d.xyz/images/574ff4699083ce51de0dabcfad5edc4c.png",
+          "posterShape": "square",
+          "genres": [
+            "Brasil"
+          ]
+        },
+        {
+          "id": "tvagg:br:bandrn",
+          "type": "tv",
+          "name": "Band RN",
+          "poster": "http://32q0d.xyz/images/574ff4699083ce51de0dabcfad5edc4c.png",
+          "logo": "http://32q0d.xyz/images/574ff4699083ce51de0dabcfad5edc4c.png",
+          "posterShape": "square",
+          "genres": [
+            "Brasil"
+          ]
+        },
+        {
+          "id": "tvagg:br:bandrs",
+          "type": "tv",
+          "name": "Band RS",
+          "poster": "http://32q0d.xyz/images/574ff4699083ce51de0dabcfad5edc4c.png",
+          "logo": "http://32q0d.xyz/images/574ff4699083ce51de0dabcfad5edc4c.png",
+          "posterShape": "square",
+          "genres": [
+            "Brasil"
+          ]
+        },
+        {
+          "id": "tvagg:br:bandsd",
+          "type": "tv",
+          "name": "Band SD²",
+          "poster": "http://32q0d.xyz/images/574ff4699083ce51de0dabcfad5edc4c.png",
+          "logo": "http://32q0d.xyz/images/574ff4699083ce51de0dabcfad5edc4c.png",
+          "posterShape": "square",
+          "genres": [
+            "Brasil"
+          ]
+        },
+        {
+          "id": "tvagg:br:bandsjc",
+          "type": "tv",
+          "name": "Band SJC",
+          "poster": "http://32q0d.xyz/images/574ff4699083ce51de0dabcfad5edc4c.png",
+          "logo": "http://32q0d.xyz/images/574ff4699083ce51de0dabcfad5edc4c.png",
+          "posterShape": "square",
+          "genres": [
+            "Brasil"
+          ]
+        },
+        {
+          "id": "tvagg:br:bandto",
+          "type": "tv",
+          "name": "Band TO",
+          "poster": "http://32q0d.xyz/images/574ff4699083ce51de0dabcfad5edc4c.png",
+          "logo": "http://32q0d.xyz/images/574ff4699083ce51de0dabcfad5edc4c.png",
+          "posterShape": "square",
+          "genres": [
+            "Brasil"
+          ]
+        },
+        {
+          "id": "tvagg:br:bandtribunarecife",
+          "type": "tv",
+          "name": "Band Tribuna Recife",
+          "poster": "http://32q0d.xyz/images/574ff4699083ce51de0dabcfad5edc4c.png",
+          "logo": "http://32q0d.xyz/images/574ff4699083ce51de0dabcfad5edc4c.png",
+          "posterShape": "square",
+          "genres": [
+            "Brasil"
+          ]
+        },
+        {
+          "id": "tvagg:br:bandtvcapixabaes",
+          "type": "tv",
+          "name": "Band TV Capixaba ES",
+          "poster": "http://32q0d.xyz/images/574ff4699083ce51de0dabcfad5edc4c.png",
+          "logo": "http://32q0d.xyz/images/574ff4699083ce51de0dabcfad5edc4c.png",
+          "posterShape": "square",
+          "genres": [
+            "Brasil"
+          ]
+        },
+        {
+          "id": "tvagg:br:canalagro",
+          "type": "tv",
+          "name": "CANAL AGRO",
+          "poster": "https://logos.tonaonda.uk/logos/agrocanal.png",
+          "logo": "https://logos.tonaonda.uk/logos/agrocanal.png",
+          "posterShape": "square",
+          "genres": [
+            "Brasil"
+          ]
+        },
+        {
+          "id": "tvagg:br:canaldoboi",
+          "type": "tv",
+          "name": "CANAL DO BOI",
+          "poster": "https://logos.tonaonda.uk/logos/canal.do.boi.png",
+          "logo": "https://logos.tonaonda.uk/logos/canal.do.boi.png",
+          "posterShape": "square",
+          "genres": [
+            "Brasil"
+          ]
+        },
+        {
+          "id": "tvagg:br:cnt",
+          "type": "tv",
+          "name": "CNT",
+          "poster": "https://logos.tonaonda.uk/logos/cnt.png",
+          "logo": "https://logos.tonaonda.uk/logos/cnt.png",
+          "posterShape": "square",
+          "genres": [
+            "Brasil"
+          ]
+        },
+        {
+          "id": "tvagg:br:futura",
+          "type": "tv",
+          "name": "FUTURA",
+          "poster": "https://logos.tonaonda.uk/logos/futura.png",
+          "logo": "https://logos.tonaonda.uk/logos/futura.png",
+          "posterShape": "square",
+          "genres": [
+            "Brasil"
+          ]
+        },
+        {
+          "id": "tvagg:br:gazeta",
+          "type": "tv",
+          "name": "GAZETA",
+          "poster": "https://logos.tonaonda.uk/logos/gazeta.png",
+          "logo": "https://logos.tonaonda.uk/logos/gazeta.png",
+          "posterShape": "square",
+          "genres": [
+            "Brasil"
+          ]
+        },
+        {
+          "id": "tvagg:br:globoam",
+          "type": "tv",
+          "name": "Globo AM",
+          "poster": "https://c69e439124f3-tvplay.baby-beamup.club/logo/globoam",
+          "logo": "https://c69e439124f3-tvplay.baby-beamup.club/logo/globoam",
+          "posterShape": "square",
+          "genres": [
+            "Brasil"
+          ]
+        },
+        {
+          "id": "tvagg:br:globoamazonicacruzeiroacre",
+          "type": "tv",
+          "name": "Globo Amazônica Cruzeiro Acre",
+          "poster": "http://32q0d.xyz/images/logos/eccf7d732d94464e73dab755d7fe8bbb.png",
+          "logo": "http://32q0d.xyz/images/logos/eccf7d732d94464e73dab755d7fe8bbb.png",
+          "posterShape": "square",
+          "genres": [
+            "Brasil"
+          ]
+        },
+        {
+          "id": "tvagg:br:globoamazonicamacapa",
+          "type": "tv",
+          "name": "Globo Amazônica Macapá",
+          "poster": "http://32q0d.xyz/images/logos/eccf7d732d94464e73dab755d7fe8bbb.png",
+          "logo": "http://32q0d.xyz/images/logos/eccf7d732d94464e73dab755d7fe8bbb.png",
+          "posterShape": "square",
+          "genres": [
+            "Brasil"
+          ]
+        },
+        {
+          "id": "tvagg:br:globoamazonicamanaus",
+          "type": "tv",
+          "name": "Globo Amazonica Manaus",
+          "poster": "http://32q0d.xyz/images/logos/eccf7d732d94464e73dab755d7fe8bbb.png",
+          "logo": "http://32q0d.xyz/images/logos/eccf7d732d94464e73dab755d7fe8bbb.png",
+          "posterShape": "square",
+          "genres": [
+            "Brasil"
+          ]
+        },
+        {
+          "id": "tvagg:br:globoamazonicaportovelho",
+          "type": "tv",
+          "name": "Globo Amazônica Porto Velho",
+          "poster": "http://32q0d.xyz/images/logos/eccf7d732d94464e73dab755d7fe8bbb.png",
+          "logo": "http://32q0d.xyz/images/logos/eccf7d732d94464e73dab755d7fe8bbb.png",
+          "posterShape": "square",
+          "genres": [
+            "Brasil"
+          ]
+        },
+        {
+          "id": "tvagg:br:globoamazonicariobranco",
+          "type": "tv",
+          "name": "Globo Amazônica Rio Branco",
+          "poster": "http://32q0d.xyz/images/logos/eccf7d732d94464e73dab755d7fe8bbb.png",
+          "logo": "http://32q0d.xyz/images/logos/eccf7d732d94464e73dab755d7fe8bbb.png",
+          "posterShape": "square",
+          "genres": [
+            "Brasil"
+          ]
+        },
+        {
+          "id": "tvagg:br:globoamazonicaro",
+          "type": "tv",
+          "name": "Globo Amazonica RO",
+          "poster": "http://32q0d.xyz/images/logos/eccf7d732d94464e73dab755d7fe8bbb.png",
+          "logo": "http://32q0d.xyz/images/logos/eccf7d732d94464e73dab755d7fe8bbb.png",
+          "posterShape": "square",
+          "genres": [
+            "Brasil"
+          ]
+        },
+        {
+          "id": "tvagg:br:globobahiasantacruz",
+          "type": "tv",
+          "name": "Globo Bahia Santa Cruz",
+          "poster": "http://32q0d.xyz/images/logos/eccf7d732d94464e73dab755d7fe8bbb.png",
+          "logo": "http://32q0d.xyz/images/logos/eccf7d732d94464e73dab755d7fe8bbb.png",
+          "posterShape": "square",
+          "genres": [
+            "Brasil"
+          ]
+        },
+        {
+          "id": "tvagg:br:globobahiavdc",
+          "type": "tv",
+          "name": "Globo Bahia VDC",
+          "poster": "http://32q0d.xyz/images/logos/eccf7d732d94464e73dab755d7fe8bbb.png",
+          "logo": "http://32q0d.xyz/images/logos/eccf7d732d94464e73dab755d7fe8bbb.png",
+          "posterShape": "square",
+          "genres": [
+            "Brasil"
+          ]
+        },
+        {
+          "id": "tvagg:br:globoboavistaroraima",
+          "type": "tv",
+          "name": "Globo Boa Vista Roraima",
+          "poster": "http://32q0d.xyz/images/logos/eccf7d732d94464e73dab755d7fe8bbb.png",
+          "logo": "http://32q0d.xyz/images/logos/eccf7d732d94464e73dab755d7fe8bbb.png",
+          "posterShape": "square",
+          "genres": [
+            "Brasil"
+          ]
+        },
+        {
+          "id": "tvagg:br:globocacoal",
+          "type": "tv",
+          "name": "Globo Cacoal",
+          "poster": "http://32q0d.xyz/images/logos/eccf7d732d94464e73dab755d7fe8bbb.png",
+          "logo": "http://32q0d.xyz/images/logos/eccf7d732d94464e73dab755d7fe8bbb.png",
+          "posterShape": "square",
+          "genres": [
+            "Brasil"
+          ]
+        },
+        {
+          "id": "tvagg:br:globoce",
+          "type": "tv",
+          "name": "Globo CE",
+          "poster": "https://c69e439124f3-tvplay.baby-beamup.club/logo/globoce",
+          "logo": "https://c69e439124f3-tvplay.baby-beamup.club/logo/globoce",
+          "posterShape": "square",
+          "genres": [
+            "Brasil"
+          ]
+        },
+        {
+          "id": "tvagg:br:globocentroamerica",
+          "type": "tv",
+          "name": "Globo Centro America",
+          "poster": "http://32q0d.xyz/images/logos/eccf7d732d94464e73dab755d7fe8bbb.png",
+          "logo": "http://32q0d.xyz/images/logos/eccf7d732d94464e73dab755d7fe8bbb.png",
+          "posterShape": "square",
+          "genres": [
+            "Brasil"
+          ]
+        },
+        {
+          "id": "tvagg:br:globodivinopolis",
+          "type": "tv",
+          "name": "Globo Divinópolis",
+          "poster": "http://32q0d.xyz/images/logos/eccf7d732d94464e73dab755d7fe8bbb.png",
+          "logo": "http://32q0d.xyz/images/logos/eccf7d732d94464e73dab755d7fe8bbb.png",
+          "posterShape": "square",
+          "genres": [
+            "Brasil"
+          ]
+        },
+        {
+          "id": "tvagg:br:globoeptvcampinas",
+          "type": "tv",
+          "name": "Globo EPTV Campinas",
+          "poster": "http://32q0d.xyz/images/logos/eccf7d732d94464e73dab755d7fe8bbb.png",
+          "logo": "http://32q0d.xyz/images/logos/eccf7d732d94464e73dab755d7fe8bbb.png",
+          "posterShape": "square",
+          "genres": [
+            "Brasil"
+          ]
+        },
+        {
+          "id": "tvagg:br:globoeptvribeiraopreto",
+          "type": "tv",
+          "name": "Globo EPTV Ribeirão Preto",
+          "poster": "http://32q0d.xyz/images/logos/eccf7d732d94464e73dab755d7fe8bbb.png",
+          "logo": "http://32q0d.xyz/images/logos/eccf7d732d94464e73dab755d7fe8bbb.png",
+          "posterShape": "square",
+          "genres": [
+            "Brasil"
+          ]
+        },
+        {
+          "id": "tvagg:br:globoeptvsaocarlos",
+          "type": "tv",
+          "name": "Globo EPTV São Carlos",
+          "poster": "http://32q0d.xyz/images/logos/eccf7d732d94464e73dab755d7fe8bbb.png",
+          "logo": "http://32q0d.xyz/images/logos/eccf7d732d94464e73dab755d7fe8bbb.png",
+          "posterShape": "square",
+          "genres": [
+            "Brasil"
+          ]
+        },
+        {
+          "id": "tvagg:br:globoeptvsuldeminas",
+          "type": "tv",
+          "name": "Globo EPTV Sul de Minas",
+          "poster": "http://32q0d.xyz/images/logos/eccf7d732d94464e73dab755d7fe8bbb.png",
+          "logo": "http://32q0d.xyz/images/logos/eccf7d732d94464e73dab755d7fe8bbb.png",
+          "posterShape": "square",
+          "genres": [
+            "Brasil"
+          ]
+        },
+        {
+          "id": "tvagg:br:globogo",
+          "type": "tv",
+          "name": "Globo GO",
+          "poster": "https://c69e439124f3-tvplay.baby-beamup.club/logo/globogo",
+          "logo": "https://c69e439124f3-tvplay.baby-beamup.club/logo/globogo",
+          "posterShape": "square",
+          "genres": [
+            "Brasil"
+          ]
+        },
+        {
+          "id": "tvagg:br:globointegracaouberlandia",
+          "type": "tv",
+          "name": "Globo Integração Uberlândia",
+          "poster": "http://32q0d.xyz/images/logos/eccf7d732d94464e73dab755d7fe8bbb.png",
+          "logo": "http://32q0d.xyz/images/logos/eccf7d732d94464e73dab755d7fe8bbb.png",
+          "posterShape": "square",
+          "genres": [
+            "Brasil"
+          ]
+        },
+        {
+          "id": "tvagg:br:globointercabugi",
+          "type": "tv",
+          "name": "Globo Inter Cabugi",
+          "poster": "http://32q0d.xyz/images/logos/eccf7d732d94464e73dab755d7fe8bbb.png",
+          "logo": "http://32q0d.xyz/images/logos/eccf7d732d94464e73dab755d7fe8bbb.png",
+          "posterShape": "square",
+          "genres": [
+            "Brasil"
+          ]
+        },
+        {
+          "id": "tvagg:br:globointerpt",
+          "type": "tv",
+          "name": "Globo Inter PT",
+          "poster": "http://32q0d.xyz/images/logos/Globo_logo_and_wordmark2.png",
+          "logo": "http://32q0d.xyz/images/logos/Globo_logo_and_wordmark2.png",
+          "posterShape": "square",
+          "genres": [
+            "Brasil"
+          ]
+        },
+        {
+          "id": "tvagg:br:globointertvaltolitoral",
+          "type": "tv",
+          "name": "Globo Inter TV Alto Litoral",
+          "poster": "http://32q0d.xyz/images/logos/eccf7d732d94464e73dab755d7fe8bbb.png",
+          "logo": "http://32q0d.xyz/images/logos/eccf7d732d94464e73dab755d7fe8bbb.png",
+          "posterShape": "square",
+          "genres": [
+            "Brasil"
+          ]
+        },
+        {
+          "id": "tvagg:br:globointertvdosvales",
+          "type": "tv",
+          "name": "Globo Inter TV dos Vales",
+          "poster": "http://32q0d.xyz/images/logos/eccf7d732d94464e73dab755d7fe8bbb.png",
+          "logo": "http://32q0d.xyz/images/logos/eccf7d732d94464e73dab755d7fe8bbb.png",
+          "posterShape": "square",
+          "genres": [
+            "Brasil"
+          ]
+        },
+        {
+          "id": "tvagg:br:globointertvgrandeminas",
+          "type": "tv",
+          "name": "Globo Inter TV Grande Minas",
+          "poster": "http://32q0d.xyz/images/logos/eccf7d732d94464e73dab755d7fe8bbb.png",
+          "logo": "http://32q0d.xyz/images/logos/eccf7d732d94464e73dab755d7fe8bbb.png",
+          "posterShape": "square",
+          "genres": [
+            "Brasil"
+          ]
+        },
+        {
+          "id": "tvagg:br:globointertvcelfabriciano",
+          "type": "tv",
+          "name": "Globo INTERTV Cel Fabriciano",
+          "poster": "http://32q0d.xyz/images/logos/eccf7d732d94464e73dab755d7fe8bbb.png",
+          "logo": "http://32q0d.xyz/images/logos/eccf7d732d94464e73dab755d7fe8bbb.png",
+          "posterShape": "square",
+          "genres": [
+            "Brasil"
+          ]
+        },
+        {
+          "id": "tvagg:br:globointertvcostabranca",
+          "type": "tv",
+          "name": "Globo INTERTV Costa Branca",
+          "poster": "http://32q0d.xyz/images/logos/eccf7d732d94464e73dab755d7fe8bbb.png",
+          "logo": "http://32q0d.xyz/images/logos/eccf7d732d94464e73dab755d7fe8bbb.png",
+          "posterShape": "square",
+          "genres": [
+            "Brasil"
+          ]
+        },
+        {
+          "id": "tvagg:br:globointertvgovvaladares",
+          "type": "tv",
+          "name": "Globo INTERTV Gov Valadares",
+          "poster": "http://32q0d.xyz/images/logos/eccf7d732d94464e73dab755d7fe8bbb.png",
+          "logo": "http://32q0d.xyz/images/logos/eccf7d732d94464e73dab755d7fe8bbb.png",
+          "posterShape": "square",
+          "genres": [
+            "Brasil"
+          ]
+        },
+        {
+          "id": "tvagg:br:globonacional",
+          "type": "tv",
+          "name": "Globo Nacional",
+          "poster": "http://32q0d.xyz/images/logos/eccf7d732d94464e73dab755d7fe8bbb.png",
+          "logo": "http://32q0d.xyz/images/logos/eccf7d732d94464e73dab755d7fe8bbb.png",
+          "posterShape": "square",
+          "genres": [
+            "Brasil"
+          ]
+        },
+        {
+          "id": "tvagg:br:globonovelas",
+          "type": "tv",
+          "name": "Globo Novelas",
+          "poster": "https://c69e439124f3-tvplay.baby-beamup.club/logo/globonovelas",
+          "logo": "https://c69e439124f3-tvplay.baby-beamup.club/logo/globonovelas",
+          "posterShape": "square",
+          "genres": [
+            "Brasil"
+          ]
+        },
+        {
+          "id": "tvagg:br:globonow",
+          "type": "tv",
+          "name": "Globo NOW",
+          "poster": "http://32q0d.xyz/images/logos/Globo_Now.png",
+          "logo": "http://32q0d.xyz/images/logos/Globo_Now.png",
+          "posterShape": "square",
+          "genres": [
+            "Brasil"
+          ]
+        },
+        {
+          "id": "tvagg:br:globonsccentrooeste",
+          "type": "tv",
+          "name": "Globo NSC Centro Oeste",
+          "poster": "http://32q0d.xyz/images/logos/eccf7d732d94464e73dab755d7fe8bbb.png",
+          "logo": "http://32q0d.xyz/images/logos/eccf7d732d94464e73dab755d7fe8bbb.png",
+          "posterShape": "square",
+          "genres": [
+            "Brasil"
+          ]
+        },
+        {
+          "id": "tvagg:br:globonscflorianopolis",
+          "type": "tv",
+          "name": "Globo NSC Florianopolis",
+          "poster": "http://32q0d.xyz/images/logos/eccf7d732d94464e73dab755d7fe8bbb.png",
+          "logo": "http://32q0d.xyz/images/logos/eccf7d732d94464e73dab755d7fe8bbb.png",
+          "posterShape": "square",
+          "genres": [
+            "Brasil"
+          ]
+        },
+        {
+          "id": "tvagg:br:globonsctvblumenau",
+          "type": "tv",
+          "name": "Globo NSC TV Blumenau",
+          "poster": "http://32q0d.xyz/images/logos/eccf7d732d94464e73dab755d7fe8bbb.png",
+          "logo": "http://32q0d.xyz/images/logos/eccf7d732d94464e73dab755d7fe8bbb.png",
+          "posterShape": "square",
+          "genres": [
+            "Brasil"
+          ]
+        },
+        {
+          "id": "tvagg:br:globonsctvchapeco",
+          "type": "tv",
+          "name": "Globo NSC TV Chapeco",
+          "poster": "http://32q0d.xyz/images/logos/eccf7d732d94464e73dab755d7fe8bbb.png",
+          "logo": "http://32q0d.xyz/images/logos/eccf7d732d94464e73dab755d7fe8bbb.png",
+          "posterShape": "square",
+          "genres": [
+            "Brasil"
+          ]
+        },
+        {
+          "id": "tvagg:br:globonsctvcriciuma",
+          "type": "tv",
+          "name": "Globo NSC TV Criciuma",
+          "poster": "http://32q0d.xyz/images/logos/eccf7d732d94464e73dab755d7fe8bbb.png",
+          "logo": "http://32q0d.xyz/images/logos/eccf7d732d94464e73dab755d7fe8bbb.png",
+          "posterShape": "square",
+          "genres": [
+            "Brasil"
+          ]
+        },
+        {
+          "id": "tvagg:br:globonsctvjoinville",
+          "type": "tv",
+          "name": "Globo NSC TV Joinville",
+          "poster": "http://32q0d.xyz/images/logos/eccf7d732d94464e73dab755d7fe8bbb.png",
+          "logo": "http://32q0d.xyz/images/logos/eccf7d732d94464e73dab755d7fe8bbb.png",
+          "posterShape": "square",
+          "genres": [
+            "Brasil"
+          ]
+        },
+        {
+          "id": "tvagg:br:globopb",
+          "type": "tv",
+          "name": "Globo PB",
+          "poster": "https://c69e439124f3-tvplay.baby-beamup.club/logo/globopb",
+          "logo": "https://c69e439124f3-tvplay.baby-beamup.club/logo/globopb",
+          "posterShape": "square",
+          "genres": [
+            "Brasil"
+          ]
+        },
+        {
+          "id": "tvagg:br:globope",
+          "type": "tv",
+          "name": "Globo PE",
+          "poster": "https://c69e439124f3-tvplay.baby-beamup.club/logo/globope",
+          "logo": "https://c69e439124f3-tvplay.baby-beamup.club/logo/globope",
+          "posterShape": "square",
+          "genres": [
+            "Brasil"
+          ]
+        },
+        {
+          "id": "tvagg:br:globorbspassofundo",
+          "type": "tv",
+          "name": "Globo RBS Passo Fundo",
+          "poster": "http://32q0d.xyz/images/logos/eccf7d732d94464e73dab755d7fe8bbb.png",
+          "logo": "http://32q0d.xyz/images/logos/eccf7d732d94464e73dab755d7fe8bbb.png",
+          "posterShape": "square",
+          "genres": [
+            "Brasil"
+          ]
+        },
+        {
+          "id": "tvagg:br:globorbssantacruz",
+          "type": "tv",
+          "name": "Globo RBS Santa Cruz",
+          "poster": "http://32q0d.xyz/images/logos/eccf7d732d94464e73dab755d7fe8bbb.png",
+          "logo": "http://32q0d.xyz/images/logos/eccf7d732d94464e73dab755d7fe8bbb.png",
+          "posterShape": "square",
+          "genres": [
+            "Brasil"
+          ]
+        },
+        {
+          "id": "tvagg:br:globorbstvcaxiasdosul",
+          "type": "tv",
+          "name": "Globo RBS TV Caxias do Sul",
+          "poster": "http://32q0d.xyz/images/logos/eccf7d732d94464e73dab755d7fe8bbb.png",
+          "logo": "http://32q0d.xyz/images/logos/eccf7d732d94464e73dab755d7fe8bbb.png",
+          "posterShape": "square",
+          "genres": [
+            "Brasil"
+          ]
+        },
+        {
+          "id": "tvagg:br:globorbstvcruzalta",
+          "type": "tv",
+          "name": "Globo RBS TV Cruz Alta",
+          "poster": "http://32q0d.xyz/images/logos/eccf7d732d94464e73dab755d7fe8bbb.png",
+          "logo": "http://32q0d.xyz/images/logos/eccf7d732d94464e73dab755d7fe8bbb.png",
+          "posterShape": "square",
+          "genres": [
+            "Brasil"
+          ]
+        },
+        {
+          "id": "tvagg:br:globorbstverechim",
+          "type": "tv",
+          "name": "Globo RBS TV Erechim",
+          "poster": "http://32q0d.xyz/images/logos/eccf7d732d94464e73dab755d7fe8bbb.png",
+          "logo": "http://32q0d.xyz/images/logos/eccf7d732d94464e73dab755d7fe8bbb.png",
+          "posterShape": "square",
+          "genres": [
+            "Brasil"
+          ]
+        },
+        {
+          "id": "tvagg:br:globorbstvpelotas",
+          "type": "tv",
+          "name": "Globo RBS TV Pelotas",
+          "poster": "http://32q0d.xyz/images/logos/eccf7d732d94464e73dab755d7fe8bbb.png",
+          "logo": "http://32q0d.xyz/images/logos/eccf7d732d94464e73dab755d7fe8bbb.png",
+          "posterShape": "square",
+          "genres": [
+            "Brasil"
+          ]
+        },
+        {
+          "id": "tvagg:br:globorbstvpoa",
+          "type": "tv",
+          "name": "Globo RBS TV POA",
+          "poster": "http://32q0d.xyz/images/logos/eccf7d732d94464e73dab755d7fe8bbb.png",
+          "logo": "http://32q0d.xyz/images/logos/eccf7d732d94464e73dab755d7fe8bbb.png",
+          "posterShape": "square",
+          "genres": [
+            "Brasil"
+          ]
+        },
+        {
+          "id": "tvagg:br:globorbstvsantamaria",
+          "type": "tv",
+          "name": "Globo RBS TV Santa Maria",
+          "poster": "http://32q0d.xyz/images/logos/eccf7d732d94464e73dab755d7fe8bbb.png",
+          "logo": "http://32q0d.xyz/images/logos/eccf7d732d94464e73dab755d7fe8bbb.png",
+          "posterShape": "square",
+          "genres": [
+            "Brasil"
+          ]
+        },
+        {
+          "id": "tvagg:br:globorbstvsantarosa",
+          "type": "tv",
+          "name": "Globo RBS TV Santa Rosa",
+          "poster": "http://32q0d.xyz/images/logos/eccf7d732d94464e73dab755d7fe8bbb.png",
+          "logo": "http://32q0d.xyz/images/logos/eccf7d732d94464e73dab755d7fe8bbb.png",
+          "posterShape": "square",
+          "genres": [
+            "Brasil"
+          ]
+        }
+      ],
+      "cacheMaxAge": 1800,
+      "staleRevalidate": 21600
+    }
+  }
+}

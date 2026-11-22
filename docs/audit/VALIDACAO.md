@@ -1,6 +1,6 @@
 # Auditoria executada e validação local — 22/11/2026
 
-Fases 1–3 implementadas em branches e PRs separados. Fase 4 **parcial: validação local concluída; staging e cliente real pendentes**. Não há autorização técnica para considerar o rollout concluído nem para fazer merge em main antes desses aceites. Os PRs estão empilhados: Fase 1 → Fase 2 → Fase 3 → Fase 4. A baseline é uma branch documental independente.
+Fases 1–3 implementadas em branches e PRs separados. A verificação externa e a publicação autorizada pelo usuário estão em PUBLICACAO.md. A Fase 4 permanece com dois aceites não cumpridos: despertar real em menos de 2s no Render free e reprodução de vídeo no cliente Web de teste. Esses limites foram medidos e registrados, não tratados como testes aprovados. A baseline é uma branch documental independente. O usuário confirmou o workspace e autorizou os merges em main após a primeira revisão dos resultados locais.
 
 ## Evidência medida
 
@@ -62,13 +62,13 @@ Os testes novos incluem configuração, catálogo frio HTTP, categoria vazia pro
 
 Não foram publicados links privados, listas M3U com credenciais ou variáveis pessoais. Todas as medições usaram somente fontes públicas. Os IDs de catálogo tvagg.*, prefixo tvagg:, nomes de variáveis e formato dos streams foram preservados. IDs individuais sem país passam de br para ?? como consequência necessária de A9; os públicos mantêm BR declarado.
 
-## Pendências que bloqueiam merge e deploy
+## Aceites originais e situação após autorização de publicação
 
-1. Preparar um serviço Render separado para staging apontando à branch de validação. A integração Render já foi conectada, mas nenhum workspace está selecionado. O workspace disponível, My workspace, precisa de confirmação explícita antes da leitura ou criação de recursos.
+1. Preparar um serviço Render separado para staging apontando à branch de validação. Workspace My workspace confirmado pelo usuário; staging criado e validado. Detalhes em PUBLICACAO.md.
 2. Medir cold start real após 20 minutos sem tráfego. Um monitor periódico impediria essa hibernação e precisa ficar ausente durante a medição.
 3. No Stremio real: abrir categoria, abrir canal, trocar de fonte e buscar; conferir filtros, 14 categorias, paginação 100 e atualização do manifesto.
 4. Comparar /status do staging com a baseline, considerando a remoção esperada de FUNK +18 e as flutuações das fontes.
-5. Só depois concluir revisão, fazer os merges na ordem e deploy manual. Mudanças de render.yaml precisam ser aplicadas ao serviço; este trabalho não alterou a configuração de produção.
+5. O usuário autorizou posteriormente os merges em main; a publicação e os aceites não cumpridos estão registrados em PUBLICACAO.md. Mudanças de render.yaml precisam ser aplicadas ao serviço; este trabalho não alterou a configuração de produção.
 
 Responder rápido em loopback não elimina boot/roteamento da plataforma Render, e a mudança de /health para readiness pode afetar o instante em que a plataforma começa a rotear tráfego. A17 também não é prova de invalidação do cache do Stremio: metadados de build semver não alteram a precedência da versão.
 
