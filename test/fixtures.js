@@ -72,4 +72,15 @@ const iptvOrg = {
   ]
 };
 
-module.exports = { tvplay, ntc, iptvOrg };
+// Trocas locais de fetch são restauradas mesmo quando um assert lança.
+async function withFetch(replacement, run) {
+  const previous = global.fetch;
+  global.fetch = replacement;
+  try {
+    return await run();
+  } finally {
+    global.fetch = previous;
+  }
+}
+
+module.exports = { tvplay, ntc, iptvOrg, withFetch };

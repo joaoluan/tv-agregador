@@ -1,6 +1,8 @@
 'use strict';
 
 const DEFAULT_TIMEOUT = 15000;
+// Deve ser menor que o timeout agregado do store (10s por padrão).
+const STREAM_TIMEOUT_MS = 9000;
 
 async function fetchJson(url, { timeout = DEFAULT_TIMEOUT, retries = 1, headers = {} } = {}) {
   let lastError;
@@ -77,4 +79,4 @@ function withTimeout(promise, ms, fallback) {
   return Promise.race([promise, timeout]).finally(() => clearTimeout(timer));
 }
 
-module.exports = { fetchJson, fetchText, mapLimit, withTimeout, safeUrl };
+module.exports = { STREAM_TIMEOUT_MS, fetchJson, fetchText, mapLimit, withTimeout, safeUrl };

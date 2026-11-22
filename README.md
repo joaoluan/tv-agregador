@@ -43,11 +43,12 @@ Conteúdo adulto, televendas e canais de teste das fontes são descartados.
 1. Crie um repositório **novo** no GitHub (ex.: `tv-agregador`) e envie esta pasta.
 2. No Render, clique em **New → Blueprint** e escolha o repositório. Ele lê o `render.yaml` e cria o serviço gratuito.
 3. Quando terminar, abra o endereço do serviço (ex.: `https://tv-agregador.onrender.com`). Na página, clique em **Instalar no Stremio Web**. Com isso o addon vai para a sua conta e aparece na TV.
-4. Confira em `/status` quantos canais cada fonte trouxe.
+4. Confira em `/status` quantos canais cada fonte trouxe. `/health` retorna 503 durante a construção inicial e 200 quando o índice está pronto, com as contagens.
+5. Deploy automático está desativado. Antes do deploy manual, rode `npm ci`, `npm run lint` e `npm test` e conclua a validação de staging.
 
 ### Plano gratuito: servidor "dormindo"
 
-No plano gratuito, o Render desliga o serviço depois de 15 minutos sem uso. Quando você abre o Stremio, ele acorda, mas leva entre 30 segundos e 1 minuto para religar e montar a lista. Se as linhas aparecerem vazias, saia e volte depois de alguns segundos.
+No plano gratuito, o Render desliga o serviço depois de 15 minutos sem uso. Quando você abre o Stremio, ele acorda, mas leva entre 30 segundos e 1 minuto para religar e montar a lista. Os handlers respondem sem aguardar o índice e não permitem cache da lista vazia enquanto ele carrega. Se as linhas aparecerem vazias, saia e volte depois de alguns segundos. Esse comportamento não elimina o tempo de inicialização da própria plataforma Render.
 
 Para evitar a espera, cadastre um monitor gratuito (como o UptimeRobot) que acesse `https://SEU-SERVICO.onrender.com/health` a cada 10 minutos. As 750 horas grátis por mês cobrem um serviço ligado o tempo todo.
 
@@ -57,6 +58,8 @@ Para evitar a espera, cadastre um monitor gratuito (como o UptimeRobot) que aces
 npm install
 npm start          # http://localhost:7000
 npm test           # testes
+npm run lint       # análise estática
+npm run dev        # reinicia ao alterar arquivos
 ```
 
 ## Endpoints

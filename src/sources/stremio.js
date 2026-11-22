@@ -1,6 +1,6 @@
 'use strict';
 
-const { fetchJson, mapLimit } = require('../http');
+const { fetchJson, mapLimit, STREAM_TIMEOUT_MS } = require('../http');
 const { countryFromGroups } = require('../countries');
 
 const MAX_PAGES = 12;
@@ -102,7 +102,7 @@ function createStremioSource({ id, label, manifestUrl, country = '??', priority 
   }
 
   async function streams(ref) {
-    const data = await fetchJson(`${base}/stream/${ref.type}/${encodeURIComponent(ref.id)}.json`, { timeout: 9000, retries: 0 });
+    const data = await fetchJson(`${base}/stream/${ref.type}/${encodeURIComponent(ref.id)}.json`, { timeout: STREAM_TIMEOUT_MS, retries: 0 });
     return (data && data.streams) || [];
   }
 

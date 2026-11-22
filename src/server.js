@@ -15,7 +15,10 @@ function createApp({ sources = buildSources(), store } = {}) {
   app.disable('x-powered-by');
 
   app.get('/health', (req, res) => {
-    res.json({ ok: true });
+    const status = channelStore.getStatus();
+    res.status(status.ready ? 200 : 503).json({
+      ok: status.ready, ready: status.ready, channels: status.channels, sources: status.sources
+    });
   });
 
   app.get('/status', (req, res) => {
