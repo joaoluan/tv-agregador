@@ -86,3 +86,18 @@ test('metadados entregam agora e a seguir no endpoint usado pelo Stremio', async
     server.closeAllConnections();
   }
 });
+
+test('classifica canais de viagem e imóveis fora de Culinária', () => {
+  const { categorize } = require('../src/categories');
+  for (const name of ['Tastemade Travel', 'Boligkjop i blinde']) {
+    assert.deepEqual([...categorize(['cooking', 'lifestyle'], name)], ['estilo']);
+  }
+});
+
+test('preserva Live quando identifica um canal distinto', () => {
+  const { channelKey, cleanName } = require('../src/normalize');
+  for (const name of ['MTV', 'Mezzo']) {
+    assert.notEqual(channelKey(name), channelKey(name + ' Live HD'));
+    assert.equal(cleanName(name + ' Live HD'), name + ' Live');
+  }
+});
