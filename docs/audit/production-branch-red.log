@@ -1,0 +1,61 @@
+✔ A6: health responde 503 antes do build e 200 com contagens depois (75.29573ms)
+✔ A7: blueprint desliga deploy automático (0.679464ms)
+✔ A10: membro de fonte removida não derruba streams válidos (1.633392ms)
+✔ A12: timeout agregado precisa exceder timeout interno Stremio mesmo com cache (1.370163ms)
+✔ A13: iptv-org limita a três links, prioriza qualidade e preserva cabeçalhos (1.392336ms)
+✔ A16: assert falhando dentro da troca de fetch restaura o original (0.883945ms)
+✔ A19: scripts dev e lint estão configurados (0.280174ms)
+✖ A7: blueprint de produção fixa main mesmo quando a origem do Blueprint é outra branch (0.681556ms)
+ℹ tests 8
+ℹ suites 0
+ℹ pass 7
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 450.061188
+
+✖ failing tests:
+
+test at test/audit-operations.test.js:67:1
+✖ A7: blueprint de produção fixa main mesmo quando a origem do Blueprint é outra branch (0.681556ms)
+  AssertionError [ERR_ASSERTION]: The input did not match the regular expression /branch:\s*main\b/. Input:
+  
+  'services:\n' +
+    '  - type: web\n' +
+    '    name: tv-agregador\n' +
+    '    runtime: node\n' +
+    '    plan: free\n' +
+    '    region: virginia\n' +
+    '    buildCommand: npm ci --omit=dev\n' +
+    '    startCommand: npm start\n' +
+    '    healthCheckPath: /health\n' +
+    '    autoDeploy: false\n' +
+    '    envVars:\n' +
+    '      - key: NODE_VERSION\n' +
+    '        value: 22\n' +
+    '      # Addons com login pessoal (ex.: FrostStream). Formato: Nome|https://link-pessoal/manifest.json\n' +
+    '      - key: ADDONS_PRIVADOS\n' +
+    '        sync: false\n' +
+    '      # Listas M3U próprias (opcional). Formato: Nome|https://link.m3u ; Outro|https://outro.m3u\n' +
+    '      - key: M3U_LISTS\n' +
+    '        sync: false\n' +
+    '      # Use "on" explicitamente para habilitar iptv-org (maior uso de memória).\n' +
+    '      - key: IPTV_ORG\n' +
+    '        value: "off"\n'
+  
+      at TestContext.<anonymous> (/workspace/scratch/865ec069edf0/tv-agregador/test/audit-operations.test.js:69:9)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19)
+      at Test.run (node:internal/test_runner/test:1467:12)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'services:\n  - type: web\n    name: tv-agregador\n    runtime: node\n    plan: free\n    region: virginia\n    buildCommand: npm ci --omit=dev\n    startCommand: npm start\n    healthCheckPath: /health\n    autoDeploy: false\n    envVars:\n      - key: NODE_VERSION\n        value: 22\n      # Addons com login pessoal (ex.: FrostStream). Formato: Nome|https://link-pessoal/manifest.json\n      - key: ADDONS_PRIVADOS\n        sync: false\n      # Listas M3U próprias (opcional). Formato: Nome|https://link.m3u ; Outro|https://outro.m3u\n      - key: M3U_LISTS\n        sync: false\n      # Use "on" explicitamente para habilitar iptv-org (maior uso de memória).\n      - key: IPTV_ORG\n        value: "off"\n',
+    expected: /branch:\s*main\b/,
+    operator: 'match',
+    diff: 'simple'
+  }

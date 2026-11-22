@@ -1,0 +1,172 @@
+✖ A6: health responde 503 antes do build e 200 com contagens depois (51.351108ms)
+✖ A7: blueprint desliga deploy automático (0.910988ms)
+✖ A10: membro de fonte removida não derruba streams válidos (4.121927ms)
+✖ A12: timeout agregado precisa exceder timeout interno Stremio mesmo com cache (0.600058ms)
+✖ A13: iptv-org limita a três links, prioriza qualidade e preserva cabeçalhos (0.521071ms)
+✖ A16: assert falhando dentro da troca de fetch restaura o original (0.37908ms)
+✖ A19: scripts dev e lint estão configurados (0.400803ms)
+ℹ tests 7
+ℹ suites 0
+ℹ pass 0
+ℹ fail 7
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 334.238118
+
+✖ failing tests:
+
+test at test/audit-operations.test.js:12:1
+✖ A6: health responde 503 antes do build e 200 com contagens depois (51.351108ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  200 !== 503
+  
+      at TestContext.<anonymous> (/workspace/scratch/865ec069edf0/tv-agregador/test/audit-operations.test.js:19:40)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 200,
+    expected: 503,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at test/audit-operations.test.js:24:1
+✖ A7: blueprint desliga deploy automático (0.910988ms)
+  AssertionError [ERR_ASSERTION]: The input was expected to not match the regular expression /autoDeploy:\s*true/. Input:
+  
+  'services:\n' +
+    '  - type: web\n' +
+    '    name: tv-agregador\n' +
+    '    runtime: node\n' +
+    '    plan: free\n' +
+    '    region: virginia\n' +
+    '    buildCommand: npm ci --omit=dev\n' +
+    '    startCommand: npm start\n' +
+    '    healthCheckPath: /health\n' +
+    '    autoDeploy: true\n' +
+    '    envVars:\n' +
+    '      - key: NODE_VERSION\n' +
+    '        value: 22\n' +
+    '      # Addons com login pessoal (ex.: FrostStream). Formato: Nome|https://link-pessoal/manifest.json\n' +
+    '      - key: ADDONS_PRIVADOS\n' +
+    '        sync: false\n' +
+    '      # Listas M3U próprias (opcional). Formato: Nome|https://link.m3u ; Outro|https://outro.m3u\n' +
+    '      - key: M3U_LISTS\n' +
+    '        sync: false\n' +
+    '      # Use "on" explicitamente para habilitar iptv-org (maior uso de memória).\n' +
+    '      - key: IPTV_ORG\n' +
+    '        value: "off"\n'
+  
+      at TestContext.<anonymous> (/workspace/scratch/865ec069edf0/tv-agregador/test/audit-operations.test.js:26:9)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19)
+      at Test.run (node:internal/test_runner/test:1467:12)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'services:\n  - type: web\n    name: tv-agregador\n    runtime: node\n    plan: free\n    region: virginia\n    buildCommand: npm ci --omit=dev\n    startCommand: npm start\n    healthCheckPath: /health\n    autoDeploy: true\n    envVars:\n      - key: NODE_VERSION\n        value: 22\n      # Addons com login pessoal (ex.: FrostStream). Formato: Nome|https://link-pessoal/manifest.json\n      - key: ADDONS_PRIVADOS\n        sync: false\n      # Listas M3U próprias (opcional). Formato: Nome|https://link.m3u ; Outro|https://outro.m3u\n      - key: M3U_LISTS\n        sync: false\n      # Use "on" explicitamente para habilitar iptv-org (maior uso de memória).\n      - key: IPTV_ORG\n        value: "off"\n',
+    expected: /autoDeploy:\s*true/,
+    operator: 'doesNotMatch',
+    diff: 'simple'
+  }
+
+test at test/audit-operations.test.js:29:1
+✖ A10: membro de fonte removida não derruba streams válidos (4.121927ms)
+  TypeError [Error]: Cannot read properties of undefined (reading 'priority')
+      at /workspace/scratch/865ec069edf0/tv-agregador/src/catalog.js:233:81
+      at Array.sort (<anonymous>)
+      at resolveStreams (/workspace/scratch/865ec069edf0/tv-agregador/src/catalog.js:232:42)
+      at Object.streamsFor (/workspace/scratch/865ec069edf0/tv-agregador/src/catalog.js:213:21)
+      at TestContext.<anonymous> (/workspace/scratch/865ec069edf0/tv-agregador/test/audit-operations.test.js:33:28)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7)
+
+test at test/audit-operations.test.js:35:1
+✖ A12: timeout agregado precisa exceder timeout interno Stremio mesmo com cache (0.600058ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  + actual - expected
+  
+  + undefined
+  - 9000
+  
+      at TestContext.<anonymous> (/workspace/scratch/865ec069edf0/tv-agregador/test/audit-operations.test.js:36:9)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19)
+      at Test.run (node:internal/test_runner/test:1467:12)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: 9000,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at test/audit-operations.test.js:43:1
+✖ A13: iptv-org limita a três links, prioriza qualidade e preserva cabeçalhos (0.521071ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  10 !== 3
+  
+      at TestContext.<anonymous> (/workspace/scratch/865ec069edf0/tv-agregador/test/audit-operations.test.js:46:9)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19)
+      at Test.run (node:internal/test_runner/test:1467:12)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 10,
+    expected: 3,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at test/audit-operations.test.js:50:1
+✖ A16: assert falhando dentro da troca de fetch restaura o original (0.37908ms)
+  TypeError [Error]: withFetch is not a function
+      at TestContext.<anonymous> (/workspace/scratch/865ec069edf0/tv-agregador/test/audit-operations.test.js:53:24)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19)
+      at Test.run (node:internal/test_runner/test:1467:12)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7)
+
+test at test/audit-operations.test.js:60:1
+✖ A19: scripts dev e lint estão configurados (0.400803ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  + actual - expected
+  
+  + undefined
+  - 'node --watch src/server.js'
+  
+      at TestContext.<anonymous> (/workspace/scratch/865ec069edf0/tv-agregador/test/audit-operations.test.js:62:9)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19)
+      at Test.run (node:internal/test_runner/test:1467:12)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: 'node --watch src/server.js',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

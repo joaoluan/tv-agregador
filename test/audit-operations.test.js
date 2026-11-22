@@ -63,3 +63,8 @@ test('A19: scripts dev e lint estão configurados',()=>{
  assert.equal(scripts.lint,'eslint src test');
  assert.ok(devDependencies.eslint);
 });
+
+test('A7: blueprint de produção fixa main mesmo quando a origem do Blueprint é outra branch',()=>{
+ const blueprint=fs.readFileSync('render.yaml','utf8');
+ assert.match(blueprint,/branch:\s*main\b/);
+});

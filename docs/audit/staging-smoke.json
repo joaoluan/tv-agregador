@@ -1,0 +1,800 @@
+{
+  "/manifest.json": {
+    "status": 200,
+    "ms": 6571.311116999823,
+    "body": {
+      "id": "br.tvagregador",
+      "version": "1.0.0+1795358248481.018974",
+      "name": "TV Agregador",
+      "description": "Todos os seus canais de TV ao vivo em uma lista só, organizada por categoria e sem duplicados. Ao abrir um canal, mostra os links de todas as fontes.",
+      "types": [
+        "tv"
+      ],
+      "idPrefixes": [
+        "tvagg:"
+      ],
+      "resources": [
+        "catalog",
+        "meta",
+        "stream"
+      ],
+      "catalogs": [
+        {
+          "type": "tv",
+          "id": "tvagg.abertos",
+          "name": "Canais Abertos",
+          "extra": [
+            {
+              "name": "genre",
+              "options": [
+                "Internacional (fora do Brasil)",
+                "Brasil",
+                "Portugal",
+                "Estados Unidos",
+                "Reino Unido",
+                "Espanha",
+                "Argentina",
+                "México",
+                "França",
+                "Itália",
+                "Alemanha",
+                "Canadá",
+                "Chile",
+                "Colômbia",
+                "Japão",
+                "Coreia do Sul",
+                "Índia",
+                "Turquia",
+                "Austrália",
+                "Angola"
+              ],
+              "isRequired": false
+            },
+            {
+              "name": "skip",
+              "isRequired": false
+            }
+          ]
+        },
+        {
+          "type": "tv",
+          "id": "tvagg.esportes",
+          "name": "Esportes",
+          "extra": [
+            {
+              "name": "genre",
+              "options": [
+                "Internacional (fora do Brasil)",
+                "Brasil",
+                "Portugal",
+                "Estados Unidos",
+                "Reino Unido",
+                "Espanha",
+                "Argentina",
+                "México",
+                "França",
+                "Itália",
+                "Alemanha",
+                "Canadá",
+                "Chile",
+                "Colômbia",
+                "Japão",
+                "Coreia do Sul",
+                "Índia",
+                "Turquia",
+                "Austrália",
+                "Angola"
+              ],
+              "isRequired": false
+            },
+            {
+              "name": "skip",
+              "isRequired": false
+            }
+          ]
+        },
+        {
+          "type": "tv",
+          "id": "tvagg.filmes",
+          "name": "Filmes",
+          "extra": [
+            {
+              "name": "genre",
+              "options": [
+                "Internacional (fora do Brasil)",
+                "Brasil",
+                "Portugal",
+                "Estados Unidos",
+                "Reino Unido",
+                "Espanha",
+                "Argentina",
+                "México",
+                "França",
+                "Itália",
+                "Alemanha",
+                "Canadá",
+                "Chile",
+                "Colômbia",
+                "Japão",
+                "Coreia do Sul",
+                "Índia",
+                "Turquia",
+                "Austrália",
+                "Angola"
+              ],
+              "isRequired": false
+            },
+            {
+              "name": "skip",
+              "isRequired": false
+            }
+          ]
+        },
+        {
+          "type": "tv",
+          "id": "tvagg.series",
+          "name": "Séries",
+          "extra": [
+            {
+              "name": "genre",
+              "options": [
+                "Internacional (fora do Brasil)",
+                "Brasil",
+                "Portugal",
+                "Estados Unidos",
+                "Reino Unido",
+                "Espanha",
+                "Argentina",
+                "México",
+                "França",
+                "Itália",
+                "Alemanha",
+                "Canadá",
+                "Chile",
+                "Colômbia",
+                "Japão",
+                "Coreia do Sul",
+                "Índia",
+                "Turquia",
+                "Austrália",
+                "Angola"
+              ],
+              "isRequired": false
+            },
+            {
+              "name": "skip",
+              "isRequired": false
+            }
+          ]
+        },
+        {
+          "type": "tv",
+          "id": "tvagg.noticias",
+          "name": "Notícias",
+          "extra": [
+            {
+              "name": "genre",
+              "options": [
+                "Internacional (fora do Brasil)",
+                "Brasil",
+                "Portugal",
+                "Estados Unidos",
+                "Reino Unido",
+                "Espanha",
+                "Argentina",
+                "México",
+                "França",
+                "Itália",
+                "Alemanha",
+                "Canadá",
+                "Chile",
+                "Colômbia",
+                "Japão",
+                "Coreia do Sul",
+                "Índia",
+                "Turquia",
+                "Austrália",
+                "Angola"
+              ],
+              "isRequired": false
+            },
+            {
+              "name": "skip",
+              "isRequired": false
+            }
+          ]
+        },
+        {
+          "type": "tv",
+          "id": "tvagg.infantil",
+          "name": "Infantil",
+          "extra": [
+            {
+              "name": "genre",
+              "options": [
+                "Internacional (fora do Brasil)",
+                "Brasil",
+                "Portugal",
+                "Estados Unidos",
+                "Reino Unido",
+                "Espanha",
+                "Argentina",
+                "México",
+                "França",
+                "Itália",
+                "Alemanha",
+                "Canadá",
+                "Chile",
+                "Colômbia",
+                "Japão",
+                "Coreia do Sul",
+                "Índia",
+                "Turquia",
+                "Austrália",
+                "Angola"
+              ],
+              "isRequired": false
+            },
+            {
+              "name": "skip",
+              "isRequired": false
+            }
+          ]
+        },
+        {
+          "type": "tv",
+          "id": "tvagg.documentarios",
+          "name": "Documentários",
+          "extra": [
+            {
+              "name": "genre",
+              "options": [
+                "Internacional (fora do Brasil)",
+                "Brasil",
+                "Portugal",
+                "Estados Unidos",
+                "Reino Unido",
+                "Espanha",
+                "Argentina",
+                "México",
+                "França",
+                "Itália",
+                "Alemanha",
+                "Canadá",
+                "Chile",
+                "Colômbia",
+                "Japão",
+                "Coreia do Sul",
+                "Índia",
+                "Turquia",
+                "Austrália",
+                "Angola"
+              ],
+              "isRequired": false
+            },
+            {
+              "name": "skip",
+              "isRequired": false
+            }
+          ]
+        },
+        {
+          "type": "tv",
+          "id": "tvagg.culinaria",
+          "name": "Culinária",
+          "extra": [
+            {
+              "name": "genre",
+              "options": [
+                "Internacional (fora do Brasil)",
+                "Brasil",
+                "Portugal",
+                "Estados Unidos",
+                "Reino Unido",
+                "Espanha",
+                "Argentina",
+                "México",
+                "França",
+                "Itália",
+                "Alemanha",
+                "Canadá",
+                "Chile",
+                "Colômbia",
+                "Japão",
+                "Coreia do Sul",
+                "Índia",
+                "Turquia",
+                "Austrália",
+                "Angola"
+              ],
+              "isRequired": false
+            },
+            {
+              "name": "skip",
+              "isRequired": false
+            }
+          ]
+        },
+        {
+          "type": "tv",
+          "id": "tvagg.variedades",
+          "name": "Variedades e Reality",
+          "extra": [
+            {
+              "name": "genre",
+              "options": [
+                "Internacional (fora do Brasil)",
+                "Brasil",
+                "Portugal",
+                "Estados Unidos",
+                "Reino Unido",
+                "Espanha",
+                "Argentina",
+                "México",
+                "França",
+                "Itália",
+                "Alemanha",
+                "Canadá",
+                "Chile",
+                "Colômbia",
+                "Japão",
+                "Coreia do Sul",
+                "Índia",
+                "Turquia",
+                "Austrália",
+                "Angola"
+              ],
+              "isRequired": false
+            },
+            {
+              "name": "skip",
+              "isRequired": false
+            }
+          ]
+        },
+        {
+          "type": "tv",
+          "id": "tvagg.estilo",
+          "name": "Estilo de Vida e Viagem",
+          "extra": [
+            {
+              "name": "genre",
+              "options": [
+                "Internacional (fora do Brasil)",
+                "Brasil",
+                "Portugal",
+                "Estados Unidos",
+                "Reino Unido",
+                "Espanha",
+                "Argentina",
+                "México",
+                "França",
+                "Itália",
+                "Alemanha",
+                "Canadá",
+                "Chile",
+                "Colômbia",
+                "Japão",
+                "Coreia do Sul",
+                "Índia",
+                "Turquia",
+                "Austrália",
+                "Angola"
+              ],
+              "isRequired": false
+            },
+            {
+              "name": "skip",
+              "isRequired": false
+            }
+          ]
+        },
+        {
+          "type": "tv",
+          "id": "tvagg.musica",
+          "name": "Música e Rádio",
+          "extra": [
+            {
+              "name": "genre",
+              "options": [
+                "Internacional (fora do Brasil)",
+                "Brasil",
+                "Portugal",
+                "Estados Unidos",
+                "Reino Unido",
+                "Espanha",
+                "Argentina",
+                "México",
+                "França",
+                "Itália",
+                "Alemanha",
+                "Canadá",
+                "Chile",
+                "Colômbia",
+                "Japão",
+                "Coreia do Sul",
+                "Índia",
+                "Turquia",
+                "Austrália",
+                "Angola"
+              ],
+              "isRequired": false
+            },
+            {
+              "name": "skip",
+              "isRequired": false
+            }
+          ]
+        },
+        {
+          "type": "tv",
+          "id": "tvagg.religiosos",
+          "name": "Religiosos",
+          "extra": [
+            {
+              "name": "genre",
+              "options": [
+                "Internacional (fora do Brasil)",
+                "Brasil",
+                "Portugal",
+                "Estados Unidos",
+                "Reino Unido",
+                "Espanha",
+                "Argentina",
+                "México",
+                "França",
+                "Itália",
+                "Alemanha",
+                "Canadá",
+                "Chile",
+                "Colômbia",
+                "Japão",
+                "Coreia do Sul",
+                "Índia",
+                "Turquia",
+                "Austrália",
+                "Angola"
+              ],
+              "isRequired": false
+            },
+            {
+              "name": "skip",
+              "isRequired": false
+            }
+          ]
+        },
+        {
+          "type": "tv",
+          "id": "tvagg.canais24h",
+          "name": "Canais 24h",
+          "extra": [
+            {
+              "name": "genre",
+              "options": [
+                "Internacional (fora do Brasil)",
+                "Brasil",
+                "Portugal",
+                "Estados Unidos",
+                "Reino Unido",
+                "Espanha",
+                "Argentina",
+                "México",
+                "França",
+                "Itália",
+                "Alemanha",
+                "Canadá",
+                "Chile",
+                "Colômbia",
+                "Japão",
+                "Coreia do Sul",
+                "Índia",
+                "Turquia",
+                "Austrália",
+                "Angola"
+              ],
+              "isRequired": false
+            },
+            {
+              "name": "skip",
+              "isRequired": false
+            }
+          ]
+        },
+        {
+          "type": "tv",
+          "id": "tvagg.outros",
+          "name": "Outros Canais",
+          "extra": [
+            {
+              "name": "genre",
+              "options": [
+                "Internacional (fora do Brasil)",
+                "Brasil",
+                "Portugal",
+                "Estados Unidos",
+                "Reino Unido",
+                "Espanha",
+                "Argentina",
+                "México",
+                "França",
+                "Itália",
+                "Alemanha",
+                "Canadá",
+                "Chile",
+                "Colômbia",
+                "Japão",
+                "Coreia do Sul",
+                "Índia",
+                "Turquia",
+                "Austrália",
+                "Angola"
+              ],
+              "isRequired": false
+            },
+            {
+              "name": "skip",
+              "isRequired": false
+            }
+          ]
+        },
+        {
+          "type": "tv",
+          "id": "tvagg.busca",
+          "name": "Canais",
+          "extra": [
+            {
+              "name": "search",
+              "isRequired": true
+            }
+          ]
+        }
+      ],
+      "behaviorHints": {
+        "configurable": false,
+        "configurationRequired": false
+      }
+    }
+  },
+  "/health": {
+    "status": 200,
+    "ms": 6207.189573999813,
+    "body": {
+      "ok": true,
+      "ready": true,
+      "channels": 1711,
+      "sources": [
+        {
+          "id": "tvplay",
+          "label": "TVPlay",
+          "ok": true,
+          "items": 145,
+          "ms": 4400,
+          "at": "2026-11-22T14:37:32.979Z"
+        },
+        {
+          "id": "tvvio",
+          "label": "Tvvio",
+          "ok": true,
+          "items": 155,
+          "ms": 2390,
+          "at": "2026-11-22T14:37:31.177Z"
+        },
+        {
+          "id": "ntctv",
+          "label": "NTC TV",
+          "ok": true,
+          "items": 1886,
+          "ms": 2086,
+          "at": "2026-11-22T14:37:30.875Z"
+        },
+        {
+          "id": "redecanais",
+          "label": "Rede Canais",
+          "ok": true,
+          "items": 142,
+          "ms": 1504,
+          "at": "2026-11-22T14:37:30.380Z"
+        }
+      ]
+    }
+  },
+  "/status": {
+    "status": 200,
+    "ms": 6200.274507999893,
+    "body": {
+      "ready": true,
+      "channels": 1711,
+      "categories": [
+        {
+          "id": "abertos",
+          "name": "Canais Abertos",
+          "channels": 240
+        },
+        {
+          "id": "esportes",
+          "name": "Esportes",
+          "channels": 142
+        },
+        {
+          "id": "filmes",
+          "name": "Filmes",
+          "channels": 55
+        },
+        {
+          "id": "series",
+          "name": "Séries",
+          "channels": 40
+        },
+        {
+          "id": "noticias",
+          "name": "Notícias",
+          "channels": 51
+        },
+        {
+          "id": "infantil",
+          "name": "Infantil",
+          "channels": 29
+        },
+        {
+          "id": "documentarios",
+          "name": "Documentários",
+          "channels": 21
+        },
+        {
+          "id": "culinaria",
+          "name": "Culinária",
+          "channels": 6
+        },
+        {
+          "id": "variedades",
+          "name": "Variedades e Reality",
+          "channels": 83
+        },
+        {
+          "id": "estilo",
+          "name": "Estilo de Vida e Viagem",
+          "channels": 4
+        },
+        {
+          "id": "musica",
+          "name": "Música e Rádio",
+          "channels": 37
+        },
+        {
+          "id": "religiosos",
+          "name": "Religiosos",
+          "channels": 20
+        },
+        {
+          "id": "canais24h",
+          "name": "Canais 24h",
+          "channels": 272
+        },
+        {
+          "id": "outros",
+          "name": "Outros Canais",
+          "channels": 822
+        }
+      ],
+      "sources": [
+        {
+          "id": "tvplay",
+          "label": "TVPlay",
+          "ok": true,
+          "items": 145,
+          "ms": 4400,
+          "at": "2026-11-22T14:37:32.979Z"
+        },
+        {
+          "id": "tvvio",
+          "label": "Tvvio",
+          "ok": true,
+          "items": 155,
+          "ms": 2390,
+          "at": "2026-11-22T14:37:31.177Z"
+        },
+        {
+          "id": "ntctv",
+          "label": "NTC TV",
+          "ok": true,
+          "items": 1886,
+          "ms": 2086,
+          "at": "2026-11-22T14:37:30.875Z"
+        },
+        {
+          "id": "redecanais",
+          "label": "Rede Canais",
+          "ok": true,
+          "items": 142,
+          "ms": 1504,
+          "at": "2026-11-22T14:37:30.380Z"
+        }
+      ]
+    }
+  },
+  "/catalog/tv/tvagg.abertos.json": {
+    "status": 200,
+    "ms": 6337.51862500003,
+    "body": {
+      "count": 100,
+      "names": [
+        "Canção Nova",
+        "Globo DF",
+        "Globo MG",
+        "Globo RJ",
+        "Globo SP",
+        "Multishow",
+        "Aparecida",
+        "Band SP"
+      ],
+      "cacheMaxAge": 1800
+    }
+  },
+  "/catalog/tv/tvagg.busca/search=espn.json": {
+    "status": 200,
+    "ms": 6238.634479999973,
+    "body": {
+      "count": 6,
+      "names": [
+        "Espn",
+        "Espn 2",
+        "Espn 3",
+        "Espn 4",
+        "Espn 5",
+        "Espn 6"
+      ],
+      "cacheMaxAge": 1800
+    }
+  },
+  "/meta/tv/tvagg:br:espn2.json": {
+    "status": 200,
+    "ms": 6208.723501000122,
+    "body": {
+      "meta": {
+        "id": "tvagg:br:espn2",
+        "type": "tv",
+        "name": "Espn 2",
+        "poster": "https://c69e439124f3-tvplay.baby-beamup.club/logo/espn2",
+        "logo": "https://c69e439124f3-tvplay.baby-beamup.club/logo/espn2",
+        "posterShape": "square",
+        "genres": [
+          "Esportes",
+          "Brasil"
+        ],
+        "background": "https://c69e439124f3-tvplay.baby-beamup.club/logo/espn2",
+        "description": "Disponível em 4 fonte(s): TVPlay, Tvvio, NTC TV, Rede Canais."
+      },
+      "cacheMaxAge": 1800
+    }
+  },
+  "/stream/tv/tvagg:br:espn2.json": {
+    "status": 200,
+    "ms": 8745.895240999971,
+    "body": {
+      "count": 8,
+      "labels": [
+        "📺 TVPlay",
+        "📺 Tvvio",
+        "📺 NTC TV",
+        "📺 NTC TV",
+        "📺 NTC TV",
+        "📺 TVPlay",
+        "📺 Tvvio",
+        "📺 Rede Canais"
+      ]
+    }
+  },
+  "/catalog/tv/tvagg.abertos/genre=Portugal.json": {
+    "status": 200,
+    "ms": 6219.3373929999325,
+    "body": {
+      "count": 2,
+      "names": [
+        "Sic Alta Definição",
+        "Sic Replay"
+      ],
+      "cacheMaxAge": 1800
+    }
+  },
+  "idleStartedAt": "2026-11-22T14:39:11.554608+00:00"
+}

@@ -1,0 +1,82 @@
+✔ A21/A11: canal 1 permanece distinto de canal 2; alias sem número preservado (2.083722ms)
+✔ A15: variation selector isolado é normalizado (0.742558ms)
+✖ A8: Hot Bird é mantido, HOT como grupo e conteúdo adulto são bloqueados (1.302357ms)
+✖ A9: item sem país é internacional e não Brasil (4.446267ms)
+✖ A9: fontes genéricas sem país explícito usam desconhecido (4.795685ms)
+✖ A18: referência repetida da mesma fonte gera uma consulta, fontes distintas preservadas (5.055678ms)
+ℹ tests 6
+ℹ suites 0
+ℹ pass 2
+ℹ fail 4
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 178.831132
+
+✖ failing tests:
+
+test at test/audit-normalization.test.js:20:1
+✖ A8: Hot Bird é mantido, HOT como grupo e conteúdo adulto são bloqueados (1.302357ms)
+  TypeError [Error]: Cannot read properties of null (reading 'has')
+      at TestContext.<anonymous> (/workspace/scratch/865ec069edf0/tv-agregador/test/audit-normalization.test.js:21:48)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19)
+      at Test.run (node:internal/test_runner/test:1467:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7)
+
+test at test/audit-normalization.test.js:27:1
+✖ A9: item sem país é internacional e não Brasil (4.446267ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  'BR' !== '??'
+  
+      at TestContext.<anonymous> (/workspace/scratch/865ec069edf0/tv-agregador/test/audit-normalization.test.js:30:10)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19)
+      at Test.run (node:internal/test_runner/test:1467:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'BR',
+    expected: '??',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at test/audit-normalization.test.js:35:1
+✖ A9: fontes genéricas sem país explícito usam desconhecido (4.795685ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  'BR' !== '??'
+  
+      at TestContext.<anonymous> (/workspace/scratch/865ec069edf0/tv-agregador/test/audit-normalization.test.js:42:10)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'BR',
+    expected: '??',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at test/audit-normalization.test.js:46:1
+✖ A18: referência repetida da mesma fonte gera uma consulta, fontes distintas preservadas (5.055678ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  4 !== 2
+  
+      at TestContext.<anonymous> (/workspace/scratch/865ec069edf0/tv-agregador/test/audit-normalization.test.js:53:10)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 4,
+    expected: 2,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

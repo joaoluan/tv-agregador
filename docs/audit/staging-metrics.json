@@ -1,0 +1,81 @@
+{
+  "resourceId": "srv-dc1fs2hksfps738pr1e0",
+  "timeRange": {
+    "start": "2026-11-22T14:37:00Z",
+    "end": "2026-11-22T14:40:00Z"
+  },
+  "metrics": [
+    {
+      "type": "memory_usage",
+      "data": [
+        {
+          "labels": [
+            {
+              "field": "instance",
+              "value": "srv-dc1fs2hksfps738pr1e0-r99jm"
+            },
+            {
+              "field": "service",
+              "value": "srv-dc1fs2hksfps738pr1e0"
+            },
+            {
+              "field": "resource",
+              "value": "srv-dc1fs2hksfps738pr1e0"
+            }
+          ],
+          "unit": "bytes",
+          "values": [
+            {
+              "timestamp": "2026-11-22T14:38:00Z",
+              "value": 79773700
+            },
+            {
+              "timestamp": "2026-11-22T14:39:00Z",
+              "value": 71589890
+            },
+            {
+              "timestamp": "2026-11-22T14:40:00Z",
+              "value": 76398590
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "http_latency",
+      "data": []
+    },
+    {
+      "type": "cpu_usage",
+      "data": [
+        {
+          "labels": [
+            {
+              "field": "instance",
+              "value": "srv-dc1fs2hksfps738pr1e0-r99jm"
+            },
+            {
+              "field": "service",
+              "value": "srv-dc1fs2hksfps738pr1e0"
+            },
+            {
+              "field": "resource",
+              "value": "srv-dc1fs2hksfps738pr1e0"
+            }
+          ],
+          "unit": "cpu",
+          "values": [
+            {
+              "timestamp": "2026-11-22T14:39:00Z",
+              "value": 0.00209265
+            },
+            {
+              "timestamp": "2026-11-22T14:40:00Z",
+              "value": 0.0014648833
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
