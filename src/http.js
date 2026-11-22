@@ -4,47 +4,96 @@ const DEFAULT_TIMEOUT = 15000;
 // Deve ser menor que o timeout agregado do store (10s por padrão).
 const STREAM_TIMEOUT_MS = 9000;
 
-async function fetchJson(url, { timeout = DEFAULT_TIMEOUT, retries = 1, headers = {} } = {}) {
-  let lastError;
-  for (let attempt = 0; attempt <= retries; attempt++) {
-    const controller = new AbortController();
-    const timer = setTimeout(() => controller.abort(), timeout);
-    try {
-      const res = await fetch(url, {
-        signal: controller.signal,
-        headers: { 'User-Agent': 'tv-agregador/1.0', Accept: 'application/json', ...headers }
-      });
-      if (!res.ok) {
-        throw new Error(`HTTP ${res.status}`);
-      }
-      return await res.json();
-    } catch (err) {
-      lastError = err;
-    } finally {
-      clearTimeout(timer);
-    }
+const MAX_REQUESTS = 8;
+const MAX_QUEUED = 128;
+const MAX_BYTES = 32 * 1024 * 1024;
+const queue = [];
+let active = 0;
+
+async function limited(signal, work) {
+  signal.throwIfAborted();
+  if (active >= MAX_REQUESTS) {
+    if (queue.length >= MAX_QUEUED) throw new Error('Fila HTTP cheia');
+    await new Promise((resolve, reject) => {
+      const resume = () => {
+        signal.removeEventListener('abort', cancel);
+        resolve();
+      };
+      const cancel = () => {
+        queue.splice(queue.indexOf(resume), 1);
+        reject(signal.reason);
+      };
+      queue.push(resume);
+      signal.addEventListener('abort', cancel, { once: true });
+    });
+  } else {
+    active++;
   }
-  throw new Error(`Falha ao buscar ${safeUrl(url)}: ${lastError && lastError.message}`);
+  try {
+    signal.throwIfAborted();
+    return await work();
+  } finally {
+    const next = queue.shift();
+    if (next) next();
+    else active--;
+  }
 }
 
-async function fetchText(url, { timeout = DEFAULT_TIMEOUT, retries = 1 } = {}) {
+async function readBody(res, format, maxBytes) {
+  if (!res.body?.getReader) return res[format]();
+  const reader = res.body.getReader();
+  const chunks = [];
+  let bytes = 0;
+  try {
+    for (;;) {
+      const { value, done } = await reader.read();
+      if (done) break;
+      bytes += value.byteLength;
+      if (bytes > maxBytes) throw new Error('Resposta excede o limite de bytes');
+      chunks.push(value);
+    }
+  } finally {
+    await reader.cancel().catch(() => {});
+    reader.releaseLock();
+  }
+  const text = Buffer.concat(chunks, bytes).toString('utf8').replace(/^\uFEFF/, '');
+  return format === 'json' ? JSON.parse(text) : text;
+}
+
+async function request(url, format, { timeout = DEFAULT_TIMEOUT, retries = 1, headers = {}, signal, maxBytes = MAX_BYTES } = {}) {
+  const deadline = AbortSignal.timeout(timeout);
+  const requestSignal = signal ? AbortSignal.any([signal, deadline]) : deadline;
   let lastError;
-  for (let attempt = 0; attempt <= retries; attempt++) {
-    const controller = new AbortController();
-    const timer = setTimeout(() => controller.abort(), timeout);
+  for (let attempt = 0; attempt <= retries && !requestSignal.aborted; attempt++) {
     try {
-      const res = await fetch(url, { signal: controller.signal, headers: { 'User-Agent': 'tv-agregador/1.0' } });
-      if (!res.ok) {
-        throw new Error(`HTTP ${res.status}`);
-      }
-      return await res.text();
+      return await limited(requestSignal, async () => {
+        const res = await fetch(url, {
+          signal: requestSignal,
+          headers: { 'User-Agent': 'tv-agregador/1.0', ...headers }
+        });
+        if (!res.ok) {
+          await res.body?.cancel();
+          const error = new Error(`HTTP ${res.status}`);
+          error.retryable = res.status >= 500;
+          throw error;
+        }
+        return readBody(res, format, maxBytes);
+      });
     } catch (err) {
       lastError = err;
-    } finally {
-      clearTimeout(timer);
+      if (err.retryable === false) break;
     }
   }
-  throw new Error(`Falha ao buscar ${safeUrl(url)}: ${lastError && lastError.message}`);
+  const reason = requestSignal.aborted ? 'prazo excedido ou consulta cancelada' : lastError?.message;
+  throw new Error(`Falha ao buscar ${safeUrl(url)}: ${reason}`);
+}
+
+function fetchJson(url, options = {}) {
+  return request(url, 'json', { ...options, headers: { Accept: 'application/json', ...options.headers } });
+}
+
+function fetchText(url, options) {
+  return request(url, 'text', options);
 }
 
 // Nunca loga caminhos/query strings completos (podem conter configurações privadas).

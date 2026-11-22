@@ -23,7 +23,7 @@ function createStremioSource({ id, label, manifestUrl, country = '??', priority 
 
   let previousCatalogs = new Map();
 
-  async function fetchCatalogPages(catalog) {
+  async function fetchCatalogPages(catalog, signal) {
     const metas = [];
     const seen = new Set();
     let skip = 0;
@@ -31,7 +31,7 @@ function createStremioSource({ id, label, manifestUrl, country = '??', priority 
       const path = skip
         ? `/catalog/${catalog.type}/${encodeURIComponent(catalog.id)}/skip=${skip}.json`
         : `/catalog/${catalog.type}/${encodeURIComponent(catalog.id)}.json`;
-      const data = await fetchJson(base + path);
+      const data = await fetchJson(base + path, { signal });
       const pageMetas = data?.metas;
       if (!Array.isArray(pageMetas)) throw new Error('Resposta de catálogo inválida');
       const fresh = pageMetas.filter((m) => m && typeof m.id === 'string' && typeof m.name === 'string' && !seen.has(m.id) && !isNotice(m));
@@ -55,8 +55,8 @@ function createStremioSource({ id, label, manifestUrl, country = '??', priority 
     return metas;
   }
 
-  async function load() {
-    const manifest = await fetchJson(`${base}/manifest.json`);
+  async function load({ signal } = {}) {
+    const manifest = await fetchJson(`${base}/manifest.json`, { signal });
     const addonName = manifest.name || label;
     const catalogs = (manifest.catalogs || []).filter((c) => {
       const required = (c.extra || []).some((e) => e.isRequired) || (c.extraRequired || []).length > 0;
@@ -72,7 +72,7 @@ function createStremioSource({ id, label, manifestUrl, country = '??', priority 
     await mapLimit(catalogs.slice(0, MAX_CATALOGS), concurrency, async (catalog) => {
       let metas = [];
       try {
-        metas = await fetchCatalogPages(catalog);
+        metas = await fetchCatalogPages(catalog, signal);
       } catch (err) {
         failure = err;
         if (!previousCatalogs.has(catalog.id)) return;
@@ -121,8 +121,8 @@ function createStremioSource({ id, label, manifestUrl, country = '??', priority 
     return Object.assign(items, { partial: Boolean(failure) });
   }
 
-  async function streams(ref) {
-    const data = await fetchJson(`${base}/stream/${ref.type}/${encodeURIComponent(ref.id)}.json`, { timeout: STREAM_TIMEOUT_MS, retries: 0 });
+  async function streams(ref, { signal } = {}) {
+    const data = await fetchJson(`${base}/stream/${ref.type}/${encodeURIComponent(ref.id)}.json`, { timeout: STREAM_TIMEOUT_MS, retries: 0, signal });
     return Array.isArray(data?.streams) ? data.streams.filter(stream => stream && typeof stream === 'object' && !Array.isArray(stream)) : [];
   }
 

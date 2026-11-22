@@ -7,11 +7,11 @@ const API = 'https://iptv-org.github.io/api';
 // iptv-org: base pública e aberta de canais do mundo todo, já com país e categoria.
 // Os links já vêm na base, então não há chamada extra na hora de assistir.
 function createIptvOrgSource({ id = 'iptvorg', label = 'iptv-org', priority = 90, countries = null } = {}) {
-  async function load() {
+  async function load({ signal } = {}) {
     const [channels, streams, logos] = await Promise.all([
-      fetchJson(`${API}/channels.json`, { timeout: 60000 }),
-      fetchJson(`${API}/streams.json`, { timeout: 60000 }),
-      fetchJson(`${API}/logos.json`, { timeout: 60000 }).catch(() => [])
+      fetchJson(`${API}/channels.json`, { timeout: 60000, signal }),
+      fetchJson(`${API}/streams.json`, { timeout: 60000, signal }),
+      fetchJson(`${API}/logos.json`, { timeout: 60000, signal }).catch(() => [])
     ]);
     return buildItems({ channels, streams, logos, countries });
   }

@@ -85,9 +85,16 @@ if (require.main === module) {
   const port = Number(process.env.PORT) || 7000;
   const { app, store } = createApp();
   store.start();
-  app.listen(port, () => {
+  const server = app.listen(port, () => {
     console.log(`TV Agregador rodando na porta ${port}`);
   });
+  const shutdown = () => {
+    store.stop();
+    server.close();
+    setTimeout(() => server.closeAllConnections(), 5000).unref();
+  };
+  process.once('SIGTERM', shutdown);
+  process.once('SIGINT', shutdown);
 }
 
 module.exports = { createApp };
