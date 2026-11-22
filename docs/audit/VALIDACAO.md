@@ -64,7 +64,7 @@ Não foram publicados links privados, listas M3U com credenciais ou variáveis p
 
 ## Pendências que bloqueiam merge e deploy
 
-1. Preparar um serviço Render separado para staging apontando à branch de validação. O acesso Render não está conectado nesta execução.
+1. Preparar um serviço Render separado para staging apontando à branch de validação. A integração Render já foi conectada, mas nenhum workspace está selecionado. O workspace disponível, My workspace, precisa de confirmação explícita antes da leitura ou criação de recursos.
 2. Medir cold start real após 20 minutos sem tráfego. Um monitor periódico impediria essa hibernação e precisa ficar ausente durante a medição.
 3. No Stremio real: abrir categoria, abrir canal, trocar de fonte e buscar; conferir filtros, 14 categorias, paginação 100 e atualização do manifesto.
 4. Comparar /status do staging com a baseline, considerando a remoção esperada de FUNK +18 e as flutuações das fontes.
