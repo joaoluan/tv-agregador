@@ -73,7 +73,7 @@ function createAddon(store, sourceLabels, scheduleFor = () => ({})) {
       return { meta: null };
     }
     const meta = toMeta(channel, sourceLabels);
-    const schedule = scheduleFor(id);
+    const schedule = await scheduleFor(id);
     const blocks = [schedule.now && `Agora: ${schedule.now.title}`, schedule.next && `A seguir: ${schedule.next.title}`].filter(Boolean);
     if (blocks.length) meta.description += `\n${blocks.join(' · ')}`;
     return { meta, cacheMaxAge: blocks.length ? 0 : 30 * 60 };
