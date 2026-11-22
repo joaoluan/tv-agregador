@@ -1,0 +1,18 @@
+{
+  "name": "tv-agregador",
+  "version": "1.0.0",
+  "description": "Addon Stremio que junta canais de TV de várias fontes por categoria, sem duplicados",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "test": "node --test test/*.test.js"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.22.3",
+    "stremio-addon-sdk": "^1.6.10"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

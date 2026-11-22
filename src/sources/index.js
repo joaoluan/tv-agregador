@@ -1,0 +1,44 @@
+'use strict';
+
+const { createStremioSource } = require('./stremio');
+const { createIptvOrgSource } = require('./iptvOrg');
+const { createM3uSource } = require('./m3u');
+const { slugify } = require('../normalize');
+
+// Fontes de canais. "priority": menor número = aparece primeiro na lista de links.
+// Para adicionar outro addon de TV do Stremio, copie uma linha e troque o manifestUrl.
+const STREMIO_ADDONS = [
+  { id: 'tvplay', label: 'TVPlay', manifestUrl: 'https://c69e439124f3-tvplay.baby-beamup.club/manifest.json', priority: 10 },
+  { id: 'tvvio', label: 'Tvvio', manifestUrl: 'https://c69e439124f3-tvvio.baby-beamup.club/manifest.json', priority: 20 },
+  { id: 'ntctv', label: 'NTC TV', manifestUrl: 'https://ntcstudios.com.br/ntctv/manifest.json', priority: 30 },
+  { id: 'redecanais', label: 'Rede Canais', manifestUrl: 'https://redecanaistv-addon-stremio.onrender.com/manifest.json', priority: 40 },
+  { id: 'froststream', label: 'FrostStream', manifestUrl: 'https://froststream.cloutteam.com/manifest.json', priority: 50 }
+];
+
+// Listas M3U opcionais, configuradas no Render (variável de ambiente M3U_LISTS),
+// para que links com usuário/senha nunca fiquem no código.
+// Formato: Nome|https://link-da-lista.m3u ; Outro Nome|https://outro-link.m3u
+function m3uFromEnv(value) {
+  if (!value) {
+    return [];
+  }
+  return value.split(';').map((part, index) => {
+    const [label, url] = part.split('|').map((s) => s && s.trim());
+    if (!label || !/^https?:\/\//i.test(url || '')) {
+      console.warn(`[config] M3U_LISTS item ${index + 1} ignorado (use Nome|https://...)`);
+      return null;
+    }
+    return createM3uSource({ id: `m3u-${slugify(label)}`, label, url, priority: 60 + index });
+  }).filter(Boolean);
+}
+
+function buildSources(env = process.env) {
+  const sources = STREMIO_ADDONS.map((cfg) => createStremioSource(cfg));
+  sources.push(...m3uFromEnv(env.M3U_LISTS));
+  if (env.IPTV_ORG !== 'off') {
+    sources.push(createIptvOrgSource({ priority: 90 }));
+  }
+  return sources.sort((a, b) => a.priority - b.priority);
+}
+
+module.exports = { buildSources, m3uFromEnv, STREMIO_ADDONS };

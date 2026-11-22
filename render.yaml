@@ -1,0 +1,19 @@
+services:
+  - type: web
+    name: tv-agregador
+    runtime: node
+    plan: free
+    region: virginia
+    buildCommand: npm ci --omit=dev
+    startCommand: npm start
+    healthCheckPath: /health
+    autoDeploy: true
+    envVars:
+      - key: NODE_VERSION
+        value: 22
+      # Listas M3U próprias (opcional). Formato: Nome|https://link.m3u ; Outro|https://outro.m3u
+      - key: M3U_LISTS
+        sync: false
+      # Coloque "off" para desligar os canais internacionais do iptv-org.
+      - key: IPTV_ORG
+        value: "on"
