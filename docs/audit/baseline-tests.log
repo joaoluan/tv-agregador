@@ -1,0 +1,40 @@
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+
+> tv-agregador@1.0.0 test
+> node --test test/*.test.js
+
+✔ gêneros das fontes brasileiras viram categorias (4.329654ms)
+✔ categorias do iptv-org viram categorias (0.214087ms)
+✔ sem gênero útil, usa o nome do canal (1.199174ms)
+✔ ajustes vistos com os dados reais (0.245793ms)
+✔ canais 24h ficam só na linha própria (0.20255ms)
+✔ conteúdo adulto, televendas e canais de teste são descartados (0.221778ms)
+✔ país pelo grupo da fonte e filtro de país (0.264151ms)
+▶ agregador de ponta a ponta
+  ✔ manifesto tem uma linha por categoria e busca (28.598312ms)
+  ✔ ESPN 2 aparece uma vez só, juntando 3 fontes (4.373159ms)
+  ✔ canal adulto da fonte não entra em lugar nenhum (15.755774ms)
+  ✔ filtro de país separa os internacionais (2.757228ms)
+  ✔ ao abrir o canal, mostra links de todas as fontes na ordem (1.944286ms)
+  ✔ link do iptv-org leva os cabeçalhos exigidos (1.388314ms)
+  ✔ página do canal lista fontes e categorias (1.397497ms)
+  ✔ busca encontra canais (1.633887ms)
+  ✔ fonte fora do ar não derruba as outras (3.460368ms)
+✔ agregador de ponta a ponta (87.09068ms)
+[config] M3U_LISTS item 2 ignorado (use Nome|https://...)
+[config] ADDONS_PRIVADOS item 2 ignorado (use Nome|https://.../manifest.json)
+✔ lê lista M3U e junta links do mesmo canal (1.515902ms)
+✔ configuração M3U_LISTS ignora itens inválidos (1.150652ms)
+✔ ADDONS_PRIVADOS aceita só links de manifesto https (0.471658ms)
+✔ remove numeração de lista e marcadores de qualidade (1.854583ms)
+✔ mesmo canal com grafias diferentes gera a mesma chave (0.522703ms)
+✔ casos reais encontrados nas fontes (0.373332ms)
+✔ canais diferentes continuam separados (0.196541ms)
+ℹ tests 24
+ℹ suites 0
+ℹ pass 24
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 296.36631
