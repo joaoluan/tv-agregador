@@ -2,7 +2,7 @@
 
 const test = require('node:test');
 const assert = require('node:assert');
-const { tvplay, ntc, iptvOrg } = require('./fixtures');
+const { tvplay, ntc, iptvOrg, withFetch } = require('./fixtures');
 const { createStremioSource } = require('../src/sources/stremio');
 const { createIptvOrgSource } = require('../src/sources/iptvOrg');
 const { createStore } = require('../src/catalog');
@@ -129,14 +129,14 @@ test('agregador de ponta a ponta', async (t) => {
   });
 
   await t.test('fonte fora do ar não derruba as outras', async () => {
-    global.fetch = (url) => (String(url).startsWith(TVPLAY) ? Promise.reject(new Error('offline')) : fakeFetch(url));
-    await store.build();
-    const status = await get('/status');
-    const tv = status.sources.find((s) => s.id === 'tvplay');
-    assert.strictEqual(tv.ok, false);
-    assert.strictEqual(tv.usingPrevious, true);
-    const { metas } = await get('/catalog/tv/tvagg.esportes.json');
-    assert.strictEqual(metas[0].id, 'tvagg:br:espn2');
-    global.fetch = fakeFetch;
+    await withFetch((url) => (String(url).startsWith(TVPLAY) ? Promise.reject(new Error('offline')) : fakeFetch(url)), async () => {
+      await store.build();
+      const status = await get('/status');
+      const tv = status.sources.find((s) => s.id === 'tvplay');
+      assert.strictEqual(tv.ok, false);
+      assert.strictEqual(tv.usingPrevious, true);
+      const { metas } = await get('/catalog/tv/tvagg.esportes.json');
+      assert.strictEqual(metas[0].id, 'tvagg:br:espn2');
+    });
   });
 });

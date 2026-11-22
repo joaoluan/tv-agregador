@@ -69,10 +69,21 @@ function buildItems({ channels, streams, logos, countries }) {
       logo: logo ? logo.url : null,
       groups: ch.categories || [],
       country: ch.country || null,
-      ref: { streams: channelStreams }
+      ref: { streams: channelStreams
+        .sort((a, b) => qualityScore(b.quality) - qualityScore(a.quality))
+        .slice(0, 3) }
     });
   }
   return items;
+}
+
+function qualityScore(quality) {
+  const value = String(quality || '').toLowerCase();
+  if (/8k/.test(value)) return 4320;
+  if (/4k|uhd/.test(value)) return 2160;
+  if (/fhd/.test(value)) return 1080;
+  if (/hd/.test(value)) return 720;
+  return Number.parseInt(value, 10) || 0;
 }
 
 function toStremioStream(s) {

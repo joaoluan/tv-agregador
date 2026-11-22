@@ -3,7 +3,7 @@
 const { cleanName, channelKey, slugify } = require('./normalize');
 const { categorize, CATEGORIES } = require('./categories');
 const { countryName } = require('./countries');
-const { withTimeout } = require('./http');
+const { withTimeout, STREAM_TIMEOUT_MS } = require('./http');
 
 const ID_PREFIX = 'tvagg:';
 const REFRESH_MS = 6 * 60 * 60 * 1000;
@@ -206,11 +206,16 @@ function createStore(sources, { refreshMs = REFRESH_MS, retryMs = 5 * 60 * 1000,
   }
 
   async function streamsFor(id, options = {}) {
+    // withTimeout não cancela requests: fetchJson deve abortar primeiro, sem retries.
+    const timeout = options.timeout ?? STREAM_TIMEOUT_MS + 1000;
+    if (!Number.isFinite(timeout) || timeout <= STREAM_TIMEOUT_MS) {
+      throw new RangeError(`timeout de streamsFor deve exceder ${STREAM_TIMEOUT_MS} ms`);
+    }
     const cached = streamCache.get(id);
     if (cached && Date.now() - cached.at < 90000) return cached.streams;
     if (streamPending.has(id)) return streamPending.get(id);
     const generation = channels;
-    const pending = resolveStreams(id, options).then((streams) => {
+    const pending = resolveStreams(id, { timeout }).then((streams) => {
       if (channels === generation && generation.has(id)) {
         streamCache.delete(id);
         streamCache.set(id, { streams, at: Date.now() });
@@ -229,8 +234,8 @@ function createStore(sources, { refreshMs = REFRESH_MS, retryMs = 5 * 60 * 1000,
     if (!channel) {
       return [];
     }
-    const members = [...channel.members].sort((a, b) => {
-      return (sourceById.get(a.sourceId).priority) - (sourceById.get(b.sourceId).priority);
+    const members = channel.members.filter((member) => sourceById.has(member.sourceId)).sort((a, b) => {
+      return (sourceById.get(a.sourceId)?.priority ?? 999) - (sourceById.get(b.sourceId)?.priority ?? 999);
     });
     const perMember = await Promise.all(members.map(async (member) => {
       const source = sourceById.get(member.sourceId);
