@@ -92,3 +92,9 @@ Para testar a programação com dados que você pode usar, aponte `EPG_FILE` par
 ```
 
 O addon mostra “Agora” e “A seguir” na descrição do canal. Para atualizar os dados desse piloto, substitua o arquivo e reinicie o processo. A grade nativa e uma fonte de dados em produção dependem de validação separada.
+
+### Auditoria local de categorias
+
+Execute `node scripts/audit-catalog.js inventario.json` com uma lista JSON de entradas com `name`, `groups`, `country` e, opcionalmente, `categories` do levantamento anterior. O relatório inclui totais, canais sem tema, diferenças e nomes iguais com país incerto. O comando trabalha offline.
+
+A instância executa até oito consultas HTTP de fonte simultaneamente, com fila de até 128 e teto de 32 MiB por resposta. O prazo inclui espera na fila e tentativas. No encerramento, o processo cancela as consultas em curso.

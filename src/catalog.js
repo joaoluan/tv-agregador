@@ -106,13 +106,14 @@ function createStore(sources, { refreshMs = REFRESH_MS, retryMs = 5 * 60 * 1000,
   let building = null;
   let started = false;
   let stopped = false;
+  let lifetime = new AbortController();
   let lastFullBuildAt = null;
   let lastRetryAt = null;
 
   async function loadSource(source) {
     const started = Date.now();
     try {
-      const result = await source.load();
+      const result = await source.load({ signal: AbortSignal.any([lifetime.signal, AbortSignal.timeout(65000)]) });
       if (!Array.isArray(result)) throw new Error('Formato de fonte inválido');
       const items = result.filter(item => item && typeof item.name === 'string' &&
         item.ref !== null && item.ref !== undefined && (item.country === null || item.country === undefined || typeof item.country === 'string') &&
@@ -189,6 +190,7 @@ function createStore(sources, { refreshMs = REFRESH_MS, retryMs = 5 * 60 * 1000,
     if (started) return;
     started = true;
     stopped = false;
+    if (lifetime.signal.aborted) lifetime = new AbortController();
     if (ready) maintainOnAccess();
     else build().catch((err) => log.error(`[índice] erro: ${err.message}`));
   }
@@ -196,6 +198,7 @@ function createStore(sources, { refreshMs = REFRESH_MS, retryMs = 5 * 60 * 1000,
   function stop() {
     started = false;
     stopped = true;
+    lifetime.abort();
   }
 
   async function waitReady(ms = 10000) {
@@ -272,7 +275,7 @@ function createStore(sources, { refreshMs = REFRESH_MS, retryMs = 5 * 60 * 1000,
     const perMember = await Promise.all(members.map(async (member) => {
       const source = sourceById.get(member.sourceId);
       try {
-        const result = await withTimeout(source.streams(member.ref), timeout, []);
+        const result = await withTimeout(source.streams(member.ref, { signal: lifetime.signal }), timeout, []);
         return (result || []).map((stream) => labelStream(stream, source, member, channel));
       } catch (err) {
         log.warn(`[${source.id}] sem links para "${channel.name}": ${err.message}`);

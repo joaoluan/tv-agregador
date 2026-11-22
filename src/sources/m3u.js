@@ -4,8 +4,8 @@ const { fetchText } = require('../http');
 
 // Fonte para listas M3U/M3U8 (IPTV). Use para adicionar suas próprias listas no futuro.
 function createM3uSource({ id, label, url, country = '??', priority = 70 }) {
-  async function load() {
-    const text = await fetchText(url, { timeout: 60000 });
+  async function load({ signal } = {}) {
+    const text = await fetchText(url, { timeout: 60000, signal });
     return parseM3u(text, country);
   }
 
