@@ -1,0 +1,1221 @@
+{
+  "before": 1711,
+  "after": 1711,
+  "idsPreserved": true,
+  "sourcesBefore": [
+    {
+      "id": "tvplay",
+      "items": 145
+    },
+    {
+      "id": "tvvio",
+      "items": 155
+    },
+    {
+      "id": "ntctv",
+      "items": 1886
+    },
+    {
+      "id": "redecanais",
+      "items": 142
+    }
+  ],
+  "sourcesAfter": [
+    {
+      "id": "tvplay",
+      "items": 145
+    },
+    {
+      "id": "tvvio",
+      "items": 155
+    },
+    {
+      "id": "ntctv",
+      "items": 1886
+    },
+    {
+      "id": "redecanais",
+      "items": 142
+    }
+  ],
+  "changes": [
+    {
+      "id": "tvagg:br:ae",
+      "name": "AE",
+      "before": [
+        "filmes",
+        "series",
+        "documentarios"
+      ],
+      "after": [
+        "filmes",
+        "series"
+      ]
+    },
+    {
+      "id": "tvagg:br:axn",
+      "name": "AXN",
+      "before": [
+        "filmes",
+        "series",
+        "variedades"
+      ],
+      "after": [
+        "filmes",
+        "series"
+      ]
+    },
+    {
+      "id": "tvagg:br:adultswim",
+      "name": "Adult Swim",
+      "before": [
+        "filmes",
+        "series",
+        "variedades"
+      ],
+      "after": [
+        "series",
+        "variedades"
+      ]
+    },
+    {
+      "id": "tvagg:br:animalplanet",
+      "name": "Animal Planet",
+      "before": [
+        "documentarios",
+        "variedades"
+      ],
+      "after": [
+        "documentarios"
+      ]
+    },
+    {
+      "id": "tvagg:br:aparecida",
+      "name": "Aparecida",
+      "before": [
+        "variedades",
+        "abertos",
+        "religiosos"
+      ],
+      "after": [
+        "religiosos"
+      ]
+    },
+    {
+      "id": "tvagg:br:bandrj",
+      "name": "Band RJ",
+      "before": [
+        "abertos",
+        "noticias"
+      ],
+      "after": [
+        "abertos"
+      ]
+    },
+    {
+      "id": "tvagg:br:bandsp",
+      "name": "Band SP",
+      "before": [
+        "abertos",
+        "noticias"
+      ],
+      "after": [
+        "abertos"
+      ]
+    },
+    {
+      "id": "tvagg:br:bandsports",
+      "name": "Band Sports",
+      "before": [
+        "esportes",
+        "noticias"
+      ],
+      "after": [
+        "esportes"
+      ]
+    },
+    {
+      "id": "tvagg:br:cnnbrasil",
+      "name": "CNN Brasil",
+      "before": [
+        "noticias",
+        "variedades"
+      ],
+      "after": [
+        "noticias"
+      ]
+    },
+    {
+      "id": "tvagg:br:cancaonova",
+      "name": "Canção Nova",
+      "before": [
+        "variedades",
+        "abertos",
+        "religiosos"
+      ],
+      "after": [
+        "religiosos"
+      ]
+    },
+    {
+      "id": "tvagg:br:cinemax",
+      "name": "Cinemax",
+      "before": [
+        "filmes",
+        "series"
+      ],
+      "after": [
+        "filmes"
+      ]
+    },
+    {
+      "id": "tvagg:br:tvcultura",
+      "name": "Cultura",
+      "before": [
+        "abertos",
+        "variedades"
+      ],
+      "after": [
+        "abertos"
+      ]
+    },
+    {
+      "id": "tvagg:br:discovery",
+      "name": "Discovery Channel",
+      "before": [
+        "documentarios",
+        "variedades"
+      ],
+      "after": [
+        "documentarios"
+      ]
+    },
+    {
+      "id": "tvagg:br:discoveryhh",
+      "name": "Discovery H&H",
+      "before": [
+        "documentarios"
+      ],
+      "after": [
+        "estilo",
+        "variedades"
+      ]
+    },
+    {
+      "id": "tvagg:br:investigationdiscovery",
+      "name": "Discovery ID",
+      "before": [
+        "documentarios",
+        "variedades"
+      ],
+      "after": [
+        "documentarios"
+      ]
+    },
+    {
+      "id": "tvagg:br:discoveryscience",
+      "name": "Discovery Science",
+      "before": [
+        "documentarios",
+        "variedades"
+      ],
+      "after": [
+        "documentarios"
+      ]
+    },
+    {
+      "id": "tvagg:br:discoverytheater",
+      "name": "Discovery Theater",
+      "before": [
+        "documentarios",
+        "variedades"
+      ],
+      "after": [
+        "documentarios"
+      ]
+    },
+    {
+      "id": "tvagg:br:discoveryturbo",
+      "name": "Discovery Turbo",
+      "before": [
+        "documentarios",
+        "variedades"
+      ],
+      "after": [
+        "documentarios"
+      ]
+    },
+    {
+      "id": "tvagg:br:discoveryworld",
+      "name": "Discovery World",
+      "before": [
+        "documentarios",
+        "variedades"
+      ],
+      "after": [
+        "documentarios"
+      ]
+    },
+    {
+      "id": "tvagg:br:foodnetwork",
+      "name": "Food Network",
+      "before": [
+        "variedades",
+        "culinaria",
+        "documentarios"
+      ],
+      "after": [
+        "culinaria",
+        "variedades"
+      ]
+    },
+    {
+      "id": "tvagg:br:gnt",
+      "name": "GNT",
+      "before": [
+        "filmes",
+        "series",
+        "variedades"
+      ],
+      "after": [
+        "variedades"
+      ]
+    },
+    {
+      "id": "tvagg:br:globonovelas",
+      "name": "Globo Novelas",
+      "before": [
+        "abertos"
+      ],
+      "after": [
+        "series"
+      ]
+    },
+    {
+      "id": "tvagg:br:hgtv",
+      "name": "HGTV",
+      "before": [
+        "filmes",
+        "series",
+        "variedades"
+      ],
+      "after": [
+        "estilo"
+      ]
+    },
+    {
+      "id": "tvagg:br:history",
+      "name": "History",
+      "before": [
+        "documentarios",
+        "variedades"
+      ],
+      "after": [
+        "documentarios"
+      ]
+    },
+    {
+      "id": "tvagg:br:history2",
+      "name": "History 2",
+      "before": [
+        "documentarios",
+        "variedades"
+      ],
+      "after": [
+        "documentarios"
+      ]
+    },
+    {
+      "id": "tvagg:br:mtv",
+      "name": "MTV",
+      "before": [
+        "abertos",
+        "variedades"
+      ],
+      "after": [
+        "musica",
+        "variedades"
+      ]
+    },
+    {
+      "id": "tvagg:br:megapix",
+      "name": "Megapix",
+      "before": [
+        "filmes",
+        "series"
+      ],
+      "after": [
+        "filmes"
+      ]
+    },
+    {
+      "id": "tvagg:br:multishow",
+      "name": "Multishow",
+      "before": [
+        "abertos",
+        "variedades",
+        "musica"
+      ],
+      "after": [
+        "musica",
+        "variedades"
+      ]
+    },
+    {
+      "id": "tvagg:br:off",
+      "name": "OFF",
+      "before": [
+        "filmes",
+        "series",
+        "variedades"
+      ],
+      "after": [
+        "esportes",
+        "estilo"
+      ]
+    },
+    {
+      "id": "tvagg:br:recordmg",
+      "name": "Record MG",
+      "before": [
+        "abertos",
+        "noticias",
+        "variedades"
+      ],
+      "after": [
+        "abertos"
+      ]
+    },
+    {
+      "id": "tvagg:br:recordrj",
+      "name": "Record RJ",
+      "before": [
+        "abertos",
+        "noticias",
+        "variedades"
+      ],
+      "after": [
+        "abertos"
+      ]
+    },
+    {
+      "id": "tvagg:br:recordsp",
+      "name": "Record SP",
+      "before": [
+        "abertos",
+        "noticias",
+        "variedades"
+      ],
+      "after": [
+        "abertos"
+      ]
+    },
+    {
+      "id": "tvagg:br:recordgo",
+      "name": "Record GO",
+      "before": [
+        "abertos",
+        "noticias",
+        "variedades"
+      ],
+      "after": [
+        "abertos"
+      ]
+    },
+    {
+      "id": "tvagg:br:redevida",
+      "name": "Rede Vida",
+      "before": [
+        "variedades",
+        "abertos",
+        "religiosos"
+      ],
+      "after": [
+        "religiosos"
+      ]
+    },
+    {
+      "id": "tvagg:br:sbtrj",
+      "name": "SBT RJ",
+      "before": [
+        "noticias",
+        "abertos",
+        "variedades"
+      ],
+      "after": [
+        "abertos"
+      ]
+    },
+    {
+      "id": "tvagg:br:sbtsp",
+      "name": "SBT SP",
+      "before": [
+        "noticias",
+        "abertos",
+        "variedades"
+      ],
+      "after": [
+        "abertos"
+      ]
+    },
+    {
+      "id": "tvagg:br:studiouniversal",
+      "name": "Studio Universal",
+      "before": [
+        "filmes",
+        "series"
+      ],
+      "after": [
+        "filmes"
+      ]
+    },
+    {
+      "id": "tvagg:br:tcm",
+      "name": "TCM",
+      "before": [
+        "filmes",
+        "series"
+      ],
+      "after": [
+        "filmes"
+      ]
+    },
+    {
+      "id": "tvagg:br:tlc",
+      "name": "TLC",
+      "before": [
+        "filmes",
+        "series",
+        "variedades",
+        "documentarios"
+      ],
+      "after": [
+        "estilo",
+        "variedades"
+      ]
+    },
+    {
+      "id": "tvagg:br:tntnovelas",
+      "name": "TNT Novelas",
+      "before": [
+        "filmes",
+        "series"
+      ],
+      "after": [
+        "series"
+      ]
+    },
+    {
+      "id": "tvagg:br:tntseries",
+      "name": "TNT Series",
+      "before": [
+        "filmes",
+        "series"
+      ],
+      "after": [
+        "series"
+      ]
+    },
+    {
+      "id": "tvagg:br:paieterno",
+      "name": "TV Pai Eterno",
+      "before": [
+        "variedades",
+        "abertos",
+        "religiosos"
+      ],
+      "after": [
+        "religiosos"
+      ]
+    },
+    {
+      "id": "tvagg:br:telecineaction",
+      "name": "Telecine Action",
+      "before": [
+        "filmes",
+        "series"
+      ],
+      "after": [
+        "filmes"
+      ]
+    },
+    {
+      "id": "tvagg:br:telecinecult",
+      "name": "Telecine Cult",
+      "before": [
+        "filmes",
+        "series"
+      ],
+      "after": [
+        "filmes"
+      ]
+    },
+    {
+      "id": "tvagg:br:telecinefun",
+      "name": "Telecine Fun",
+      "before": [
+        "filmes",
+        "series"
+      ],
+      "after": [
+        "filmes"
+      ]
+    },
+    {
+      "id": "tvagg:br:telecinepipoca",
+      "name": "Telecine Pipoca",
+      "before": [
+        "filmes",
+        "series"
+      ],
+      "after": [
+        "filmes"
+      ]
+    },
+    {
+      "id": "tvagg:br:telecinepremium",
+      "name": "Telecine Premium",
+      "before": [
+        "filmes",
+        "series"
+      ],
+      "after": [
+        "filmes"
+      ]
+    },
+    {
+      "id": "tvagg:br:telecinetouch",
+      "name": "Telecine Touch",
+      "before": [
+        "filmes",
+        "series"
+      ],
+      "after": [
+        "filmes"
+      ]
+    },
+    {
+      "id": "tvagg:br:xsports",
+      "name": "XSports",
+      "before": [
+        "esportes",
+        "variedades"
+      ],
+      "after": [
+        "esportes"
+      ]
+    },
+    {
+      "id": "tvagg:br:24hchaves",
+      "name": "24H Chaves",
+      "before": [
+        "variedades",
+        "infantil",
+        "canais24h"
+      ],
+      "after": [
+        "canais24h"
+      ]
+    },
+    {
+      "id": "tvagg:br:24hdragonballz",
+      "name": "24H Dragon Ball Z",
+      "before": [
+        "variedades",
+        "infantil"
+      ],
+      "after": [
+        "canais24h"
+      ]
+    },
+    {
+      "id": "tvagg:br:24hfriends",
+      "name": "24H Friends",
+      "before": [
+        "variedades"
+      ],
+      "after": [
+        "canais24h"
+      ]
+    },
+    {
+      "id": "tvagg:br:24hnarutoclassico",
+      "name": "24H Naruto Clássico",
+      "before": [
+        "variedades",
+        "infantil"
+      ],
+      "after": [
+        "canais24h"
+      ]
+    },
+    {
+      "id": "tvagg:br:24hossimpsons",
+      "name": "24H Os Simpsons",
+      "before": [
+        "variedades",
+        "infantil"
+      ],
+      "after": [
+        "canais24h"
+      ]
+    },
+    {
+      "id": "tvagg:br:24htodomundoodeiaocris",
+      "name": "24H Todo Mundo Odeia o Cris",
+      "before": [
+        "variedades"
+      ],
+      "after": [
+        "canais24h"
+      ]
+    },
+    {
+      "id": "tvagg:br:24hpicapau",
+      "name": "24H Pica Pau",
+      "before": [
+        "variedades",
+        "infantil"
+      ],
+      "after": [
+        "canais24h"
+      ]
+    },
+    {
+      "id": "tvagg:br:amcseries",
+      "name": "AMC Séries",
+      "before": [
+        "filmes",
+        "series"
+      ],
+      "after": [
+        "series"
+      ]
+    },
+    {
+      "id": "tvagg:br:globoplaynovelas",
+      "name": "Globoplay Novelas",
+      "before": [
+        "filmes",
+        "series",
+        "variedades"
+      ],
+      "after": [
+        "series"
+      ]
+    },
+    {
+      "id": "tvagg:br:universaltv",
+      "name": "Universal TV",
+      "before": [
+        "filmes",
+        "series",
+        "variedades"
+      ],
+      "after": [
+        "filmes",
+        "series"
+      ]
+    },
+    {
+      "id": "tvagg:br:usa",
+      "name": "USA",
+      "before": [
+        "filmes",
+        "series",
+        "variedades"
+      ],
+      "after": [
+        "filmes",
+        "series"
+      ]
+    },
+    {
+      "id": "tvagg:br:discoveryhomehealth",
+      "name": "Discovery Home & Health",
+      "before": [
+        "variedades",
+        "documentarios"
+      ],
+      "after": [
+        "estilo",
+        "variedades"
+      ]
+    },
+    {
+      "id": "tvagg:br:canaloff",
+      "name": "Canal Off",
+      "before": [
+        "esportes",
+        "variedades"
+      ],
+      "after": [
+        "esportes",
+        "estilo"
+      ]
+    },
+    {
+      "id": "tvagg:br:redetv",
+      "name": "RedeTV!",
+      "before": [
+        "abertos",
+        "variedades"
+      ],
+      "after": [
+        "abertos"
+      ]
+    },
+    {
+      "id": "tvagg:br:thejetsons24horas",
+      "name": "The JetSons 24 HORAS",
+      "before": [
+        "infantil"
+      ],
+      "after": [
+        "canais24h"
+      ]
+    },
+    {
+      "id": "tvagg:br:globoba",
+      "name": "Globo Bahia",
+      "before": [
+        "outros"
+      ],
+      "after": [
+        "abertos"
+      ]
+    },
+    {
+      "id": "tvagg:br:globorbstv",
+      "name": "Globo RBS TV",
+      "before": [
+        "outros"
+      ],
+      "after": [
+        "abertos"
+      ]
+    },
+    {
+      "id": "tvagg:br:sbtpluskids",
+      "name": "SBT+ KIDS",
+      "before": [
+        "abertos"
+      ],
+      "after": [
+        "infantil"
+      ]
+    },
+    {
+      "id": "tvagg:br:fishtv",
+      "name": "Fish TV",
+      "before": [
+        "esportes",
+        "variedades"
+      ],
+      "after": [
+        "esportes",
+        "estilo"
+      ]
+    },
+    {
+      "id": "tvagg:br:canalbrasil",
+      "name": "CANAL BRASIL",
+      "before": [
+        "variedades"
+      ],
+      "after": [
+        "filmes",
+        "series"
+      ]
+    },
+    {
+      "id": "tvagg:br:curta",
+      "name": "CURTA!",
+      "before": [
+        "variedades"
+      ],
+      "after": [
+        "documentarios"
+      ]
+    },
+    {
+      "id": "tvagg:br:modoviagem",
+      "name": "MODO VIAGEM",
+      "before": [
+        "variedades"
+      ],
+      "after": [
+        "estilo"
+      ]
+    },
+    {
+      "id": "tvagg:br:tracebrazuca",
+      "name": "TRACE BRAZUCA",
+      "before": [
+        "variedades"
+      ],
+      "after": [
+        "musica"
+      ]
+    },
+    {
+      "id": "tvagg:ar:tvmanaargentina",
+      "name": "Tv Maná Argentina",
+      "before": [
+        "outros"
+      ],
+      "after": [
+        "religiosos"
+      ]
+    },
+    {
+      "id": "tvagg:cl:tvsenado",
+      "name": "Tv Senado",
+      "before": [
+        "outros"
+      ],
+      "after": [
+        "noticias"
+      ]
+    },
+    {
+      "id": "tvagg:pt:artvcanalparlamento",
+      "name": "Artv Canal Parlamento",
+      "before": [
+        "esportes"
+      ],
+      "after": [
+        "noticias"
+      ]
+    },
+    {
+      "id": "tvagg:pt:kuriakosmusic",
+      "name": "Kuriakos Music",
+      "before": [
+        "musica",
+        "esportes"
+      ],
+      "after": [
+        "musica"
+      ]
+    },
+    {
+      "id": "tvagg:pt:kuriakostv",
+      "name": "Kuriakos Tv",
+      "before": [
+        "esportes"
+      ],
+      "after": [
+        "religiosos"
+      ]
+    },
+    {
+      "id": "tvagg:pt:manachurchonline",
+      "name": "Maná Church Online",
+      "before": [
+        "esportes"
+      ],
+      "after": [
+        "religiosos"
+      ]
+    },
+    {
+      "id": "tvagg:pt:manacirkevonline",
+      "name": "Maná Cirkev Online",
+      "before": [
+        "esportes"
+      ],
+      "after": [
+        "religiosos"
+      ]
+    },
+    {
+      "id": "tvagg:pt:manaegliseonline",
+      "name": "Maná Église Online",
+      "before": [
+        "esportes"
+      ],
+      "after": [
+        "religiosos"
+      ]
+    },
+    {
+      "id": "tvagg:pt:manaiglesiaonline",
+      "name": "Maná Iglesia Online",
+      "before": [
+        "esportes"
+      ],
+      "after": [
+        "religiosos"
+      ]
+    },
+    {
+      "id": "tvagg:pt:manaigrejaonline",
+      "name": "Maná Igreja Online",
+      "before": [
+        "religiosos",
+        "esportes"
+      ],
+      "after": [
+        "religiosos"
+      ]
+    },
+    {
+      "id": "tvagg:pt:manatserkovonlayn",
+      "name": "Maná Tserkov' Onlayn",
+      "before": [
+        "esportes"
+      ],
+      "after": [
+        "religiosos"
+      ]
+    },
+    {
+      "id": "tvagg:pt:portocanal",
+      "name": "Porto Canal",
+      "before": [
+        "esportes"
+      ],
+      "after": [
+        "outros"
+      ]
+    },
+    {
+      "id": "tvagg:pt:radiosines",
+      "name": "Rádio Sines",
+      "before": [
+        "musica",
+        "esportes"
+      ],
+      "after": [
+        "musica"
+      ]
+    },
+    {
+      "id": "tvagg:pt:sicaltadefinicao",
+      "name": "Sic Alta Definição",
+      "before": [
+        "abertos",
+        "esportes"
+      ],
+      "after": [
+        "abertos"
+      ]
+    },
+    {
+      "id": "tvagg:pt:sicreplay",
+      "name": "Sic Replay",
+      "before": [
+        "abertos",
+        "esportes"
+      ],
+      "after": [
+        "abertos"
+      ]
+    },
+    {
+      "id": "tvagg:pt:tvmana",
+      "name": "Tv Maná 1",
+      "before": [
+        "esportes"
+      ],
+      "after": [
+        "religiosos"
+      ]
+    },
+    {
+      "id": "tvagg:pt:tvmana2",
+      "name": "Tv Maná 2",
+      "before": [
+        "esportes"
+      ],
+      "after": [
+        "religiosos"
+      ]
+    },
+    {
+      "id": "tvagg:pt:tvmanaenglish",
+      "name": "Tv Maná English",
+      "before": [
+        "esportes"
+      ],
+      "after": [
+        "religiosos"
+      ]
+    },
+    {
+      "id": "tvagg:pt:tvmanaespanol",
+      "name": "Tv Maná Español",
+      "before": [
+        "outros"
+      ],
+      "after": [
+        "religiosos"
+      ]
+    },
+    {
+      "id": "tvagg:pt:tvmanarusskiy",
+      "name": "Tv Maná Russkiy",
+      "before": [
+        "esportes"
+      ],
+      "after": [
+        "religiosos"
+      ]
+    },
+    {
+      "id": "tvagg:us:bbcdoctorwhoclassic",
+      "name": "Bbc Doctor Who Classic",
+      "before": [
+        "noticias"
+      ],
+      "after": [
+        "series"
+      ]
+    },
+    {
+      "id": "tvagg:us:bbcearth",
+      "name": "Bbc Earth",
+      "before": [
+        "noticias"
+      ],
+      "after": [
+        "documentarios"
+      ]
+    },
+    {
+      "id": "tvagg:us:cinepremiere",
+      "name": "Cine Premiere",
+      "before": [
+        "esportes"
+      ],
+      "after": [
+        "filmes"
+      ]
+    },
+    {
+      "id": "tvagg:us:universalcrime",
+      "name": "Universal Crime",
+      "before": [
+        "filmes"
+      ],
+      "after": [
+        "filmes",
+        "series"
+      ]
+    },
+    {
+      "id": "tvagg:pt:rtp",
+      "name": "Rtp 1",
+      "before": [
+        "outros"
+      ],
+      "after": [
+        "abertos"
+      ]
+    },
+    {
+      "id": "tvagg:pt:rtpacores",
+      "name": "Rtp Acores",
+      "before": [
+        "outros"
+      ],
+      "after": [
+        "abertos"
+      ]
+    },
+    {
+      "id": "tvagg:pt:rtpacores504p",
+      "name": "Rtp Acores (504p)",
+      "before": [
+        "outros"
+      ],
+      "after": [
+        "abertos"
+      ]
+    },
+    {
+      "id": "tvagg:pt:rtpmadeira504p",
+      "name": "Rtp Madeira (504p)",
+      "before": [
+        "outros"
+      ],
+      "after": [
+        "abertos"
+      ]
+    },
+    {
+      "id": "tvagg:pt:tvmanabrasil",
+      "name": "Tv Mana Brasil",
+      "before": [
+        "outros"
+      ],
+      "after": [
+        "religiosos"
+      ]
+    },
+    {
+      "id": "tvagg:pt:tvmanaespanhol",
+      "name": "Tv Mana Espanhol",
+      "before": [
+        "outros"
+      ],
+      "after": [
+        "religiosos"
+      ]
+    },
+    {
+      "id": "tvagg:br:travelboxbrazil",
+      "name": "Travel Box Brazil",
+      "before": [
+        "documentarios"
+      ],
+      "after": [
+        "estilo"
+      ]
+    },
+    {
+      "id": "tvagg:br:saborarte",
+      "name": "Sabor & Arte",
+      "before": [
+        "variedades"
+      ],
+      "after": [
+        "culinaria",
+        "variedades"
+      ]
+    },
+    {
+      "id": "tvagg:br:sony",
+      "name": "Sony",
+      "before": [
+        "variedades"
+      ],
+      "after": [
+        "filmes",
+        "series"
+      ]
+    },
+    {
+      "id": "tvagg:br:sonymovies",
+      "name": "Sony Movies",
+      "before": [
+        "variedades"
+      ],
+      "after": [
+        "filmes"
+      ]
+    },
+    {
+      "id": "tvagg:br:warnertv",
+      "name": "Warner TV",
+      "before": [
+        "variedades"
+      ],
+      "after": [
+        "filmes",
+        "series"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,108 @@
+id,nome,antes,depois
+tvagg:br:ae,AE,filmes|series|documentarios,filmes|series
+tvagg:br:axn,AXN,filmes|series|variedades,filmes|series
+tvagg:br:adultswim,Adult Swim,filmes|series|variedades,series|variedades
+tvagg:br:animalplanet,Animal Planet,documentarios|variedades,documentarios
+tvagg:br:aparecida,Aparecida,variedades|abertos|religiosos,religiosos
+tvagg:br:bandrj,Band RJ,abertos|noticias,abertos
+tvagg:br:bandsp,Band SP,abertos|noticias,abertos
+tvagg:br:bandsports,Band Sports,esportes|noticias,esportes
+tvagg:br:cnnbrasil,CNN Brasil,noticias|variedades,noticias
+tvagg:br:cancaonova,Canção Nova,variedades|abertos|religiosos,religiosos
+tvagg:br:cinemax,Cinemax,filmes|series,filmes
+tvagg:br:tvcultura,Cultura,abertos|variedades,abertos
+tvagg:br:discovery,Discovery Channel,documentarios|variedades,documentarios
+tvagg:br:discoveryhh,Discovery H&H,documentarios,estilo|variedades
+tvagg:br:investigationdiscovery,Discovery ID,documentarios|variedades,documentarios
+tvagg:br:discoveryscience,Discovery Science,documentarios|variedades,documentarios
+tvagg:br:discoverytheater,Discovery Theater,documentarios|variedades,documentarios
+tvagg:br:discoveryturbo,Discovery Turbo,documentarios|variedades,documentarios
+tvagg:br:discoveryworld,Discovery World,documentarios|variedades,documentarios
+tvagg:br:foodnetwork,Food Network,variedades|culinaria|documentarios,culinaria|variedades
+tvagg:br:gnt,GNT,filmes|series|variedades,variedades
+tvagg:br:globonovelas,Globo Novelas,abertos,series
+tvagg:br:hgtv,HGTV,filmes|series|variedades,estilo
+tvagg:br:history,History,documentarios|variedades,documentarios
+tvagg:br:history2,History 2,documentarios|variedades,documentarios
+tvagg:br:mtv,MTV,abertos|variedades,musica|variedades
+tvagg:br:megapix,Megapix,filmes|series,filmes
+tvagg:br:multishow,Multishow,abertos|variedades|musica,musica|variedades
+tvagg:br:off,OFF,filmes|series|variedades,esportes|estilo
+tvagg:br:recordmg,Record MG,abertos|noticias|variedades,abertos
+tvagg:br:recordrj,Record RJ,abertos|noticias|variedades,abertos
+tvagg:br:recordsp,Record SP,abertos|noticias|variedades,abertos
+tvagg:br:recordgo,Record GO,abertos|noticias|variedades,abertos
+tvagg:br:redevida,Rede Vida,variedades|abertos|religiosos,religiosos
+tvagg:br:sbtrj,SBT RJ,noticias|abertos|variedades,abertos
+tvagg:br:sbtsp,SBT SP,noticias|abertos|variedades,abertos
+tvagg:br:studiouniversal,Studio Universal,filmes|series,filmes
+tvagg:br:tcm,TCM,filmes|series,filmes
+tvagg:br:tlc,TLC,filmes|series|variedades|documentarios,estilo|variedades
+tvagg:br:tntnovelas,TNT Novelas,filmes|series,series
+tvagg:br:tntseries,TNT Series,filmes|series,series
+tvagg:br:paieterno,TV Pai Eterno,variedades|abertos|religiosos,religiosos
+tvagg:br:telecineaction,Telecine Action,filmes|series,filmes
+tvagg:br:telecinecult,Telecine Cult,filmes|series,filmes
+tvagg:br:telecinefun,Telecine Fun,filmes|series,filmes
+tvagg:br:telecinepipoca,Telecine Pipoca,filmes|series,filmes
+tvagg:br:telecinepremium,Telecine Premium,filmes|series,filmes
+tvagg:br:telecinetouch,Telecine Touch,filmes|series,filmes
+tvagg:br:xsports,XSports,esportes|variedades,esportes
+tvagg:br:24hchaves,24H Chaves,variedades|infantil|canais24h,canais24h
+tvagg:br:24hdragonballz,24H Dragon Ball Z,variedades|infantil,canais24h
+tvagg:br:24hfriends,24H Friends,variedades,canais24h
+tvagg:br:24hnarutoclassico,24H Naruto Clássico,variedades|infantil,canais24h
+tvagg:br:24hossimpsons,24H Os Simpsons,variedades|infantil,canais24h
+tvagg:br:24htodomundoodeiaocris,24H Todo Mundo Odeia o Cris,variedades,canais24h
+tvagg:br:24hpicapau,24H Pica Pau,variedades|infantil,canais24h
+tvagg:br:amcseries,AMC Séries,filmes|series,series
+tvagg:br:globoplaynovelas,Globoplay Novelas,filmes|series|variedades,series
+tvagg:br:universaltv,Universal TV,filmes|series|variedades,filmes|series
+tvagg:br:usa,USA,filmes|series|variedades,filmes|series
+tvagg:br:discoveryhomehealth,Discovery Home & Health,variedades|documentarios,estilo|variedades
+tvagg:br:canaloff,Canal Off,esportes|variedades,esportes|estilo
+tvagg:br:redetv,RedeTV!,abertos|variedades,abertos
+tvagg:br:thejetsons24horas,The JetSons 24 HORAS,infantil,canais24h
+tvagg:br:globoba,Globo Bahia,outros,abertos
+tvagg:br:globorbstv,Globo RBS TV,outros,abertos
+tvagg:br:sbtpluskids,SBT+ KIDS,abertos,infantil
+tvagg:br:fishtv,Fish TV,esportes|variedades,esportes|estilo
+tvagg:br:canalbrasil,CANAL BRASIL,variedades,filmes|series
+tvagg:br:curta,CURTA!,variedades,documentarios
+tvagg:br:modoviagem,MODO VIAGEM,variedades,estilo
+tvagg:br:tracebrazuca,TRACE BRAZUCA,variedades,musica
+tvagg:ar:tvmanaargentina,Tv Maná Argentina,outros,religiosos
+tvagg:cl:tvsenado,Tv Senado,outros,noticias
+tvagg:pt:artvcanalparlamento,Artv Canal Parlamento,esportes,noticias
+tvagg:pt:kuriakosmusic,Kuriakos Music,musica|esportes,musica
+tvagg:pt:kuriakostv,Kuriakos Tv,esportes,religiosos
+tvagg:pt:manachurchonline,Maná Church Online,esportes,religiosos
+tvagg:pt:manacirkevonline,Maná Cirkev Online,esportes,religiosos
+tvagg:pt:manaegliseonline,Maná Église Online,esportes,religiosos
+tvagg:pt:manaiglesiaonline,Maná Iglesia Online,esportes,religiosos
+tvagg:pt:manaigrejaonline,Maná Igreja Online,religiosos|esportes,religiosos
+tvagg:pt:manatserkovonlayn,Maná Tserkov' Onlayn,esportes,religiosos
+tvagg:pt:portocanal,Porto Canal,esportes,outros
+tvagg:pt:radiosines,Rádio Sines,musica|esportes,musica
+tvagg:pt:sicaltadefinicao,Sic Alta Definição,abertos|esportes,abertos
+tvagg:pt:sicreplay,Sic Replay,abertos|esportes,abertos
+tvagg:pt:tvmana,Tv Maná 1,esportes,religiosos
+tvagg:pt:tvmana2,Tv Maná 2,esportes,religiosos
+tvagg:pt:tvmanaenglish,Tv Maná English,esportes,religiosos
+tvagg:pt:tvmanaespanol,Tv Maná Español,outros,religiosos
+tvagg:pt:tvmanarusskiy,Tv Maná Russkiy,esportes,religiosos
+tvagg:us:bbcdoctorwhoclassic,Bbc Doctor Who Classic,noticias,series
+tvagg:us:bbcearth,Bbc Earth,noticias,documentarios
+tvagg:us:cinepremiere,Cine Premiere,esportes,filmes
+tvagg:us:universalcrime,Universal Crime,filmes,filmes|series
+tvagg:pt:rtp,Rtp 1,outros,abertos
+tvagg:pt:rtpacores,Rtp Acores,outros,abertos
+tvagg:pt:rtpacores504p,Rtp Acores (504p),outros,abertos
+tvagg:pt:rtpmadeira504p,Rtp Madeira (504p),outros,abertos
+tvagg:pt:tvmanabrasil,Tv Mana Brasil,outros,religiosos
+tvagg:pt:tvmanaespanhol,Tv Mana Espanhol,outros,religiosos
+tvagg:br:travelboxbrazil,Travel Box Brazil,documentarios,estilo
+tvagg:br:saborarte,Sabor & Arte,variedades,culinaria|variedades
+tvagg:br:sony,Sony,variedades,filmes|series
+tvagg:br:sonymovies,Sony Movies,variedades,filmes
+tvagg:br:warnertv,Warner TV,variedades,filmes|series

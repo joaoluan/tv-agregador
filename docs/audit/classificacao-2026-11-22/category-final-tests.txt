@@ -1,0 +1,71 @@
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+
+> tv-agregador@1.0.0 test
+> node --test test/*.test.js
+
+✔ A21/A11: canal 1 permanece distinto de canal 2; alias sem número preservado (3.321796ms)
+✔ A15: variation selector isolado é normalizado (0.783477ms)
+✔ A8: Hot Bird é mantido, HOT como grupo e conteúdo adulto são bloqueados (9.577706ms)
+✔ A9: item sem país é internacional e não Brasil (1.784375ms)
+✔ A9: fontes genéricas sem país explícito usam desconhecido (4.260422ms)
+✔ A18: referência repetida da mesma fonte gera uma consulta, fontes distintas preservadas (3.696259ms)
+✔ A6: health responde 503 antes do build e 200 com contagens depois (57.791398ms)
+✔ A7: blueprint desliga deploy automático (0.693193ms)
+✔ A10: membro de fonte removida não derruba streams válidos (2.42401ms)
+✔ A12: timeout agregado precisa exceder timeout interno Stremio mesmo com cache (1.1573ms)
+✔ A13: iptv-org limita a três links, prioriza qualidade e preserva cabeçalhos (1.128808ms)
+✔ A16: assert falhando dentro da troca de fetch restaura o original (1.216516ms)
+✔ A19: scripts dev e lint estão configurados (0.423645ms)
+✔ A7: blueprint de produção fixa main mesmo quando a origem do Blueprint é outra branch (0.565035ms)
+✔ A2/A20: manifesto cabe em 6 KiB e preserva os filtros de todas as categorias (1.668625ms)
+✔ A3/A20: iptv-org exige on explícito (0.559366ms)
+✔ A1: catálogo frio responde 200 sem cache em menos de 2 segundos e build continua (46.348033ms)
+✔ A14: categoria vazia pronta permanece cacheável (0.901542ms)
+✔ A4: consultas simultâneas e consecutivas compartilham cache; rebuild invalida (8.377572ms)
+✔ A4: cache expira em 90s e descarta a entrada mais antiga após 500 (114.765108ms)
+✔ A5: no máximo 8 catálogos e 12 páginas; truncamento gera diagnóstico (6.387313ms)
+✔ A17: versão estável no processo e distinta em duas inicializações (317.563965ms)
+✔ gêneros das fontes brasileiras viram categorias (13.33144ms)
+✔ categorias do iptv-org viram categorias (1.003171ms)
+✔ sem gênero útil, usa o nome do canal (2.182853ms)
+✔ ajustes vistos com os dados reais (0.645894ms)
+✔ canais 24h ficam só na linha própria (0.540248ms)
+✔ conteúdo adulto, televendas e canais de teste são descartados (0.35246ms)
+✔ país pelo grupo da fonte e filtro de país (0.882884ms)
+✔ etiqueta de fonte [F1] não transforma igreja ou rádio em esporte (13.173847ms)
+✔ identidade religiosa prevalece sobre grupo culinária errado sem liberar conteúdo bloqueado (0.644502ms)
+✔ marcas temáticas não herdam categorias incompatíveis de uma fonte (3.38511ms)
+✔ 24h é exclusivo pelo nome e continua exclusivo após juntar fontes (1.818105ms)
+✔ grupo do catálogo é fallback; país e bloqueios do catálogo são preservados (3.97422ms)
+✔ sem acessos não há atualização periódica; start repetido não duplica trabalho (15.678766ms)
+✔ acesso após TTL atualiza em segundo plano, mantém índice e compartilha a rodada (4.361181ms)
+✔ retry é sob demanda e consulta somente fonte que nunca carregou (20.387421ms)
+✔ status e store parado não disparam manutenção (4.065023ms)
+▶ agregador de ponta a ponta
+  ✔ manifesto tem uma linha por categoria e busca (32.052549ms)
+  ✔ ESPN 2 aparece uma vez só, juntando 3 fontes (7.045655ms)
+  ✔ canal adulto da fonte não entra em lugar nenhum (16.590453ms)
+  ✔ filtro de país separa os internacionais (3.902233ms)
+  ✔ ao abrir o canal, mostra links de todas as fontes na ordem (2.16015ms)
+  ✔ link do iptv-org leva os cabeçalhos exigidos (1.500967ms)
+  ✔ página do canal lista fontes e categorias (1.754831ms)
+  ✔ busca encontra canais (1.817865ms)
+  ✔ fonte fora do ar não derruba as outras (4.69863ms)
+✔ agregador de ponta a ponta (111.912636ms)
+[config] M3U_LISTS item 2 ignorado (use Nome|https://...)
+[config] ADDONS_PRIVADOS item 2 ignorado (use Nome|https://.../manifest.json)
+✔ lê lista M3U e junta links do mesmo canal (2.068505ms)
+✔ configuração M3U_LISTS ignora itens inválidos (1.105022ms)
+✔ ADDONS_PRIVADOS aceita só links de manifesto https (0.468211ms)
+✔ remove numeração de lista e marcadores de qualidade (1.712068ms)
+✔ mesmo canal com grafias diferentes gera a mesma chave (0.756898ms)
+✔ casos reais encontrados nas fontes (0.426921ms)
+✔ canais diferentes continuam separados (0.279673ms)
+ℹ tests 55
+ℹ suites 0
+ℹ pass 55
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 807.175466

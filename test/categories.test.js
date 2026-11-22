@@ -34,7 +34,7 @@ test('ajustes vistos com os dados reais', () => {
   assert.deepStrictEqual(cats(['Variedades'], 'Food Network'), ['culinaria', 'variedades']);
   assert.deepStrictEqual(cats(['Abertos', 'Noticias'], 'Band News'), ['noticias']);
   assert.deepStrictEqual(cats(['Abertos'], 'Globo News'), ['noticias']);
-  assert.deepStrictEqual(cats(['Abertos', 'Noticias'], 'Band RJ'), ['abertos', 'noticias']);
+  assert.deepStrictEqual(cats(['Abertos', 'Noticias'], 'Band RJ'), ['abertos']);
 });
 
 test('canais 24h ficam só na linha própria', () => {

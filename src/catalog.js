@@ -58,6 +58,7 @@ function mergeChannels(sourceResults) {
 
   // Um canal que caiu em categorias reais não precisa ficar também em "Outros".
   for (const channel of channels.values()) {
+    if (channel.categories.has('canais24h')) channel.categories = new Set(['canais24h']);
     if (channel.categories.size > 1) {
       channel.categories.delete('outros');
     }
@@ -91,7 +92,10 @@ function createStore(sources, { refreshMs = REFRESH_MS, retryMs = 5 * 60 * 1000,
   let byCategory = new Map();
   let ready = false;
   let building = null;
-  let timer = null;
+  let started = false;
+  let stopped = false;
+  let lastFullBuildAt = null;
+  let lastRetryAt = null;
 
   async function loadSource(source) {
     const started = Date.now();
@@ -113,12 +117,15 @@ function createStore(sources, { refreshMs = REFRESH_MS, retryMs = 5 * 60 * 1000,
     return { source, items: lastGood.get(source.id) || [] };
   }
 
-  async function build() {
+  async function build({ missingOnly = false } = {}) {
     if (building) {
       return building;
     }
     building = (async () => {
-      const results = await Promise.all(sources.map(loadSource));
+      const results = await Promise.all(sources.map((source) =>
+        missingOnly && lastGood.has(source.id)
+          ? { source, items: lastGood.get(source.id) }
+          : loadSource(source)));
       const merged = mergeChannels(results);
       const grouped = new Map(CATEGORIES.map((c) => [c.id, []]));
       for (const channel of merged.values()) {
@@ -135,52 +142,46 @@ function createStore(sources, { refreshMs = REFRESH_MS, retryMs = 5 * 60 * 1000,
       byCategory = grouped;
       ready = true;
       log.info(`[índice] ${merged.size} canais únicos de ${sources.length} fontes`);
-      scheduleRetryIfMissing();
+      if (!missingOnly) lastFullBuildAt = Date.now();
+      lastRetryAt = Date.now();
     })().finally(() => {
       building = null;
     });
     return building;
   }
 
-  // Fonte que nunca carregou (ex.: servidor dela dormindo) ganha nova tentativa em 5 min.
-  let retryTimer = null;
-  function scheduleRetryIfMissing() {
-    const missing = sources.some((s) => !lastGood.has(s.id));
-    if (!missing || retryTimer || !timer) {
-      return;
-    }
-    retryTimer = setTimeout(() => {
-      retryTimer = null;
-      build().catch((err) => log.error(`[índice] erro: ${err.message}`));
-    }, retryMs);
-    if (retryTimer.unref) {
-      retryTimer.unref();
+  // Manutenção é acionada por acesso aos handlers, nunca por timer periódico.
+  // /health e /status só leem o estado e não geram consultas às fontes.
+  function maintainOnAccess() {
+    if (stopped || building) return;
+    const now = Date.now();
+    const fullDue = lastFullBuildAt === null || now - lastFullBuildAt >= refreshMs;
+    const retryDue = sources.some((source) => !lastGood.has(source.id)) &&
+      (lastRetryAt === null || now - lastRetryAt >= retryMs);
+    if (fullDue || retryDue) {
+      build({ missingOnly: !fullDue }).catch((err) => log.error(`[índice] erro: ${err.message}`));
     }
   }
 
   function start() {
-    timer = setInterval(() => {
-      build().catch((err) => log.error(`[índice] erro: ${err.message}`));
-    }, refreshMs);
-    if (timer.unref) {
-      timer.unref();
-    }
-    build().catch((err) => log.error(`[índice] erro: ${err.message}`));
+    if (started) return;
+    started = true;
+    stopped = false;
+    if (ready) maintainOnAccess();
+    else build().catch((err) => log.error(`[índice] erro: ${err.message}`));
   }
 
   function stop() {
-    if (timer) {
-      clearInterval(timer);
-    }
-    if (retryTimer) {
-      clearTimeout(retryTimer);
-    }
+    started = false;
+    stopped = true;
   }
 
   async function waitReady(ms = 10000) {
     if (ready) {
+      maintainOnAccess();
       return true;
     }
+    if (stopped) return false;
     // Os handlers usam ms=0 para responder imediatamente; o build continua ao fundo.
     const work = building || build();
     if (ms > 0) await withTimeout(work, ms, null);

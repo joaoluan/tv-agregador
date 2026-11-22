@@ -4,14 +4,14 @@ Addon do Stremio que junta os canais de TV ao vivo de várias fontes em **uma li
 
 ## Como funciona
 
-1. Na partida (e a cada 6 horas), o agregador lê os catálogos de todas as fontes configuradas.
+1. Na partida, o agregador lê os catálogos das fontes. Após 6 horas, o próximo acesso ao addon dispara uma atualização em segundo plano, mantendo o último índice disponível. Sem acessos, não há varredura periódica.
 2. Junta os canais com o mesmo nome. Exemplos: "Globo SP HD", "Globo São Paulo" e "Globo SP" viram um canal só, assim como "Disney Plus 07" e "Disney Plus 7".
 3. Distribui os canais nas categorias: Canais Abertos, Esportes, Filmes, Séries, Notícias, Infantil, Documentários, Culinária, Variedades e Reality, Estilo de Vida e Viagem, Música e Rádio, Religiosos, Canais 24h e Outros Canais.
 4. Ao abrir um canal, consulta todas as fontes ao mesmo tempo e lista os links assim: `📺 TVPlay`, `📺 Tvvio`, `📺 iptv-org`…
 
 Dentro de cada categoria, o filtro do **Descobrir** permite escolher o país, por exemplo Culinária → Itália, ou "Internacional (fora do Brasil)". Na página inicial, os canais brasileiros aparecem primeiro e, depois deles, os que estão em mais fontes.
 
-Conteúdo adulto, televendas e canais de teste das fontes são descartados.
+Conteúdo adulto, televendas e canais de teste das fontes são descartados. A classificação remove etiquetas técnicas como `[F1]` antes de inferir tema, dá prioridade à identidade de canais conhecidos sobre grupos genéricos e usa o nome do catálogo como fallback quando o canal não informa um gênero útil. O país e os bloqueios do catálogo são preservados. Canais 24h ficam exclusivamente nessa categoria, inclusive após juntar várias fontes. Novos perfis conhecidos podem ser revisados em `src/channel-categories.js`; canais desconhecidos continuam dependendo dos metadados e podem precisar de revisão manual.
 
 ## Fontes
 
@@ -50,7 +50,13 @@ Conteúdo adulto, televendas e canais de teste das fontes são descartados.
 
 No plano gratuito, o Render desliga o serviço depois de 15 minutos sem uso. Quando você abre o Stremio, ele acorda, mas leva entre 30 segundos e 1 minuto para religar e montar a lista. Os handlers respondem sem aguardar o índice e não permitem cache da lista vazia enquanto ele carrega. Se as linhas aparecerem vazias, saia e volte depois de alguns segundos. Esse comportamento não elimina o tempo de inicialização da própria plataforma Render.
 
-Para evitar a espera, cadastre um monitor gratuito (como o UptimeRobot) que acesse `https://SEU-SERVICO.onrender.com/health` a cada 10 minutos. As 750 horas grátis por mês cobrem um serviço ligado o tempo todo.
+Para economizar a franquia, permita a hibernação. Não configure pings periódicos de keep-alive em `/health`, `/status` ou no manifesto. As verificações de saúde do Render não são execuções de `npm test`; os testes são rodados localmente antes de publicar.
+
+As **750 horas mensais são compartilhadas pelo workspace**, somando o tempo acordado de todos os serviços web gratuitos. Hibernados não consomem horas. Um serviço sempre ligado usa 720h em um mês de 30 dias; dois usam 1440h. Sites estáticos não consomem essa franquia de horas, mas têm limites de tráfego e build. Consulte o consumo real no [painel de uso do Render](https://dashboard.render.com/billing#included-usage); não presuma que ainda restam 750h.
+
+O staging é opcional, com deploy e sincronização manuais. Mantenha-o suspenso fora das validações quando possível, ou permita que hiberne e não o inclua em monitores. O arquivo `render.staging.yaml` não cria agenda de testes. Produção e staging não devem ser monitorados por pings para mantê-los acordados.
+
+As novas tentativas de fontes que nunca carregaram também são sob demanda: após 5 minutos, um acesso ao addon consulta somente essas fontes. `/health` e `/status` não disparam manutenção. Reduzir downloads poupa processamento e tráfego; a franquia de horas depende do tempo acordado, não da quantidade de testes ou chamadas de função.
 
 ## Rodar no computador
 
