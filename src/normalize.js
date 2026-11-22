@@ -62,13 +62,13 @@ function normalizeRegion(key) {
 }
 
 // Chave de comparação: mesmo canal com grafias diferentes gera a mesma chave.
-function channelKey(raw) {
+function channelKey(raw, { preserveOne = false } = {}) {
   let key = stripAccents(cleanName(raw)).toLowerCase()
     .replace(/\+/g, 'plus')
     .replace(/&/g, '')
     .replace(/[^a-z0-9]/g, '');
   key = key.replace(/([a-z])0+(\d)/g, '$1$2'); // "max02" = "max2"
-  key = key.replace(/([a-z])1$/, '$1'); // "Max 1" = "Max", "CazéTV 1" = "CazéTV"
+  if (!preserveOne) key = key.replace(/([a-z])1$/, '$1'); // "Max 1" = "Max", "CazéTV 1" = "CazéTV"
   key = normalizeRegion(key);
   if (aliases[key]) {
     return aliases[key];

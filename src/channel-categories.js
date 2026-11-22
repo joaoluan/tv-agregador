@@ -34,9 +34,9 @@ function knownCategories(name) {
     return ['religiosos'];
   }
   if (/\b(brasileirao|copa do brasil|league cup|liga futsal)\b/.test(text)) return ['esportes'];
-  const key = channelKey(name);
+  const key = channelKey(name, { preserveOne: true });
   for (const [pattern, categories] of PROFILES) {
-    if (pattern.test(key)) return categories;
+    if (pattern.test(key) || pattern.test(channelKey(name))) return categories;
   }
   return null;
 }

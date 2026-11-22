@@ -84,11 +84,13 @@ function sortChannels(list) {
 
 function createStore(sources, { refreshMs = REFRESH_MS, retryMs = 5 * 60 * 1000, log = console } = {}) {
   const sourceById = new Map(sources.map((s) => [s.id, s]));
+  if (sourceById.size !== sources.length) throw new Error('IDs de fontes duplicados');
   const lastGood = new Map();
   const streamCache = new Map();
   const streamPending = new Map();
   const status = new Map();
   let channels = new Map();
+  let searchIndex = [];
   let byCategory = new Map();
   let ready = false;
   let building = null;
@@ -100,9 +102,15 @@ function createStore(sources, { refreshMs = REFRESH_MS, retryMs = 5 * 60 * 1000,
   async function loadSource(source) {
     const started = Date.now();
     try {
-      const items = await source.load();
+      const result = await source.load();
+      if (!Array.isArray(result)) throw new Error('Formato de fonte inválido');
+      const items = result.filter(item => item && typeof item.name === 'string' &&
+        item.ref !== null && item.ref !== undefined && (item.country === null || item.country === undefined || typeof item.country === 'string') &&
+        (item.groups === null || item.groups === undefined || Array.isArray(item.groups)));
+      if (result.length && !items.length) throw new Error('Fonte sem itens válidos');
+      const hadPrevious = lastGood.has(source.id);
       lastGood.set(source.id, items);
-      status.set(source.id, { ok: true, items: items.length, ms: Date.now() - started, at: new Date().toISOString() });
+      status.set(source.id, { ok: !result.partial, usingPrevious: Boolean(result.partial && hadPrevious), discarded: result.length - items.length, items: items.length, ms: Date.now() - started, at: new Date().toISOString() });
     } catch (err) {
       const previous = lastGood.get(source.id);
       status.set(source.id, {
@@ -123,7 +131,7 @@ function createStore(sources, { refreshMs = REFRESH_MS, retryMs = 5 * 60 * 1000,
     }
     building = (async () => {
       const results = await Promise.all(sources.map((source) =>
-        missingOnly && lastGood.has(source.id)
+        missingOnly && status.get(source.id)?.ok === true
           ? { source, items: lastGood.get(source.id) }
           : loadSource(source)));
       const merged = mergeChannels(results);
@@ -139,8 +147,12 @@ function createStore(sources, { refreshMs = REFRESH_MS, retryMs = 5 * 60 * 1000,
       streamCache.clear();
       streamPending.clear();
       channels = merged;
+      searchIndex = sortChannels([...merged.values()]).map(channel => ({
+        channel,
+        keys: [...new Set([channel.name, ...channel.members.map(member => member.originalName)].map(name => channelKey(name)))]
+      }));
       byCategory = grouped;
-      ready = true;
+      ready = sources.length === 0 || lastGood.size > 0;
       log.info(`[índice] ${merged.size} canais únicos de ${sources.length} fontes`);
       if (!missingOnly) lastFullBuildAt = Date.now();
       lastRetryAt = Date.now();
@@ -156,7 +168,7 @@ function createStore(sources, { refreshMs = REFRESH_MS, retryMs = 5 * 60 * 1000,
     if (stopped || building) return;
     const now = Date.now();
     const fullDue = lastFullBuildAt === null || now - lastFullBuildAt >= refreshMs;
-    const retryDue = sources.some((source) => !lastGood.has(source.id)) &&
+    const retryDue = sources.some((source) => status.get(source.id)?.ok !== true) &&
       (lastRetryAt === null || now - lastRetryAt >= retryMs);
     if (fullDue || retryDue) {
       build({ missingOnly: !fullDue }).catch((err) => log.error(`[índice] erro: ${err.message}`));
@@ -182,6 +194,7 @@ function createStore(sources, { refreshMs = REFRESH_MS, retryMs = 5 * 60 * 1000,
       return true;
     }
     if (stopped) return false;
+    if (!building && lastRetryAt !== null && Date.now() - lastRetryAt < retryMs) return false;
     // Os handlers usam ms=0 para responder imediatamente; o build continua ao fundo.
     const work = building || build();
     if (ms > 0) await withTimeout(work, ms, null);
@@ -194,12 +207,18 @@ function createStore(sources, { refreshMs = REFRESH_MS, retryMs = 5 * 60 * 1000,
   }
 
   function search(query) {
+    if (typeof query !== 'string' || query.length > 120) return [];
     const key = channelKey(query);
     if (!key) {
       return [];
     }
-    const found = [...channels.values()].filter((c) => channelKey(c.name).includes(key));
-    return sortChannels(found);
+    const exact = [];
+    const partial = [];
+    for (const { channel, keys } of searchIndex) {
+      if (keys.includes(key)) exact.push(channel);
+      else if (keys.some(candidate => candidate.includes(key))) partial.push(channel);
+    }
+    return [...exact, ...partial];
   }
 
   function get(id) {
@@ -217,7 +236,7 @@ function createStore(sources, { refreshMs = REFRESH_MS, retryMs = 5 * 60 * 1000,
     if (streamPending.has(id)) return streamPending.get(id);
     const generation = channels;
     const pending = resolveStreams(id, { timeout }).then((streams) => {
-      if (channels === generation && generation.has(id)) {
+      if (streams.length > 0 && channels === generation && generation.has(id)) {
         streamCache.delete(id);
         streamCache.set(id, { streams, at: Date.now() });
         if (streamCache.size > 500) streamCache.delete(streamCache.keys().next().value);
@@ -256,6 +275,10 @@ function createStore(sources, { refreshMs = REFRESH_MS, retryMs = 5 * 60 * 1000,
   function getStatus() {
     return {
       ready,
+      state: ready ? (sources.some(source => status.get(source.id)?.ok === false) ? 'degraded' : 'available')
+        : (lastRetryAt === null ? 'starting' : 'unavailable'),
+      updating: Boolean(building),
+      lastBuildAt: lastFullBuildAt,
       channels: channels.size,
       categories: CATEGORIES.map((c) => ({ id: c.id, name: c.name, channels: list(c.id).length })),
       sources: sources.map((s) => ({ id: s.id, label: s.label, ...(status.get(s.id) || { ok: null }) }))
@@ -273,6 +296,7 @@ function labelStream(stream, source, member, channel) {
   labeled.title = stream.externalUrl ? `${detail}\n(abre fora do Stremio)` : detail;
   delete labeled.description;
   labeled.behaviorHints = { ...(stream.behaviorHints || {}), bingeGroup: `tvagg-${source.id}` };
+  if (labeled.behaviorHints.proxyHeaders) labeled.behaviorHints.notWebReady = true;
   return labeled;
 }
 
