@@ -18,6 +18,6 @@ services:
       # Listas M3U próprias (opcional). Formato: Nome|https://link.m3u ; Outro|https://outro.m3u
       - key: M3U_LISTS
         sync: false
-      # Use "on" explicitamente para habilitar iptv-org (maior uso de memória).
+      # Produção inclui iptv-org. Instalações locais continuam com ativação explícita.
       - key: IPTV_ORG
-        value: "off"
+        value: "on"

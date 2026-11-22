@@ -37,13 +37,16 @@ function cleanName(raw) {
   name = name.replace(/[|•·]+/g, ' ');
   name = name.replace(/\s+/g, ' ').trim();
   name = name.replace(COUNTRY_PREFIX_RE, '');
+  // Live é parte do nome destes canais, mesmo quando a fonte acrescenta HD.
+  const brandedLive = /^(mtv|mezzo) live(?: |$)/i.test(name);
+  if (brandedLive) name = name.replace(/ live\b/i, ' __channel_live__');
   let previous;
   do {
     previous = name;
     name = name.replace(QUALITY_RE, ' ').replace(/\s+/g, ' ').trim();
   } while (name !== previous);
   name = name.replace(/[\s\-–:]+$/g, '').trim();
-  return name || String(raw || '').trim();
+  return name.replace(' __channel_live__', ' Live') || String(raw || '').trim();
 }
 
 function normalizeRegion(key) {
