@@ -28,6 +28,14 @@ Conteúdo adulto, televendas e canais de teste das fontes são descartados.
 
 **Adicionar uma lista M3U:** no Render, crie a variável `M3U_LISTS` no formato `Nome|https://link.m3u`. Para mais de uma lista, separe por `;`. Os links ficam só nessa variável e nunca no código, o que é importante quando eles têm usuário e senha.
 
+**iptv-org:** desligado por padrão. Use `IPTV_ORG=on` para habilitar. Baixa três bases JSON e aumenta o uso de rede e memória durante o build. Na baseline local de 22/11/2026, o RSS ao terminar foi 92 MiB sem a fonte e 210 MiB com ela (execuções únicas, não picos garantidos no Render).
+
+**País da fonte:** os addons públicos listados em `STREMIO_ADDONS` declaram `country: 'BR'`. Fontes genéricas, privadas e M3U sem país informado usam `??` e aparecem no filtro internacional. Grupos de país em addons e `tvg-country` em M3U continuam tendo prioridade.
+
+**Limites de carga:** cada fonte Stremio carrega até 8 catálogos e 12 páginas por catálogo; truncamentos geram aviso. Links por canal ficam em cache por 90 segundos (até 500 canais, descarte FIFO), compartilhando consultas simultâneas. Cada reconstrução invalida esse cache.
+
+**Versão do manifesto:** recebe um sufixo de build por inicialização, estável durante o processo. Isso identifica a execução; não garante atualização automática no cliente Stremio sem validação real.
+
 **Dois canais iguais não foram juntados?** Adicione um apelido em `src/aliases.js`.
 
 ## Publicar no Render (gratuito)

@@ -84,6 +84,8 @@ function sortChannels(list) {
 function createStore(sources, { refreshMs = REFRESH_MS, retryMs = 5 * 60 * 1000, log = console } = {}) {
   const sourceById = new Map(sources.map((s) => [s.id, s]));
   const lastGood = new Map();
+  const streamCache = new Map();
+  const streamPending = new Map();
   const status = new Map();
   let channels = new Map();
   let byCategory = new Map();
@@ -127,6 +129,8 @@ function createStore(sources, { refreshMs = REFRESH_MS, retryMs = 5 * 60 * 1000,
       for (const list of grouped.values()) {
         sortChannels(list);
       }
+      streamCache.clear();
+      streamPending.clear();
       channels = merged;
       byCategory = grouped;
       ready = true;
@@ -173,11 +177,14 @@ function createStore(sources, { refreshMs = REFRESH_MS, retryMs = 5 * 60 * 1000,
     }
   }
 
-  async function waitReady(ms = 25000) {
+  async function waitReady(ms = 10000) {
     if (ready) {
       return true;
     }
-    await withTimeout(building || build(), ms, null);
+    // Os handlers usam ms=0 para responder imediatamente; o build continua ao fundo.
+    const work = building || build();
+    if (ms > 0) await withTimeout(work, ms, null);
+    else work.catch((err) => log.error(`[índice] erro: ${err.message}`));
     return ready;
   }
 
@@ -198,7 +205,26 @@ function createStore(sources, { refreshMs = REFRESH_MS, retryMs = 5 * 60 * 1000,
     return channels.get(id) || null;
   }
 
-  async function streamsFor(id, { timeout = 10000 } = {}) {
+  async function streamsFor(id, options = {}) {
+    const cached = streamCache.get(id);
+    if (cached && Date.now() - cached.at < 90000) return cached.streams;
+    if (streamPending.has(id)) return streamPending.get(id);
+    const generation = channels;
+    const pending = resolveStreams(id, options).then((streams) => {
+      if (channels === generation && generation.has(id)) {
+        streamCache.delete(id);
+        streamCache.set(id, { streams, at: Date.now() });
+        if (streamCache.size > 500) streamCache.delete(streamCache.keys().next().value);
+      }
+      return streams;
+    }).finally(() => {
+      if (streamPending.get(id) === pending) streamPending.delete(id);
+    });
+    streamPending.set(id, pending);
+    return pending;
+  }
+
+  async function resolveStreams(id, { timeout = 10000 } = {}) {
     const channel = channels.get(id);
     if (!channel) {
       return [];

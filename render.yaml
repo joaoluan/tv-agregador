@@ -17,6 +17,6 @@ services:
       # Listas M3U próprias (opcional). Formato: Nome|https://link.m3u ; Outro|https://outro.m3u
       - key: M3U_LISTS
         sync: false
-      # Coloque "off" para desligar os canais internacionais do iptv-org.
+      # Use "on" explicitamente para habilitar iptv-org (maior uso de memória).
       - key: IPTV_ORG
-        value: "on"
+        value: "off"
