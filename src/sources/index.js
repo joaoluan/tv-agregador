@@ -55,6 +55,11 @@ function buildSources(env = process.env) {
   if (env.IPTV_ORG === 'on') {
     sources.push(createIptvOrgSource({ priority: 90 }));
   }
+  const preferred = (env.PREFERRED_SOURCES || '').split(',').map(id => id.trim()).filter(Boolean);
+  const ranks = new Map(preferred.map((id, index) => [id, index]));
+  for (const source of sources) {
+    if (ranks.has(source.id)) source.priority = ranks.get(source.id) - preferred.length;
+  }
   return sources.sort((a, b) => a.priority - b.priority);
 }
 

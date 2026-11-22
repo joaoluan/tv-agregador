@@ -42,7 +42,7 @@ function buildManifest() {
   };
 }
 
-function createAddon(store, sourceLabels) {
+function createAddon(store, sourceLabels, scheduleFor = () => ({})) {
   const builder = new addonBuilder(buildManifest());
 
   builder.defineCatalogHandler(async ({ id, extra = {} }) => {
@@ -72,7 +72,11 @@ function createAddon(store, sourceLabels) {
     if (!channel) {
       return { meta: null };
     }
-    return { meta: toMeta(channel, sourceLabels), cacheMaxAge: 30 * 60 };
+    const meta = toMeta(channel, sourceLabels);
+    const schedule = scheduleFor(id);
+    const blocks = [schedule.now && `Agora: ${schedule.now.title}`, schedule.next && `A seguir: ${schedule.next.title}`].filter(Boolean);
+    if (blocks.length) meta.description += `\n${blocks.join(' · ')}`;
+    return { meta, cacheMaxAge: blocks.length ? 0 : 30 * 60 };
   });
 
   builder.defineStreamHandler(async ({ id }) => {

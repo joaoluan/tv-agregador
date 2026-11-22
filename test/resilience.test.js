@@ -48,3 +48,28 @@ test('falha transitória de stream pode recuperar na próxima abertura', async (
   assert.deepEqual(await store.streamsFor(channel.id), []);
   assert.equal((await store.streamsFor(channel.id)).length, 1);
 });
+
+test('busca tolera troca de letras e prioriza nome exato', async () => {
+  const store = createStore([{ id: 'search', async load() {
+    return ['Globo SP HD', 'Globo SP Notícias', 'Globo RJ'].map(name => ({ name, ref: { id: name } }));
+  } }], { log });
+  await store.build();
+  assert.equal(store.search('Globo SP')[0].name, 'Globo SP');
+  assert.equal(store.search('Golbo SP')[0].name, 'Globo SP');
+});
+
+test('fontes preferidas ganham prioridade sem remover as demais', () => {
+  const { buildSources } = require('../src/sources');
+  const sources = buildSources({ PREFERRED_SOURCES: 'ntctv,tvvio' });
+  assert.deepEqual(sources.slice(0, 2).map(source => source.id), ['ntctv', 'tvvio']);
+  assert.ok(sources.some(source => source.id === 'tvplay'));
+});
+
+test('programação troca de programa no horário exato', () => {
+  const { nowNext } = require('../src/epg');
+  const first = { title: 'Primeiro', start: 100, end: 200 };
+  const second = { title: 'Segundo', start: 200, end: 300 };
+  const guide = new Map([['tvagg:br:demo', [first, second]]]);
+  assert.deepEqual(nowNext(guide, 'tvagg:br:demo', 199), { now: first, next: second });
+  assert.deepEqual(nowNext(guide, 'tvagg:br:demo', 200), { now: second, next: null });
+});

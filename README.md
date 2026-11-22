@@ -73,3 +73,22 @@ npm run dev        # reinicia ao alterar arquivos
 - `/manifest.json`: manifesto do addon
 - `/status`: fontes, quantidade de canais e erros
 - `/health`: usado pelo Render
+
+### Preferência de fontes e programação experimental
+
+Defina `PREFERRED_SOURCES=ntctv,tvvio` para listar essas fontes primeiro. Os demais provedores continuam disponíveis. Consulte seus IDs em `/status`.
+
+Para testar a programação com dados que você pode usar, aponte `EPG_FILE` para um arquivo JSON com até 1 MiB. Exemplo de entrada:
+
+```json
+[
+  {
+    "channelId": "tvagg:br:globosp",
+    "title": "Programa de exemplo",
+    "start": "2026-11-22T19:00:00-03:00",
+    "end": "2026-11-22T19:30:00-03:00"
+  }
+]
+```
+
+O addon mostra “Agora” e “A seguir” na descrição do canal. Para atualizar os dados desse piloto, substitua o arquivo e reinicie o processo. A grade nativa e uma fonte de dados em produção dependem de validação separada.

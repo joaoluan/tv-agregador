@@ -1,6 +1,7 @@
 'use strict';
 
 const express = require('express');
+const { loadGuide, nowNext } = require('./epg');
 const { getRouter } = require('stremio-addon-sdk');
 const { buildSources } = require('./sources');
 const { createStore } = require('./catalog');
@@ -12,10 +13,10 @@ function escapeHtml(value) {
   })[character]);
 }
 
-function createApp({ sources = buildSources(), store } = {}) {
+function createApp({ sources = buildSources(), store, guide = loadGuide(process.env.EPG_FILE) } = {}) {
   const channelStore = store || createStore(sources);
   const sourceLabels = new Map(sources.map((s) => [s.id, s.label]));
-  const addonInterface = createAddon(channelStore, sourceLabels);
+  const addonInterface = createAddon(channelStore, sourceLabels, id => nowNext(guide, id));
   const app = express();
 
   app.disable('x-powered-by');

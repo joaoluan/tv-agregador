@@ -3,7 +3,7 @@
 const { cleanName, channelKey, slugify } = require('./normalize');
 const { categorize, CATEGORIES } = require('./categories');
 const { countryName } = require('./countries');
-const { withTimeout, STREAM_TIMEOUT_MS } = require('./http');
+const { withTimeout, STREAM_TIMEOUT_MS, mapLimit } = require('./http');
 
 const ID_PREFIX = 'tvagg:';
 const REFRESH_MS = 6 * 60 * 60 * 1000;
@@ -82,6 +82,16 @@ function sortChannels(list) {
   });
 }
 
+function oneEditApart(a, b) {
+  if (Math.abs(a.length - b.length) > 1) return false;
+  if (a.length > b.length) return oneEditApart(b, a);
+  let i = 0;
+  while (i < a.length && a[i] === b[i]) i++;
+  if (a.length < b.length) return a.slice(i) === b.slice(i + 1);
+  return a.slice(i + 1) === b.slice(i + 1) ||
+    (a[i] === b[i + 1] && a[i + 1] === b[i] && a.slice(i + 2) === b.slice(i + 2));
+}
+
 function createStore(sources, { refreshMs = REFRESH_MS, retryMs = 5 * 60 * 1000, log = console } = {}) {
   const sourceById = new Map(sources.map((s) => [s.id, s]));
   if (sourceById.size !== sources.length) throw new Error('IDs de fontes duplicados');
@@ -130,10 +140,10 @@ function createStore(sources, { refreshMs = REFRESH_MS, retryMs = 5 * 60 * 1000,
       return building;
     }
     building = (async () => {
-      const results = await Promise.all(sources.map((source) =>
+      const results = await mapLimit(sources, 2, (source) =>
         missingOnly && status.get(source.id)?.ok === true
           ? { source, items: lastGood.get(source.id) }
-          : loadSource(source)));
+          : loadSource(source));
       const merged = mergeChannels(results);
       const grouped = new Map(CATEGORIES.map((c) => [c.id, []]));
       for (const channel of merged.values()) {
@@ -214,11 +224,13 @@ function createStore(sources, { refreshMs = REFRESH_MS, retryMs = 5 * 60 * 1000,
     }
     const exact = [];
     const partial = [];
+    const approximate = [];
     for (const { channel, keys } of searchIndex) {
       if (keys.includes(key)) exact.push(channel);
       else if (keys.some(candidate => candidate.includes(key))) partial.push(channel);
+      else if (key.length >= 5 && keys.some(candidate => oneEditApart(key, candidate))) approximate.push(channel);
     }
-    return [...exact, ...partial];
+    return [...exact, ...partial, ...approximate.slice(0, 20)];
   }
 
   function get(id) {
