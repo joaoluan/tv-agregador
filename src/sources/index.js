@@ -8,10 +8,10 @@ const { slugify } = require('../normalize');
 // Fontes de canais. "priority": menor número = aparece primeiro na lista de links.
 // Para adicionar outro addon de TV do Stremio, copie uma linha e troque o manifestUrl.
 const STREMIO_ADDONS = [
-  { id: 'tvplay', label: 'TVPlay', manifestUrl: 'https://c69e439124f3-tvplay.baby-beamup.club/manifest.json', priority: 10 },
-  { id: 'tvvio', label: 'Tvvio', manifestUrl: 'https://c69e439124f3-tvvio.baby-beamup.club/manifest.json', priority: 20 },
-  { id: 'ntctv', label: 'NTC TV', manifestUrl: 'https://ntcstudios.com.br/ntctv/manifest.json', priority: 30 },
-  { id: 'redecanais', label: 'Rede Canais', manifestUrl: 'https://redecanaistv-addon-stremio.onrender.com/manifest.json', priority: 40 }
+  { id: 'tvplay', label: 'TVPlay', manifestUrl: 'https://c69e439124f3-tvplay.baby-beamup.club/manifest.json', country: 'BR', priority: 10 },
+  { id: 'tvvio', label: 'Tvvio', manifestUrl: 'https://c69e439124f3-tvvio.baby-beamup.club/manifest.json', country: 'BR', priority: 20 },
+  { id: 'ntctv', label: 'NTC TV', manifestUrl: 'https://ntcstudios.com.br/ntctv/manifest.json', country: 'BR', priority: 30 },
+  { id: 'redecanais', label: 'Rede Canais', manifestUrl: 'https://redecanaistv-addon-stremio.onrender.com/manifest.json', country: 'BR', priority: 40 }
 ];
 
 // Addons que exigem login pessoal (ex.: FrostStream) geram um link de instalação com

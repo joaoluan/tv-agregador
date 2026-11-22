@@ -50,8 +50,8 @@ test('agregador de ponta a ponta', async (t) => {
   });
 
   const sources = [
-    createStremioSource({ id: 'tvplay', label: 'TVPlay', manifestUrl: `${TVPLAY}/manifest.json`, priority: 10 }),
-    createStremioSource({ id: 'ntctv', label: 'NTC TV', manifestUrl: `${NTC}/manifest.json`, priority: 30 }),
+    createStremioSource({ id: 'tvplay', label: 'TVPlay', manifestUrl: `${TVPLAY}/manifest.json`, country: 'BR', priority: 10 }),
+    createStremioSource({ id: 'ntctv', label: 'NTC TV', manifestUrl: `${NTC}/manifest.json`, country: 'BR', priority: 30 }),
     createIptvOrgSource({ priority: 90 })
   ];
   const silent = { info() {}, warn() {}, error() {} };

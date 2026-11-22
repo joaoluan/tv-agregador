@@ -39,13 +39,13 @@ const ntc = {
   },
   pages: [
     [
-      { id: 'ntctv-1', type: 'tv', name: 'ESPN 2 HD', genres: ['️ ESPN ⚽'] },
+      { id: 'ntctv-1', type: 'tv', name: 'ESPN 2 HD', genres: ['ESPN ⚽'] },
       { id: 'ntctv-2', type: 'tv', name: 'TV Cultura', genres: ['Tv Aberta'] }
     ],
     [
-      { id: 'ntctv-3', type: 'tv', name: 'Canal Hot', genres: ['️ HOT'] },
-      { id: 'ntctv-4', type: 'tv', name: 'TyC Sports', genres: ['️ ARGENTINA'] },
-      { id: 'ntctv-aviso', type: 'tv', name: '⚠️ NTC - Não autenticado', description: 'Requer autenticação' }
+      { id: 'ntctv-3', type: 'tv', name: 'Canal Hot', genres: ['HOT'] },
+      { id: 'ntctv-4', type: 'tv', name: 'TyC Sports', genres: ['ARGENTINA'] },
+      { id: 'ntctv-aviso', type: 'tv', name: '⚠NTC - Não autenticado', description: 'Requer autenticação' }
     ],
     []
   ],

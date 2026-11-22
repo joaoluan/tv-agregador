@@ -16,7 +16,7 @@ function isNotice(meta) {
 // Fonte genérica: qualquer addon Stremio que tenha catálogos de TV.
 // Lê todos os catálogos (com paginação), junta os canais pelo id original
 // e usa o nome do catálogo como gênero quando o canal não informa gêneros.
-function createStremioSource({ id, label, manifestUrl, country = 'BR', priority = 50, concurrency = 4 }) {
+function createStremioSource({ id, label, manifestUrl, country = '??', priority = 50, concurrency = 4 }) {
   const base = manifestUrl.replace(/\/manifest\.json$/, '');
 
   async function fetchCatalogPages(catalog) {
