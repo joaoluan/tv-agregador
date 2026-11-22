@@ -17,11 +17,14 @@ Conteúdo adulto, televendas e canais de teste das fontes são descartados.
 
 | Fonte | Tipo | Onde configurar |
 |---|---|---|
-| TVPlay, Tvvio, NTC TV, Rede Canais, FrostStream | addons de TV do Stremio | `src/sources/index.js` |
+| TVPlay, Tvvio, NTC TV, Rede Canais | addons de TV do Stremio | `src/sources/index.js` |
+| Addons com login pessoal (ex.: FrostStream) | addons de TV do Stremio | variável `ADDONS_PRIVADOS` no Render |
 | iptv-org | base pública de canais do mundo todo | liga/desliga com `IPTV_ORG` |
 | Suas listas M3U | IPTV próprio (opcional) | variável `M3U_LISTS` no Render |
 
 **Adicionar outro addon de TV do Stremio:** copie uma linha de `STREMIO_ADDONS` em `src/sources/index.js` e troque o `manifestUrl`. O campo `priority` define a ordem dos links: o menor número aparece primeiro.
+
+**Addon que exige login (ex.: FrostStream):** faça o login no site do addon e copie o seu link pessoal de instalação, que termina em `/manifest.json`. No Render, crie a variável `ADDONS_PRIVADOS` com o valor `FrostStream|https://seu-link-pessoal/manifest.json`. Esse link contém o seu token, por isso fica só no Render e nunca no código.
 
 **Adicionar uma lista M3U:** no Render, crie a variável `M3U_LISTS` no formato `Nome|https://link.m3u`. Para mais de uma lista, separe por `;`. Os links ficam só nessa variável e nunca no código, o que é importante quando eles têm usuário e senha.
 

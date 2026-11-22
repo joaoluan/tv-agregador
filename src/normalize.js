@@ -32,7 +32,7 @@ function stripAccents(text) {
 function cleanName(raw) {
   let name = String(raw || '');
   name = name.replace(/[\u{1F000}-\u{1FAFF}\u{2600}-\u{27BF}\u{FE0F}\u{200D}]/gu, ' ');
-  name = name.replace(/\[[^\]]*\]/g, ' ');
+  name = name.replace(/\[[^\]]*\]/g, ' ').replace(/\{[^}]*\}/g, ' ');
   name = name.replace(/^\s*\d{3}\s+(?=\S)/, '');
   name = name.replace(/[|•·]+/g, ' ');
   name = name.replace(/\s+/g, ' ').trim();

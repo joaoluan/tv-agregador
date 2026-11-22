@@ -30,6 +30,13 @@ test('sem gênero útil, usa o nome do canal', () => {
   assert.deepStrictEqual(cats([], 'Canal Qualquer'), ['outros']);
 });
 
+test('ajustes vistos com os dados reais', () => {
+  assert.deepStrictEqual(cats(['Variedades'], 'Food Network'), ['culinaria', 'variedades']);
+  assert.deepStrictEqual(cats(['Abertos', 'Noticias'], 'Band News'), ['noticias']);
+  assert.deepStrictEqual(cats(['Abertos'], 'Globo News'), ['noticias']);
+  assert.deepStrictEqual(cats(['Abertos', 'Noticias'], 'Band RJ'), ['abertos', 'noticias']);
+});
+
 test('canais 24h ficam só na linha própria', () => {
   assert.deepStrictEqual(cats(['️ 24H CINE ZEROUM'], 'Cine Zero Um 24h'), ['canais24h']);
   assert.deepStrictEqual(cats(['Canais 24h Series'], 'Friends 24h'), ['canais24h']);

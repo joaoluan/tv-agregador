@@ -91,6 +91,7 @@ test('agregador de ponta a ponta', async (t) => {
     }
     assert.ok(total > 0);
     assert.ok(!all.some((m) => /hot|adult/i.test(m.name)));
+    assert.ok(!all.some((m) => /autenticado/i.test(m.name)), 'aviso de login não vira canal');
   });
 
   await t.test('filtro de país separa os internacionais', async () => {

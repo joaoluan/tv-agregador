@@ -11,6 +11,9 @@ services:
     envVars:
       - key: NODE_VERSION
         value: 22
+      # Addons com login pessoal (ex.: FrostStream). Formato: Nome|https://link-pessoal/manifest.json
+      - key: ADDONS_PRIVADOS
+        sync: false
       # Listas M3U próprias (opcional). Formato: Nome|https://link.m3u ; Outro|https://outro.m3u
       - key: M3U_LISTS
         sync: false

@@ -3,7 +3,7 @@
 const test = require('node:test');
 const assert = require('node:assert');
 const { parseM3u } = require('../src/sources/m3u');
-const { m3uFromEnv } = require('../src/sources');
+const { m3uFromEnv, privateAddonsFromEnv } = require('../src/sources');
 
 const sample = `#EXTM3U
 #EXTINF:-1 tvg-logo="https://logo.example/globo.png" group-title="Abertos",Globo SP HD
@@ -30,4 +30,11 @@ test('configuração M3U_LISTS ignora itens inválidos', () => {
   assert.strictEqual(sources.length, 1);
   assert.strictEqual(sources[0].label, 'Minha Lista');
   assert.strictEqual(sources[0].id, 'm3u-minha-lista');
+});
+
+test('ADDONS_PRIVADOS aceita só links de manifesto https', () => {
+  const sources = privateAddonsFromEnv('FrostStream|https://frost.example/abc123/manifest.json;Ruim|http://x/manifest.json');
+  assert.strictEqual(sources.length, 1);
+  assert.strictEqual(sources[0].label, 'FrostStream');
+  assert.strictEqual(sources[0].id, 'addon-froststream');
 });

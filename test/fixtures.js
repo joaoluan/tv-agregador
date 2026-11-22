@@ -44,7 +44,8 @@ const ntc = {
     ],
     [
       { id: 'ntctv-3', type: 'tv', name: 'Canal Hot', genres: ['️ HOT'] },
-      { id: 'ntctv-4', type: 'tv', name: 'TyC Sports', genres: ['️ ARGENTINA'] }
+      { id: 'ntctv-4', type: 'tv', name: 'TyC Sports', genres: ['️ ARGENTINA'] },
+      { id: 'ntctv-aviso', type: 'tv', name: '⚠️ NTC - Não autenticado', description: 'Requer autenticação' }
     ],
     []
   ],

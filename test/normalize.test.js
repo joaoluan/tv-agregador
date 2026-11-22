@@ -30,6 +30,7 @@ test('casos reais encontrados nas fontes', () => {
   assert.strictEqual(channelKey('CazeTV 1'), channelKey('CazeTV'));
   assert.strictEqual(channelKey('A&E'), channelKey('AE'));
   assert.strictEqual(cleanName('PT SportTV 1'), 'SportTV 1');
+  assert.strictEqual(cleanName('Chef Champion {hd}'), 'Chef Champion');
 });
 
 test('canais diferentes continuam separados', () => {

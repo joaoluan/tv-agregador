@@ -134,6 +134,20 @@ function categorize(genres, name) {
   if (!found.size) {
     found.add('outros');
   }
+  // Culinária é tema específico: um canal de culinária entra nela mesmo que a fonte o
+  // classifique só como "Variedades".
+  const cooking = byId('culinaria');
+  if (cooking.nameHint.test(nameText)) {
+    found.add('culinaria');
+    found.delete('outros');
+  }
+  // Canal de esporte ou de notícias não é "canal aberto", mesmo que a fonte marque assim.
+  if (found.has('abertos') && (byId('esportes').nameHint.test(nameText) || byId('noticias').nameHint.test(nameText))) {
+    found.delete('abertos');
+    if (!found.size) {
+      found.add(byId('esportes').nameHint.test(nameText) ? 'esportes' : 'noticias');
+    }
+  }
   // Canais 24h (reprises em loop) ficam só na linha própria.
   if (found.has('canais24h')) {
     return new Set(['canais24h']);

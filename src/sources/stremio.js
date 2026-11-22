@@ -5,6 +5,14 @@ const { countryFromGroups } = require('../countries');
 
 const MAX_PAGES = 40;
 
+// Itens de aviso que alguns addons devolvem no lugar dos canais (ex.: falta de login).
+const NOTICE_RE = /(nao autenticad|not authenticated|unauthori[sz]ed|login necess|requer autentica|configure (o|the) addon|token (invalido|expirado))/i;
+
+function isNotice(meta) {
+  const text = `${meta.name || ''} ${meta.description || ''}`.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+  return NOTICE_RE.test(text);
+}
+
 // Fonte genérica: qualquer addon Stremio que tenha catálogos de TV.
 // Lê todos os catálogos (com paginação), junta os canais pelo id original
 // e usa o nome do catálogo como gênero quando o canal não informa gêneros.
@@ -21,7 +29,7 @@ function createStremioSource({ id, label, manifestUrl, country = 'BR', priority 
         : `/catalog/${catalog.type}/${encodeURIComponent(catalog.id)}.json`;
       const data = await fetchJson(base + path);
       const pageMetas = (data && data.metas) || [];
-      const fresh = pageMetas.filter((m) => m && m.id && !seen.has(m.id));
+      const fresh = pageMetas.filter((m) => m && m.id && !seen.has(m.id) && !isNotice(m));
       if (!fresh.length) {
         break;
       }
